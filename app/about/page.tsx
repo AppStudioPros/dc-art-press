@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import Breadcrumb from '@/components/Breadcrumb'
 
 export const metadata: Metadata = {
@@ -68,8 +69,7 @@ export default function AboutPage() {
                 {/* TODO: Add full bio text from Leon */}
                 <p style={{ fontStyle: 'italic', color: '#999', fontSize: '0.85rem' }}>[Full bio text — to be provided by client]</p>
               </div>
-              {/* TODO: Replace with actual Leon photo */}
-              <div className="img-placeholder" style={{ height: '240px' }}>[ Leon photo — Couse Sharp Museum ]</div>
+              <Image src="/images/leon-photo.jpg" alt="Leon Loughridge examining a print at the studio" width={200} height={240} className="w-full object-cover" />
             </div>
 
             <hr className="dc-rule" />

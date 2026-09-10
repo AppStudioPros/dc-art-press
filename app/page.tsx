@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Dry Creek Art Press — Woodblocks and Editioned Books by Leon Loughridge',
@@ -37,10 +38,7 @@ export default function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '420px' }} className="max-sm:grid-cols-1">
             {/* Left — Passion statement */}
             <div style={{ borderRight: '1px solid var(--rule)', padding: '3rem 2rem 3rem 0', display: 'flex', flexDirection: 'column', justifyContent: 'center' }} className="max-sm:border-r-0 max-sm:border-b max-sm:pb-8">
-              {/* TODO: hero woodblock image */}
-              <div className="img-placeholder" style={{ height: '220px', marginBottom: '1.5rem' }}>
-                [ Hero woodblock image ]
-              </div>
+              <Image src="/images/home-hero-woodblock.jpg" alt="Winter landscape woodblock print by Leon Loughridge" width={480} height={220} className="w-full object-cover mb-6" />
               <h2 style={{ fontFamily: 'var(--font-avenir), sans-serif', color: 'var(--accent)', fontSize: '1.6rem', marginBottom: '0.75rem' }}>
                 A Passion For Woodblocks
               </h2>
@@ -79,16 +77,14 @@ export default function HomePage() {
               Visit Exhibit Page
             </Link>
           </div>
-          <div className="img-placeholder" style={{ height: '300px' }}>
-            [ Ranchos de Taos mission image ]
-          </div>
+          <Image src="/images/home-ranchos-taos.jpg" alt="San Francisco de Asis Mission, Ranchos de Taos — woodblock print by Leon Loughridge" width={540} height={300} className="w-full object-contain" />
         </div>
       </section>
 
       {/* ── Quest for the West ── */}
       <section style={{ padding: '3rem 0', borderBottom: '1px solid var(--rule)' }}>
         <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
-          <div className="img-placeholder" style={{ height: '260px' }}>[ Eiteljorg exhibit image ]</div>
+          <Image src="/images/home-quest-west.jpg" alt="Canyon landscape woodblock print by Leon Loughridge — Quest for the West, Eiteljorg Museum" width={540} height={260} className="w-full object-contain" />
           <div>
             <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.6rem', marginBottom: '0.5rem' }}>Quest for the West</h2>
             <p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.95rem', color: 'var(--accent)', marginBottom: '1rem' }}>The Eiteljorg Museum</p>
@@ -132,7 +128,7 @@ export default function HomePage() {
       {/* ── Modern Bungalow ── */}
       <section style={{ padding: '3rem 0', borderBottom: '1px solid var(--rule)' }}>
         <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
-          <div className="img-placeholder" style={{ height: '240px' }}>[ Modern Bungalow storefront image ]</div>
+          <Image src="/images/modern-bungalow-logo.jpg" alt="Modern Bungalow — Denver Colorado" width={300} height={240} className="object-contain mx-auto" />
           <div>
             <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', marginBottom: '1rem' }}>Modern Bungalow</h2>
             <p>
