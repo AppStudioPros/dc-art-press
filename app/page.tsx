@@ -83,15 +83,26 @@ export default function HomePage() {
 
       {/* ── Quest for the West ── */}
       <section style={{ padding: '3rem 0', borderBottom: '1px solid var(--rule)' }}>
-        <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
-          <Image src="/images/home-quest-west.jpg" alt="Canyon landscape woodblock print by Leon Loughridge — Quest for the West, Eiteljorg Museum" width={540} height={260} className="w-full object-contain" />
-          <div>
-            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.6rem', marginBottom: '0.5rem' }}>Quest for the West</h2>
-            <p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.95rem', color: 'var(--accent)', marginBottom: '1rem' }}>The Eiteljorg Museum</p>
-            <p>
+        <div className="page-wrap">
+          <div style={{ marginBottom: '1.5rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, color: 'var(--accent)', fontSize: '1.6rem', marginBottom: '0.25rem' }}>Quest for the West</h2>
+            <p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.9rem', color: 'var(--accent)', marginBottom: '0.75rem' }}>The Eiteljorg Museum</p>
+            <p style={{ fontSize: '0.9rem', maxWidth: '600px' }}>
               I am very honored to have been invited to exhibit my woodblocks at the Eiteljorg Museum in Indianapolis.
               I have four woodblocks on display: Ranchos Sunset, Acoma Pueblo, Snowy Plateau and Freezing Over.
             </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
+            {[
+              { src: '/images/eiteljorg-ranchos-sunset.jpg', alt: 'Ranchos Sunset — woodblock print by Leon Loughridge' },
+              { src: '/images/eiteljorg-acoma-pueblo.jpg', alt: 'Acoma Pueblo — woodblock print by Leon Loughridge' },
+              { src: '/images/eiteljorg-snowy-plateau.jpg', alt: 'Snowy Plateau — woodblock print by Leon Loughridge' },
+              { src: '/images/eiteljorg-freezing-over.jpg', alt: 'Freezing Over — woodblock print by Leon Loughridge' },
+            ].map(img => (
+              <div key={img.src} style={{ border: '1px solid var(--border)', padding: '0.5rem', backgroundColor: 'var(--white)' }}>
+                <Image src={img.src} alt={img.alt} width={240} height={240} className="w-full object-contain" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
