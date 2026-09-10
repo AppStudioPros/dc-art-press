@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { ChevronDown, Menu, X, ShoppingCart } from 'lucide-react'
 
@@ -60,12 +61,15 @@ export default function Navbar() {
     <header style={{ backgroundColor: 'var(--white)', borderBottom: '1px solid var(--rule)', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100 }}>
       <div className="page-wrap flex items-center justify-between h-[68px]">
         {/* Logo / Wordmark */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
-          {/* TODO: Replace with actual logo image once provided */}
-          <div style={{ fontFamily: 'var(--font-rye), serif', fontSize: '1.1rem', color: 'var(--body-text)', lineHeight: 1.2 }}>
-            <span style={{ display: 'block', fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)', fontFamily: 'var(--font-avenir), serif' }}>Dry Creek</span>
-            Art Press
-          </div>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <Image
+            src="/images/dc-art-press-logo.png"
+            alt="DC Art Press — Dry Creek Art Press"
+            width={90}
+            height={40}
+            style={{ objectFit: 'contain' }}
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
