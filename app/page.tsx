@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import HeroSlideshow from '@/components/HeroSlideshow'
 
 export const metadata: Metadata = {
   title: 'Dry Creek Art Press — Woodblocks and Editioned Books by Leon Loughridge',
@@ -32,33 +33,9 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* ── Hero Split ── */}
+      {/* ── Hero Slideshow ── */}
       <section style={{ borderBottom: '1px solid var(--rule)' }}>
-        <div className="page-wrap">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '420px' }} className="max-sm:grid-cols-1">
-            {/* Left — Passion statement */}
-            <div style={{ borderRight: '1px solid var(--rule)', padding: '3rem 2rem 3rem 0', display: 'flex', flexDirection: 'column', justifyContent: 'center' }} className="max-sm:border-r-0 max-sm:border-b max-sm:pb-8">
-              <Image src="/images/home-hero-woodblock.jpg" alt="Winter landscape woodblock print by Leon Loughridge" width={480} height={220} className="w-full object-cover mb-6" />
-              <h2 style={{ fontFamily: 'var(--font-avenir), sans-serif', color: 'var(--accent)', fontSize: '1.6rem', marginBottom: '0.75rem' }}>
-                A Passion For Woodblocks
-              </h2>
-              <p style={{ fontSize: '0.9rem', fontStyle: 'italic' }}>
-                Art has been a part of my life since I can remember. It is how I see what is around me.
-              </p>
-            </div>
-
-            {/* Right — Welcome */}
-            <div style={{ padding: '3rem 0 3rem 2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }} className="max-sm:pl-0 max-sm:pt-8">
-              <p style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '0.5rem' }}>Welcome to</p>
-              <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2.2rem', color: 'var(--body-text)', lineHeight: 1.2, marginBottom: '1rem' }}>
-                Dry Creek Art Press
-              </h1>
-              <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontSize: '1.1rem', color: 'var(--body-text)', marginBottom: '1.5rem', fontStyle: 'italic' }}>
-                Woodblocks and<br />Editioned Books<br />By Leon Loughridge.
-              </p>
-            </div>
-          </div>
-        </div>
+        <HeroSlideshow />
       </section>
 
       {/* ── A Tradition of Devotion ── */}
