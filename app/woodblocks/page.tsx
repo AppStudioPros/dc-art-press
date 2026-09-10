@@ -42,15 +42,15 @@ export default function WoodblocksPage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '3rem', alignItems: 'center' }}>
           <div className="img-placeholder" style={{ height: '280px' }}>[ Warm Evening — 9x6 image ]</div>
           <div>
-            <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--nav-link)' }}>New Woodblock</p>
-            <h1 style={{ fontFamily: 'var(--font-rye), serif', fontSize: '2rem', color: 'var(--body-text)', margin: '0.5rem 0' }}>Woodblocks</h1>
-            <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.3rem', marginBottom: '0.75rem' }}>Warm Evening</h2>
+            <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)' }}>New Woodblock</p>
+            <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', margin: '0.5rem 0' }}>Woodblocks</h1>
+            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.3rem', marginBottom: '0.75rem' }}>Warm Evening</h2>
             <p style={{ fontSize: '0.85rem' }}>9 x 6 &nbsp;|&nbsp; Ed. 19</p>
             <p style={{ fontSize: '0.85rem', marginTop: '0.5rem', fontStyle: 'italic' }}>Listed by Year</p>
             {/* Year selector */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '1rem' }}>
               {[2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015].map(y => (
-                <button key={y} style={{ padding: '0.3rem 0.8rem', border: '1px solid var(--border)', backgroundColor: 'var(--white)', fontSize: '0.75rem', cursor: 'pointer', color: 'var(--nav-link)' }}>
+                <button key={y} style={{ padding: '0.3rem 0.8rem', border: '1px solid var(--border)', backgroundColor: 'var(--white)', fontSize: '0.75rem', cursor: 'pointer', color: 'var(--accent)' }}>
                   {y}
                 </button>
               ))}
@@ -61,7 +61,7 @@ export default function WoodblocksPage() {
         <hr className="dc-rule" />
 
         {/* Studio Editions */}
-        <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.5rem', margin: '2rem 0 1rem' }}>Studio Editions</h2>
+        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', margin: '2rem 0 1rem' }}>Studio Editions</h2>
         <div className="art-grid">
           {studioEditions.map(p => <ArtCard key={p.title} {...p} />)}
         </div>
@@ -69,7 +69,7 @@ export default function WoodblocksPage() {
         <hr className="dc-rule" />
 
         {/* Trails End */}
-        <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.5rem', margin: '2rem 0 1rem' }}>Trails End</h2>
+        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', margin: '2rem 0 1rem' }}>Trails End</h2>
         <div className="art-grid">
           {trailsEnd.map(p => <ArtCard key={p.title} {...p} />)}
         </div>
@@ -77,7 +77,7 @@ export default function WoodblocksPage() {
         <hr className="dc-rule" />
 
         {/* Vintage */}
-        <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.5rem', margin: '2rem 0 1rem' }}>Vintage Prints</h2>
+        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', margin: '2rem 0 1rem' }}>Vintage Prints</h2>
         <div className="art-grid">
           {['The Sterling Project', 'Japanese Woodblocks'].map(t => (
             <div key={t} className="art-card">

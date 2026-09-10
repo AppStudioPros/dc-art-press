@@ -1,36 +1,26 @@
 import type { Metadata } from 'next'
-import { Rye, EB_Garamond, Playfair_Display } from 'next/font/google'
+import { Fredericka_the_Great, Nunito } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import SendANote from '@/components/SendANote'
 
-// Display font — rough/letterpress feel for section headings
-// TODO: Confirm actual font from Wix Editor (Style panel)
-const rye = Rye({
+// Fredericka the Great — confirmed from Wix Editor
+// Used for rough/textured section headings
+const fredericka = Fredericka_the_Great({
   subsets: ['latin'],
   weight: ['400'],
-  variable: '--font-rye',
+  variable: '--font-fredericka',
   display: 'swap',
 })
 
-// Body / general serif — matches the clean serif body text on the site
-// TODO: Confirm actual font from Wix Editor
-const garamond = EB_Garamond({
+// Nunito Light — closest Google Fonts match to Avenir Light (confirmed from Wix Editor)
+// TODO: Replace with licensed Avenir Light font if client provides
+const nunito = Nunito({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
+  weight: ['300', '400'],
   style: ['normal', 'italic'],
-  variable: '--font-garamond',
-  display: 'swap',
-})
-
-// Gold heading font — elegant serif for the "ABOUT DCArtPress" gold headings
-// TODO: Confirm actual font from Wix Editor
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-playfair',
+  variable: '--font-avenir',
   display: 'swap',
 })
 
@@ -52,7 +42,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${rye.variable} ${garamond.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${fredericka.variable} ${nunito.variable}`}>
       <body>
         <Navbar />
         <main style={{ paddingTop: '70px', minHeight: '60vh' }}>

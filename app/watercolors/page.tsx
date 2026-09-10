@@ -22,10 +22,10 @@ export default function WatercolorsPage() {
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Original Prints', href: '/original-prints-sketches' }, { label: 'Watercolors' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-rye), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '1.5rem' }}>Watercolors</h1>
+        <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '1.5rem' }}>Watercolors</h1>
 
         {/* Gallery */}
-        <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.4rem', marginBottom: '1rem' }}>Watercolors Gallery</h2>
+        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '1rem' }}>Watercolors Gallery</h2>
         <div className="art-grid">
           {gallery.map(t => (
             <div key={t} className="art-card">
@@ -35,7 +35,7 @@ export default function WatercolorsPage() {
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-          <button style={{ padding: '0.5rem 2rem', border: '1px solid var(--border)', backgroundColor: 'var(--white)', fontSize: '0.8rem', cursor: 'pointer', color: 'var(--nav-link)' }}>
+          <button style={{ padding: '0.5rem 2rem', border: '1px solid var(--border)', backgroundColor: 'var(--white)', fontSize: '0.8rem', cursor: 'pointer', color: 'var(--accent)' }}>
             Show More Images
           </button>
         </div>
@@ -43,7 +43,7 @@ export default function WatercolorsPage() {
         <hr className="dc-rule" />
 
         {/* Watercolor Sketches for sale */}
-        <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.4rem', margin: '2rem 0 1rem' }}>Watercolor Sketches</h2>
+        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', margin: '2rem 0 1rem' }}>Watercolor Sketches</h2>
         <p style={{ fontSize: '0.85rem', fontStyle: 'italic', marginBottom: '1.5rem', color: '#777' }}>
           On-site watercolors from adventures around Colorado and New Mexico. Most are loose sheets without frame or matting.
         </p>

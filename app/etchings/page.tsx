@@ -22,7 +22,7 @@ export default function EtchingsPage() {
       <div className="page-wrap" style={{ padding: '2rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '2rem', alignItems: 'start' }}>
           <div>
-            <h1 style={{ fontFamily: 'var(--font-rye), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '1rem' }}>Etchings</h1>
+            <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '1rem' }}>Etchings</h1>
             <p style={{ fontSize: '0.9rem', marginBottom: '1rem' }}>
               The etching process involves incising an image into a metal plate. The plate is then covered with ink, the surface wiped clean, and the ink remaining in the recessed lines is transferred to dampened paper under the pressure of the printing press.
             </p>
@@ -34,7 +34,7 @@ export default function EtchingsPage() {
           <div className="img-placeholder" style={{ height: '200px' }}>[ Intaglio process diagram ]</div>
         </div>
         <hr className="dc-rule" />
-        <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.4rem', margin: '1.5rem 0 1rem' }}>Available Etchings</h2>
+        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', margin: '1.5rem 0 1rem' }}>Available Etchings</h2>
         <div className="art-grid">
           {prints.map(p => (
             <div key={p.title} className="art-card">

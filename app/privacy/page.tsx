@@ -8,7 +8,7 @@ export default function PrivacyPage() {
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Privacy Policy' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.8rem', marginBottom: '1.5rem' }}>Privacy Policy</h1>
+        <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.8rem', marginBottom: '1.5rem' }}>Privacy Policy</h1>
         <div className="prose-dc">
           <p>This website is operated by Dry Creek Art Press (Leon Loughridge). We are committed to protecting your personal information.</p>
           <h2>Information We Collect</h2>
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           <h2>Cookies</h2>
           <p>This website may use cookies to manage functionality. If you have concerns about cookies, please contact us directly and we can find another way to communicate.</p>
           <h2>Contact</h2>
-          <p>For privacy questions, contact <a href="mailto:Leon@DCArtPress.com" style={{ color: 'var(--nav-link)' }}>Leon@DCArtPress.com</a>.</p>
+          <p>For privacy questions, contact <a href="mailto:Leon@DCArtPress.com" style={{ color: 'var(--accent)' }}>Leon@DCArtPress.com</a>.</p>
           <p style={{ fontStyle: 'italic', color: '#999', fontSize: '0.85rem' }}>Do Not Sell My Personal Information.</p>
         </div>
       </div>

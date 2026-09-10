@@ -20,20 +20,20 @@ export default function GalleriesPage() {
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'About', href: '/about' }, { label: 'Exhibiting Galleries' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '2rem', marginBottom: '2rem' }}>
+        <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '2rem' }}>
           Exhibiting Galleries
         </h1>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
           {galleries.map(g => (
             <div key={g.name} style={{ border: '1px solid var(--border)', padding: '1.5rem', backgroundColor: 'var(--white)' }}>
               <div className="img-placeholder" style={{ height: '130px', marginBottom: '1rem' }}>[ {g.name} ]</div>
-              <h3 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--body-text)', fontSize: '1.05rem', marginBottom: '0.5rem' }}>{g.name}</h3>
+              <h3 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--body-text)', fontSize: '1.05rem', marginBottom: '0.5rem' }}>{g.name}</h3>
               <p style={{ fontSize: '0.82rem', lineHeight: 1.7, color: '#555' }}>
                 {g.address}<br />{g.city}
               </p>
-              {g.phone && <p style={{ fontSize: '0.82rem', marginTop: '0.4rem' }}><a href={`tel:${g.phone.replace(/\D/g, '')}`} style={{ color: 'var(--nav-link)' }}>{g.phone}</a></p>}
-              {g.email && <p style={{ fontSize: '0.82rem' }}><a href={`mailto:${g.email}`} style={{ color: 'var(--nav-link)' }}>{g.email}</a></p>}
-              {g.web && <p style={{ fontSize: '0.82rem' }}><a href={g.web} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--nav-link)' }}>{g.web.replace('https://', '')}</a></p>}
+              {g.phone && <p style={{ fontSize: '0.82rem', marginTop: '0.4rem' }}><a href={`tel:${g.phone.replace(/\D/g, '')}`} style={{ color: 'var(--accent)' }}>{g.phone}</a></p>}
+              {g.email && <p style={{ fontSize: '0.82rem' }}><a href={`mailto:${g.email}`} style={{ color: 'var(--accent)' }}>{g.email}</a></p>}
+              {g.web && <p style={{ fontSize: '0.82rem' }}><a href={g.web} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>{g.web.replace('https://', '')}</a></p>}
               {g.note && <p style={{ fontSize: '0.78rem', fontStyle: 'italic', color: '#888', marginTop: '0.5rem' }}>{g.note}</p>}
             </div>
           ))}

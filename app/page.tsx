@@ -41,7 +41,7 @@ export default function HomePage() {
               <div className="img-placeholder" style={{ height: '220px', marginBottom: '1.5rem' }}>
                 [ Hero woodblock image ]
               </div>
-              <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: 'var(--gold)', fontSize: '1.6rem', marginBottom: '0.75rem' }}>
+              <h2 style={{ fontFamily: 'var(--font-avenir), sans-serif', color: 'var(--accent)', fontSize: '1.6rem', marginBottom: '0.75rem' }}>
                 A Passion For Woodblocks
               </h2>
               <p style={{ fontSize: '0.9rem', fontStyle: 'italic' }}>
@@ -51,11 +51,11 @@ export default function HomePage() {
 
             {/* Right — Welcome */}
             <div style={{ padding: '3rem 0 3rem 2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }} className="max-sm:pl-0 max-sm:pt-8">
-              <p style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--nav-link)', marginBottom: '0.5rem' }}>Welcome to</p>
-              <h1 style={{ fontFamily: 'var(--font-rye), serif', fontSize: '2.2rem', color: 'var(--body-text)', lineHeight: 1.2, marginBottom: '1rem' }}>
+              <p style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '0.5rem' }}>Welcome to</p>
+              <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2.2rem', color: 'var(--body-text)', lineHeight: 1.2, marginBottom: '1rem' }}>
                 Dry Creek Art Press
               </h1>
-              <p style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '1.1rem', color: 'var(--body-text)', marginBottom: '1.5rem', fontStyle: 'italic' }}>
+              <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontSize: '1.1rem', color: 'var(--body-text)', marginBottom: '1.5rem', fontStyle: 'italic' }}>
                 Woodblocks and<br />Editioned Books<br />By Leon Loughridge.
               </p>
             </div>
@@ -67,7 +67,7 @@ export default function HomePage() {
       <section style={{ padding: '3rem 0', borderBottom: '1px solid var(--rule)' }}>
         <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }} >
           <div>
-            <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.8rem', marginBottom: '1rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.8rem', marginBottom: '1rem' }}>
               A Tradition<br />Of Devotion
             </h2>
             <p>
@@ -90,8 +90,8 @@ export default function HomePage() {
         <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           <div className="img-placeholder" style={{ height: '260px' }}>[ Eiteljorg exhibit image ]</div>
           <div>
-            <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.6rem', marginBottom: '0.5rem' }}>Quest for the West</h2>
-            <p style={{ fontFamily: 'var(--font-rye), serif', fontSize: '0.95rem', color: 'var(--salmon)', marginBottom: '1rem' }}>The Eiteljorg Museum</p>
+            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.6rem', marginBottom: '0.5rem' }}>Quest for the West</h2>
+            <p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.95rem', color: 'var(--accent)', marginBottom: '1rem' }}>The Eiteljorg Museum</p>
             <p>
               I am very honored to have been invited to exhibit my woodblocks at the Eiteljorg Museum in Indianapolis.
               I have four woodblocks on display: Ranchos Sunset, Acoma Pueblo, Snowy Plateau and Freezing Over.
@@ -104,7 +104,7 @@ export default function HomePage() {
       <section style={{ padding: '3rem 0', borderBottom: '1px solid var(--rule)' }}>
         <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           <div>
-            <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.6rem', marginBottom: '1rem' }}>Watercolor<br />Sketches</h2>
+            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.6rem', marginBottom: '1rem' }}>Watercolor<br />Sketches</h2>
             <p>
               A collection of watercolor sketches available on the Watercolor Page. These are on-site watercolors
               from my adventures around Colorado and New Mexico. Most are loose sheets without frame or matting.
@@ -120,7 +120,7 @@ export default function HomePage() {
       {/* ── Quote ── */}
       <section style={{ padding: '3rem 0', borderBottom: '1px solid var(--rule)', textAlign: 'center' }}>
         <div className="page-wrap" style={{ maxWidth: '680px' }}>
-          <p style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.9 }}>
+          <p style={{ fontFamily: 'var(--font-avenir), serif', fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.9 }}>
             Art has been a part of my life since I can remember. It is how I see what is around me.
             The world makes sense when I can record what I feel and see with sketches and drawings.
             My woodblocks are a more complete story of the moment, with the story filled out and
@@ -134,7 +134,7 @@ export default function HomePage() {
         <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
           <div className="img-placeholder" style={{ height: '240px' }}>[ Modern Bungalow storefront image ]</div>
           <div>
-            <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.5rem', marginBottom: '1rem' }}>Modern Bungalow</h2>
+            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', marginBottom: '1rem' }}>Modern Bungalow</h2>
             <p>
               My woodblocks are now on display at Modern Bungalow located on South Gaylord in a lovely historic building
               with parking right behind the shop at the painted doorway in the alley.
@@ -143,7 +143,7 @@ export default function HomePage() {
             <p style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
               1028 S. Gaylord Street<br />
               Denver, Colorado 80209<br />
-              <a href="tel:3033003332" style={{ color: 'var(--nav-link)' }}>303-300-3332</a>
+              <a href="tel:3033003332" style={{ color: 'var(--accent)' }}>303-300-3332</a>
             </p>
           </div>
         </div>
@@ -160,10 +160,10 @@ export default function HomePage() {
                   <div className="img-placeholder" style={{ height: '160px', marginBottom: '1rem' }}>
                     [ {cat.label} ]
                   </div>
-                  <h3 style={{ fontFamily: 'var(--font-rye), serif', fontSize: '1rem', color: 'var(--body-text)', marginBottom: '0.5rem' }}>{cat.label}</h3>
+                  <h3 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '1rem', color: 'var(--body-text)', marginBottom: '0.5rem' }}>{cat.label}</h3>
                   <p style={{ fontSize: '0.8rem', color: '#777', fontStyle: 'italic' }}>{cat.desc}</p>
                   <p style={{ marginTop: '0.75rem' }}>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--nav-link)', textDecoration: 'underline' }}>Visit Page</span>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--accent)', textDecoration: 'underline' }}>Visit Page</span>
                   </p>
                 </div>
               </Link>

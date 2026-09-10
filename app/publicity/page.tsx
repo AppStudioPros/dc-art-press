@@ -24,14 +24,14 @@ export default function PublicityPage() {
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'About', href: '/about' }, { label: 'Publicity' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '2rem', marginBottom: '2rem' }}>Publicity</h1>
+        <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '2rem' }}>Publicity</h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
           {press.map((p, i) => (
             <div key={p.title} style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '2rem', padding: '2rem 0', borderBottom: '1px solid var(--border)', alignItems: 'start' }}>
               <div className="img-placeholder" style={{ height: '160px' }}>[ {p.img} ]</div>
               <div>
-                <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--salmon)', fontSize: '1.2rem', marginBottom: '0.25rem' }}>{p.title}</h2>
-                <p style={{ fontSize: '0.85rem', fontStyle: 'italic', color: 'var(--nav-link)', marginBottom: '0.25rem' }}>{p.pub}</p>
+                <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.2rem', marginBottom: '0.25rem' }}>{p.title}</h2>
+                <p style={{ fontSize: '0.85rem', fontStyle: 'italic', color: 'var(--accent)', marginBottom: '0.25rem' }}>{p.pub}</p>
                 <p style={{ fontSize: '0.78rem', color: '#999', marginBottom: p.desc ? '0.75rem' : 0 }}>{p.date}</p>
                 {p.desc && <p style={{ fontSize: '0.9rem' }}>{p.desc}</p>}
               </div>

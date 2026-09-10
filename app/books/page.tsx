@@ -20,16 +20,16 @@ export default function BooksPage() {
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Books' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-rye), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '0.5rem' }}>Editioned Books and More</h1>
+        <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '0.5rem' }}>Editioned Books and More</h1>
         <div className="img-placeholder" style={{ height: '200px', marginBottom: '2rem' }}>[ Books accordion-fold hero image ]</div>
         <hr className="dc-rule" />
         {sections.map(s => (
           <div key={s.label} className="cat-row">
             <div className="img-placeholder" style={{ height: '150px' }}>[ {s.label} image ]</div>
             <div>
-              <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.4rem', marginBottom: '0.75rem' }}>{s.label}</h2>
+              <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '0.75rem' }}>{s.label}</h2>
               <p style={{ fontSize: '0.9rem', marginBottom: '1rem' }}>{s.desc}</p>
-              <Link href={s.href} style={{ fontSize: '0.8rem', color: 'var(--nav-link)', textDecoration: 'underline' }}>View Page →</Link>
+              <Link href={s.href} style={{ fontSize: '0.8rem', color: 'var(--accent)', textDecoration: 'underline' }}>View Page →</Link>
             </div>
           </div>
         ))}

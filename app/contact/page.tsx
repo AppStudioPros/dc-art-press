@@ -23,7 +23,7 @@ export default function ContactPage() {
 
           {/* Left — Info */}
           <div>
-            <h1 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '2rem', marginBottom: '1.5rem' }}>
+            <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '1.5rem' }}>
               Contact Us
             </h1>
             <p>
@@ -31,20 +31,20 @@ export default function ContactPage() {
               I&apos;ll get back to you as soon as I can.
             </p>
             <p style={{ marginTop: '1rem' }}>
-              Send an email to <a href="mailto:Leon@DCArtPress.com" style={{ color: 'var(--nav-link)' }}>Leon@DCArtPress.com</a>
+              Send an email to <a href="mailto:Leon@DCArtPress.com" style={{ color: 'var(--accent)' }}>Leon@DCArtPress.com</a>
             </p>
             <p style={{ marginTop: '0.5rem' }}>
-              Or, call me at <a href="tel:3039562994" style={{ color: 'var(--nav-link)' }}>303 956-2994</a>.
+              Or, call me at <a href="tel:3039562994" style={{ color: 'var(--accent)' }}>303 956-2994</a>.
               If I have cell phone service, I would love to chat.
             </p>
             <hr className="dc-rule" style={{ margin: '2rem 0' }} />
-            <h3 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>Mailing Address</h3>
+            <h3 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>Mailing Address</h3>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.8 }}>
               Dry Creek Art Press<br />
               1685 S Colorado Boulevard,<br />
               UPS Box S-162<br />
               Denver, Colorado 80222<br />
-              <a href="tel:3039562994" style={{ color: 'var(--nav-link)' }}>303 956-2994</a>
+              <a href="tel:3039562994" style={{ color: 'var(--accent)' }}>303 956-2994</a>
             </p>
           </div>
 
@@ -56,7 +56,7 @@ export default function ContactPage() {
 
         {/* ── Studio Spaces ── */}
         <hr className="dc-rule" />
-        <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.8rem', textAlign: 'center', margin: '2rem 0' }}>
+        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.8rem', textAlign: 'center', margin: '2rem 0' }}>
           Studio Spaces
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }} className="max-sm:grid-cols-1">
@@ -64,7 +64,7 @@ export default function ContactPage() {
             <div key={s.name}>
               {/* TODO: Replace with actual studio photo */}
               <div className="img-placeholder" style={{ height: '200px', marginBottom: '1rem' }}>[ {s.name} photo ]</div>
-              <h3 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.1rem', marginBottom: '0.5rem' }}>{s.name}</h3>
+              <h3 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '0.5rem' }}>{s.name}</h3>
               <p style={{ fontSize: '0.85rem', lineHeight: 1.7 }}>{s.desc}</p>
             </div>
           ))}

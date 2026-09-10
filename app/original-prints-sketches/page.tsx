@@ -20,7 +20,7 @@ export default function OriginalPrintsPage() {
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Original Prints & Sketches' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '2rem', marginBottom: '0.5rem' }}>
+        <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '0.5rem' }}>
           Original Prints and Sketches
         </h1>
         <p style={{ fontSize: '0.85rem', fontStyle: 'italic', color: '#777', marginBottom: '2rem', maxWidth: '700px' }}>
@@ -31,9 +31,9 @@ export default function OriginalPrintsPage() {
           <div key={cat.label} className="cat-row">
             <div className="img-placeholder" style={{ height: '180px' }}>[ {cat.label} image ]</div>
             <div>
-              <h2 style={{ fontFamily: 'var(--font-rye), serif', fontSize: '1.4rem', color: 'var(--body-text)', marginBottom: '0.75rem' }}>{cat.label}</h2>
+              <h2 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '1.4rem', color: 'var(--body-text)', marginBottom: '0.75rem' }}>{cat.label}</h2>
               <p style={{ marginBottom: '1rem', fontSize: '0.9rem' }}>{cat.desc}</p>
-              <Link href={cat.href} style={{ fontSize: '0.8rem', color: 'var(--nav-link)', textDecoration: 'underline', letterSpacing: '0.05em' }}>
+              <Link href={cat.href} style={{ fontSize: '0.8rem', color: 'var(--accent)', textDecoration: 'underline', letterSpacing: '0.05em' }}>
                 Visit Page →
               </Link>
             </div>

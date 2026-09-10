@@ -26,10 +26,10 @@ export default function ABitMorePage() {
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'A Bit More' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-rye), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '2rem' }}>A Bit More</h1>
+        <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '2rem' }}>A Bit More</h1>
 
         {/* Ephemera */}
-        <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>Ephemera</h2>
+        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>Ephemera</h2>
         <div className="art-grid" style={{ marginBottom: '3rem' }}>
           {ephemera.map(e => (
             <div key={e.title} className="art-card">
@@ -45,7 +45,7 @@ export default function ABitMorePage() {
         <hr className="dc-rule" />
 
         {/* Collections */}
-        <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.5rem', margin: '2rem 0 1.5rem' }}>Collections</h2>
+        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', margin: '2rem 0 1.5rem' }}>Collections</h2>
         <p style={{ fontSize: '0.9rem', fontStyle: 'italic', marginBottom: '1.5rem', color: '#777' }}>
           Over the years, Leon has collected prints from various sources — or as he says, they have found him.
         </p>
@@ -53,7 +53,7 @@ export default function ABitMorePage() {
           {collections.map(c => (
             <div key={c.title} style={{ border: '1px solid var(--border)', padding: '1.25rem', backgroundColor: 'var(--white)' }}>
               <div className="img-placeholder" style={{ height: '140px', marginBottom: '0.75rem' }}>[ {c.title} ]</div>
-              <h3 style={{ fontSize: '0.95rem', fontFamily: 'var(--font-playfair), serif', color: 'var(--body-text)', marginBottom: '0.4rem' }}>{c.title}</h3>
+              <h3 style={{ fontSize: '0.95rem', fontFamily: 'var(--font-avenir), serif', color: 'var(--body-text)', marginBottom: '0.4rem' }}>{c.title}</h3>
               <p style={{ fontSize: '0.82rem', color: '#777' }}>{c.desc}</p>
             </div>
           ))}

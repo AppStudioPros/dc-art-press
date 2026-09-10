@@ -16,27 +16,27 @@ export default function AboutPage() {
 
           {/* Sidebar */}
           <aside>
-            <h3 style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '0.85rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>Bio / Collections</h3>
+            <h3 style={{ fontFamily: 'var(--font-avenir), serif', fontSize: '0.85rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>Bio / Collections</h3>
             <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.85rem', marginBottom: '1.5rem' }}>
               {['About The Studio', 'Special Collections', 'Japanese Prints', 'Kondo Chihiro'].map(l => (
                 <li key={l} style={{ marginBottom: '0.4rem' }}>
-                  <Link href="/about" style={{ color: 'var(--nav-link)', textDecoration: 'none' }} className="hover:underline">{l}</Link>
+                  <Link href="/about" style={{ color: 'var(--accent)', textDecoration: 'none' }} className="hover:underline">{l}</Link>
                 </li>
               ))}
             </ul>
-            <h3 style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '0.85rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>Exhibiting Galleries</h3>
+            <h3 style={{ fontFamily: 'var(--font-avenir), serif', fontSize: '0.85rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>Exhibiting Galleries</h3>
             <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.85rem', marginBottom: '1.5rem' }}>
               {['McLarry Fine Art', 'Oh Be Joyful', 'Ann Korologos', 'Broadmoor Galleries', 'Breckenridge Gallery', 'Wild Horse Gallery'].map(g => (
                 <li key={g} style={{ marginBottom: '0.4rem' }}>
-                  <Link href="/galleries" style={{ color: 'var(--nav-link)', textDecoration: 'none' }} className="hover:underline">{g}</Link>
+                  <Link href="/galleries" style={{ color: 'var(--accent)', textDecoration: 'none' }} className="hover:underline">{g}</Link>
                 </li>
               ))}
             </ul>
-            <h3 style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '0.85rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>About The Process</h3>
+            <h3 style={{ fontFamily: 'var(--font-avenir), serif', fontSize: '0.85rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>About The Process</h3>
             <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.85rem' }}>
               {['The Process', 'Relief Prints', 'Moku Hanga', 'Serigraph Prints', 'Intaglio Prints'].map(p => (
                 <li key={p} style={{ marginBottom: '0.4rem' }}>
-                  <Link href="/process" style={{ color: 'var(--nav-link)', textDecoration: 'none' }} className="hover:underline">{p}</Link>
+                  <Link href="/process" style={{ color: 'var(--accent)', textDecoration: 'none' }} className="hover:underline">{p}</Link>
                 </li>
               ))}
             </ul>
@@ -44,7 +44,7 @@ export default function AboutPage() {
 
           {/* Main */}
           <main>
-            <h1 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '2rem', marginBottom: '1.5rem' }}>
+            <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '1.5rem' }}>
               ABOUT DCArtPress
             </h1>
 
@@ -75,7 +75,7 @@ export default function AboutPage() {
             <hr className="dc-rule" />
 
             {/* Studio Spaces */}
-            <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.6rem', margin: '2rem 0 1.5rem' }}>Studio Spaces</h2>
+            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.6rem', margin: '2rem 0 1.5rem' }}>Studio Spaces</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
               {[
                 { name: 'Denver Studio', desc: 'Located in our remodeled garage in south central Denver, the university area. Home base for framing and supplies. Studio visits are welcome.' },
@@ -84,7 +84,7 @@ export default function AboutPage() {
               ].map(s => (
                 <div key={s.name}>
                   <div className="img-placeholder" style={{ height: '160px', marginBottom: '0.75rem' }}>[ {s.name} ]</div>
-                  <h3 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1rem', marginBottom: '0.4rem' }}>{s.name}</h3>
+                  <h3 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1rem', marginBottom: '0.4rem' }}>{s.name}</h3>
                   <p style={{ fontSize: '0.82rem', lineHeight: 1.7 }}>{s.desc}</p>
                 </div>
               ))}
@@ -93,13 +93,13 @@ export default function AboutPage() {
             <hr className="dc-rule" />
 
             {/* Special Collections */}
-            <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '1.6rem', margin: '2rem 0 1rem' }}>Special Collections</h2>
+            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.6rem', margin: '2rem 0 1rem' }}>Special Collections</h2>
             <p style={{ fontSize: '0.9rem', marginBottom: '1rem' }}>
               Over the years, I have collected prints from various sources — or should I say, they have found me. I keep saying &ldquo;no more&rdquo; and then turn the corner to find a print I can&apos;t live without.
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               {['Collection Page', 'Japanese Prints', 'Kondo Chihiro'].map(c => (
-                <Link key={c} href="/a-bit-more" style={{ fontSize: '0.8rem', color: 'var(--nav-link)', textDecoration: 'underline' }}>{c}</Link>
+                <Link key={c} href="/a-bit-more" style={{ fontSize: '0.8rem', color: 'var(--accent)', textDecoration: 'underline' }}>{c}</Link>
               ))}
             </div>
           </main>

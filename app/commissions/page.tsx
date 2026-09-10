@@ -22,12 +22,12 @@ export default function CommissionsPage() {
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'About', href: '/about' }, { label: 'Commissions' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '2rem', marginBottom: '1rem' }}>Commissions</h1>
+        <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '1rem' }}>Commissions</h1>
         <p style={{ maxWidth: '700px', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
           Dry Creek Art Press accepts commissions for hand-printed booklets, maps, folios, and framed prints. Each commission project begins with a consultation and mock-up, then works through the design, printing, and binding process entirely by hand.
         </p>
         <p style={{ maxWidth: '700px', fontSize: '0.9rem', marginBottom: '2rem' }}>
-          To inquire about a commission, contact <a href="mailto:Leon@DCArtPress.com" style={{ color: 'var(--nav-link)' }}>Leon@DCArtPress.com</a> or call <a href="tel:3039562994" style={{ color: 'var(--nav-link)' }}>303 956-2994</a>.
+          To inquire about a commission, contact <a href="mailto:Leon@DCArtPress.com" style={{ color: 'var(--accent)' }}>Leon@DCArtPress.com</a> or call <a href="tel:3039562994" style={{ color: 'var(--accent)' }}>303 956-2994</a>.
         </p>
         <hr className="dc-rule" />
         {commissions.map(c => (
@@ -35,8 +35,8 @@ export default function CommissionsPage() {
             <div className="img-placeholder" style={{ height: '220px' }}>[ {c.title} ]</div>
             <div>
               <p style={{ fontSize: '0.75rem', color: '#999', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.3rem' }}>{c.year}</p>
-              <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--salmon)', fontSize: '1.3rem', marginBottom: '0.3rem' }}>{c.title}</h2>
-              <p style={{ fontSize: '0.85rem', color: 'var(--nav-link)', marginBottom: '0.5rem' }}>{c.client}</p>
+              <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.3rem', marginBottom: '0.3rem' }}>{c.title}</h2>
+              <p style={{ fontSize: '0.85rem', color: 'var(--accent)', marginBottom: '0.5rem' }}>{c.client}</p>
               <p style={{ fontSize: '0.9rem' }}>{c.type}</p>
             </div>
           </div>

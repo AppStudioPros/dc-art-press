@@ -11,7 +11,7 @@ export default function InTheWorksPage() {
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Books', href: '/books' }, { label: 'A Tradition of Devotion' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '2.2rem', marginBottom: '0.5rem' }}>
+        <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2.2rem', marginBottom: '0.5rem' }}>
           A Tradition Of Devotion
         </h1>
         <p style={{ fontSize: '0.85rem', color: '#888', fontStyle: 'italic', marginBottom: '2rem' }}>
@@ -20,7 +20,7 @@ export default function InTheWorksPage() {
 
         {/* Folio Prints */}
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--salmon)', fontSize: '1.4rem', marginBottom: '1rem' }}>The Folio Prints</h2>
+          <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '1rem' }}>The Folio Prints</h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'start' }}>
             <div className="img-placeholder" style={{ height: '240px' }}>[ Folio prints image ]</div>
             <div className="prose-dc">
@@ -34,7 +34,7 @@ export default function InTheWorksPage() {
 
         {/* Watercolors */}
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--salmon)', fontSize: '1.4rem', marginBottom: '1rem' }}>The Watercolors</h2>
+          <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '1rem' }}>The Watercolors</h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
             <div className="prose-dc">
               <p>On-site watercolor sketches painted during visits to the Ranchos de Taos mission. These companion works provide the initial color and composition studies for the woodblock editions.</p>
@@ -47,7 +47,7 @@ export default function InTheWorksPage() {
 
         {/* In The Process */}
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--salmon)', fontSize: '1.4rem', marginBottom: '1rem' }}>In The Process</h2>
+          <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '1rem' }}>In The Process</h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
             <div className="img-placeholder" style={{ height: '200px' }}>[ Studio process photo ]</div>
             <div className="prose-dc">
@@ -60,7 +60,7 @@ export default function InTheWorksPage() {
 
         {/* Large Woodblocks */}
         <section style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--salmon)', fontSize: '1.4rem', marginBottom: '1rem' }}>Large Woodblocks</h2>
+          <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '1rem' }}>Large Woodblocks</h2>
           <div className="img-placeholder" style={{ height: '260px', marginBottom: '1rem' }}>[ Large woodblocks image ]</div>
           <div className="prose-dc">
             <p>Larger format woodblocks of the Ranchos de Taos mission — these take the most time and are produced in the smallest editions.</p>
@@ -71,7 +71,7 @@ export default function InTheWorksPage() {
 
         {/* Printing the Woodblocks */}
         <section>
-          <h2 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--salmon)', fontSize: '1.4rem', marginBottom: '1rem' }}>Printing The Woodblocks</h2>
+          <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '1rem' }}>Printing The Woodblocks</h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
             <div className="prose-dc">
               <p>Using the Japanese Moku Hanga technique, each color is printed one at a time. Rice paste is mixed with watercolor pigment and brushed across the carved surface of the woodblock with stiff-haired brushes. Paper is registered to pins and the image transferred with a baren — a textured disk — allowing 4–5 colors to be printed in an afternoon.</p>

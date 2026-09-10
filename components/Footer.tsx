@@ -2,14 +2,14 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: 'var(--footer-sage)', marginTop: '4rem' }}>
+    <footer style={{ backgroundColor: 'var(--footer-bg)', marginTop: '4rem' }}>
       <div className="page-wrap py-10">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem' }}>
 
           {/* Brand + Address */}
           <div>
             {/* TODO: Replace with actual Dry Creek Art Press script logo */}
-            <p style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '1.1rem', color: 'var(--body-text)', marginBottom: '0.75rem', fontStyle: 'italic' }}>
+            <p style={{ fontFamily: 'var(--font-avenir), Georgia, serif', fontSize: '1.1rem', color: 'var(--body-text)', marginBottom: '0.75rem', fontWeight: 300 }}>
               Dry Creek Art Press
             </p>
             <p style={{ fontSize: '0.8rem', color: 'var(--body-text)', lineHeight: 1.7 }}>

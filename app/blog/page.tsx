@@ -17,17 +17,17 @@ export default function BlogPage() {
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Studio Blog' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-playfair), serif', color: 'var(--gold)', fontSize: '2rem', marginBottom: '2rem' }}>Studio Blog</h1>
+        <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '2rem' }}>Studio Blog</h1>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '2rem' }}>
           {posts.map(p => (
             <article key={p.title} style={{ border: '1px solid var(--border)', backgroundColor: 'var(--white)' }}>
               <div className="img-placeholder" style={{ height: '200px' }}>[ {p.img} ]</div>
               <div style={{ padding: '1.25rem' }}>
                 <p style={{ fontSize: '0.72rem', color: '#999', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.4rem' }}>{p.date}</p>
-                <h2 style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '1.05rem', color: 'var(--body-text)', marginBottom: '0.5rem' }}>{p.title}</h2>
+                <h2 style={{ fontFamily: 'var(--font-avenir), serif', fontSize: '1.05rem', color: 'var(--body-text)', marginBottom: '0.5rem' }}>{p.title}</h2>
                 <p style={{ fontSize: '0.85rem', color: '#666', lineHeight: 1.6 }}>{p.excerpt}</p>
                 <p style={{ marginTop: '0.75rem' }}>
-                  <span style={{ fontSize: '0.78rem', color: 'var(--nav-link)', textDecoration: 'underline', cursor: 'pointer' }}>Read more →</span>
+                  <span style={{ fontSize: '0.78rem', color: 'var(--accent)', textDecoration: 'underline', cursor: 'pointer' }}>Read more →</span>
                 </p>
               </div>
             </article>

@@ -20,7 +20,7 @@ export default function SerigraphsPage() {
     <>
       <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Original Prints', href: '/original-prints-sketches' }, { label: 'Serigraphs' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-rye), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '0.75rem' }}>Serigraphs</h1>
+        <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '0.75rem' }}>Serigraphs</h1>
         <p style={{ maxWidth: '680px', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
           Serigraphs are printed at ArtGymDenver using professional screen printing equipment. Each print is hand-pulled in small editions.
         </p>
