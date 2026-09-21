@@ -141,7 +141,7 @@ export default function HomePage() {
             perspective: 1200px;
             max-width: 760px;
             margin: 0 auto;
-            height: 320px;
+            height: 420px;
             cursor: pointer;
           }
           .quote-flip-card {
@@ -205,7 +205,7 @@ export default function HomePage() {
                 alt="Leon Loughridge in his studio holding a woodblock print"
                 fill
                 sizes="760px"
-                style={{ objectFit: 'contain', objectPosition: 'center center' }}
+                style={{ objectFit: 'contain', objectPosition: 'top center' }}
               />
               <div style={{
                 position: 'absolute',
