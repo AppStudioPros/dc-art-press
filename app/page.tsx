@@ -135,33 +135,59 @@ export default function HomePage() {
       </section>
 
       {/* ── Quote ── */}
-      <section style={{ padding: '3rem 0', borderBottom: '1px solid var(--rule)', textAlign: 'center' }}>
-        <div className="page-wrap" style={{ maxWidth: '680px' }}>
-          <p style={{ fontFamily: 'var(--font-avenir), serif', fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.9 }}>
+      <section style={{ backgroundColor: '#F0EEE2', padding: '5rem 2rem', borderBottom: '1px solid var(--rule)', textAlign: 'center' }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
+          <div style={{
+            fontFamily: 'var(--font-fredericka), serif',
+            fontSize: 'clamp(4rem, 8vw, 7rem)',
+            color: '#A26F4C',
+            lineHeight: 1,
+            marginBottom: '-1rem',
+            opacity: 0.35,
+            userSelect: 'none',
+          }}>&ldquo;</div>
+          <p style={{
+            fontFamily: 'var(--font-fredericka), serif',
+            fontSize: 'clamp(1.2rem, 2.4vw, 1.75rem)',
+            lineHeight: 1.65,
+            color: '#2a1f14',
+            letterSpacing: '0.01em',
+          }}>
             Art has been a part of my life since I can remember. It is how I see what is around me.
             The world makes sense when I can record what I feel and see with sketches and drawings.
-            My woodblocks are a more complete story of the moment, with the story filled out and
-            my relationship with the image explained.
+            My woodblocks are a more complete story of the moment.
+          </p>
+          <p style={{ marginTop: '1.5rem', fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#A26F4C' }}>
+            — Leon Loughridge
           </p>
         </div>
       </section>
 
       {/* ── Modern Bungalow ── */}
-      <section style={{ padding: '3rem 0', borderBottom: '1px solid var(--rule)' }}>
-        <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
-          <Image src="/images/modern-bungalow-logo.jpg" alt="Modern Bungalow — Denver Colorado" width={300} height={240} className="object-contain mx-auto" />
-          <div>
-            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', marginBottom: '1rem' }}>Modern Bungalow</h2>
-            <p>
-              My woodblocks are now on display at Modern Bungalow located on South Gaylord in a lovely historic building
-              with parking right behind the shop at the painted doorway in the alley.
-              They are open Monday–Saturday 10 AM – 5 PM and Sunday 10 AM – 2 PM.
+      <section style={{ backgroundColor: '#4E574B', borderBottom: '1px solid rgba(0,0,0,0.2)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '360px' }}>
+          {/* Logo card */}
+          <div style={{ backgroundColor: '#F0EEE2', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem' }}>
+            <Image
+              src="/images/modern-bungalow-logo.jpg"
+              alt="Modern Bungalow — Denver Colorado"
+              width={280}
+              height={240}
+              style={{ width: 'auto', maxWidth: '260px', height: 'auto', display: 'block' }}
+            />
+          </div>
+          {/* Text */}
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3.5rem 4rem' }}>
+            <div style={{ width: '28px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
+            <h2 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', color: '#F0EEE2', marginBottom: '1rem' }}>Modern Bungalow</h2>
+            <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.92rem', lineHeight: 1.85, color: 'rgba(240,238,226,0.82)', marginBottom: '1.5rem' }}>
+              My woodblocks are now on display at Modern Bungalow on South Gaylord — a lovely historic building with parking right behind the shop at the painted doorway in the alley.
             </p>
-            <p style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
-              1028 S. Gaylord Street<br />
-              Denver, Colorado 80209<br />
-              <a href="tel:3033003332" style={{ color: 'var(--accent)' }}>303-300-3332</a>
-            </p>
+            <div style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: 'rgba(240,238,226,0.65)', lineHeight: 2 }}>
+              1028 S. Gaylord Street, Denver CO 80209<br />
+              Mon–Sat 10AM–5PM &nbsp;·&nbsp; Sun 10AM–2PM<br />
+              <a href="tel:3033003332" style={{ color: '#A26F4C', textDecoration: 'none' }}>303-300-3332</a>
+            </div>
           </div>
         </div>
       </section>
