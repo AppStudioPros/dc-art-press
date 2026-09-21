@@ -199,7 +199,7 @@ export default function HomePage() {
             </div>
 
             {/* Back — Leon's photo */}
-            <div className="quote-back" style={{ backgroundColor: '#1a120b' }}>
+            <div className="quote-back" style={{ backgroundColor: '#F0EEE2' }}>
               <Image
                 src="/images/about/leon-with-print.jpg"
                 alt="Leon Loughridge in his studio holding a woodblock print"
