@@ -205,7 +205,7 @@ export default function HomePage() {
                 alt="Leon Loughridge in his studio holding a woodblock print"
                 fill
                 sizes="760px"
-                style={{ objectFit: 'contain', objectPosition: 'top center' }}
+                style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
               />
               <div style={{
                 position: 'absolute',
