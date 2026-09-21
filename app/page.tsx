@@ -39,58 +39,57 @@ export default function HomePage() {
       </section>
 
       {/* ── A Tradition of Devotion ── */}
-      <section style={{ position: 'relative', width: '100%', height: 'clamp(360px, 60vh, 580px)', overflow: 'hidden' }}>
-        {/* Full-bleed image */}
-        <Image
-          src="/images/home-ranchos-taos.jpg"
-          alt="San Francisco de Asis Mission, Ranchos de Taos — woodblock print by Leon Loughridge"
-          fill
-          sizes="100vw"
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
-        />
-        {/* Olive card — bottom left */}
+      <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '480px', borderBottom: '1px solid var(--rule)' }}>
+        {/* Image — left side, full bleed, object-cover */}
+        <div style={{ position: 'relative', minHeight: '480px' }}>
+          <Image
+            src="/images/home-ranchos-taos.jpg"
+            alt="San Francisco de Asis Mission, Ranchos de Taos — woodblock print by Leon Loughridge"
+            fill
+            sizes="50vw"
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
+        </div>
+        {/* Text — right side, gallery label style */}
         <div style={{
-          position: 'absolute',
-          bottom: '2.5rem',
-          left: '2.5rem',
-          maxWidth: '480px',
-          padding: '1.5rem 1.75rem',
-          background: 'rgba(78, 87, 75, 0.82)',
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
-          border: '1px solid rgba(78,87,75,0.4)',
-          borderRadius: '3px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          padding: '4rem 4.5rem',
+          backgroundColor: '#F7F5F5',
         }}>
-          <div style={{ width: '36px', height: '2px', backgroundColor: '#A26F4C', marginBottom: '0.8rem' }} />
+          <div style={{ width: '32px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
           <h2 style={{
             fontFamily: 'var(--font-fredericka), serif',
-            fontSize: 'clamp(1.4rem, 2.8vw, 2.2rem)',
-            lineHeight: 1.2,
-            color: '#F7F5F5',
-            marginBottom: '0.6rem',
+            fontSize: 'clamp(1.6rem, 2.5vw, 2.4rem)',
+            lineHeight: 1.25,
+            color: '#A26F4C',
+            marginBottom: '1.25rem',
+            letterSpacing: '0.01em',
           }}>
-            A Tradition of Devotion
+            A Tradition<br />of Devotion
           </h2>
           <p style={{
             fontFamily: 'var(--font-avenir), sans-serif',
             fontWeight: 300,
-            fontSize: '0.92rem',
-            lineHeight: 1.75,
-            color: 'rgba(247,245,245,0.82)',
-            marginBottom: '1.1rem',
+            fontSize: '0.95rem',
+            lineHeight: 1.85,
+            color: '#000',
+            marginBottom: '2rem',
+            maxWidth: '380px',
           }}>
             Scheduled for late October 2026 — an exhibit of woodblocks and watercolors of the &ldquo;remudding&rdquo; of the San Francisco de Asis Mission at Ranchos de Taos. McLarry Fine Art, Santa Fe, NM · Oct 16, 2026.
           </p>
           <Link href="/in-the-works" style={{
             display: 'inline-block',
-            padding: '0.5rem 1.4rem',
-            backgroundColor: '#A26F4C',
+            alignSelf: 'flex-start',
+            padding: '0.6rem 1.6rem',
+            backgroundColor: 'var(--note-btn)',
             color: '#fff',
             textDecoration: 'none',
             fontSize: '0.78rem',
-            letterSpacing: '0.09em',
+            letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            borderRadius: '2px',
           }}>
             Visit Exhibit Page
           </Link>
