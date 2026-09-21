@@ -199,13 +199,13 @@ export default function HomePage() {
             </div>
 
             {/* Back — Leon's photo */}
-            <div className="quote-back">
+            <div className="quote-back" style={{ backgroundColor: '#1a120b' }}>
               <Image
                 src="/images/about/leon-with-print.jpg"
                 alt="Leon Loughridge in his studio holding a woodblock print"
                 fill
                 sizes="760px"
-                style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                style={{ objectFit: 'contain', objectPosition: 'center center' }}
               />
               <div style={{
                 position: 'absolute',
