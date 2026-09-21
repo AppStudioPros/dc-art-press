@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 
 const slides = [
@@ -14,136 +14,212 @@ const slides = [
     img: '/images/hero-slide-2.jpg',
     alt: 'Winter pine forest sunset — woodblock print by Leon Loughridge',
     heading: 'Welcome to Dry Creek Art Press',
-    body: 'Woodblocks and Editioned Books\nBy Leon Loughridge.',
+    body: 'Woodblocks and Editioned Books by Leon Loughridge.',
   },
 ]
 
 export default function HeroSlideshow() {
   const [current, setCurrent] = useState(0)
+  const [fading, setFading] = useState(false)
 
-  // Auto-advance every 5 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent(i => (i + 1) % slides.length)
-    }, 5000)
-    return () => clearInterval(timer)
+  const goTo = useCallback((next: number) => {
+    setFading(true)
+    setTimeout(() => {
+      setCurrent(next)
+      setFading(false)
+    }, 400)
   }, [])
+
+  const next = useCallback(() => goTo((current + 1) % slides.length), [current, goTo])
+  const prev = useCallback(() => goTo((current - 1 + slides.length) % slides.length), [current, goTo])
+
+  useEffect(() => {
+    const timer = setInterval(next, 6000)
+    return () => clearInterval(timer)
+  }, [next])
 
   const slide = slides[current]
 
   return (
-    <div style={{ position: 'relative', width: '100%', backgroundColor: 'var(--card-bg)' }}>
-      {/* Image */}
-      <div style={{ position: 'relative', width: '100%', aspectRatio: '16/7', maxHeight: '480px', overflow: 'hidden' }}>
+    <div
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: 'clamp(380px, 75vh, 680px)',
+        overflow: 'hidden',
+        backgroundColor: '#1a1410',
+      }}
+    >
+      {/* Full-bleed image with fade */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: fading ? 0 : 1,
+          transition: 'opacity 0.4s ease-in-out',
+        }}
+      >
         <Image
           src={slide.img}
           alt={slide.alt}
           fill
-          className="object-contain object-left"
           priority
-          style={{ backgroundColor: 'var(--card-bg)' }}
+          sizes="100vw"
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
         />
-
-        {/* Overlapping text card — bottom right */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '1.5rem',
-            right: '1.5rem',
-            backgroundColor: 'rgba(247,245,245,0.96)',
-            border: '1px solid var(--border)',
-            borderRadius: '6px',
-            padding: '1.5rem 1.75rem',
-            maxWidth: '280px',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-          }}
-        >
-          <h2 style={{
-            fontFamily: 'var(--font-fredericka), serif',
-            fontSize: '1.4rem',
-            lineHeight: 1.25,
-            color: 'var(--accent)',
-            marginBottom: '0.75rem',
-          }}>
-            {slide.heading}
-          </h2>
-          <p style={{
-            fontFamily: 'var(--font-avenir), sans-serif',
-            fontWeight: 300,
-            fontSize: '0.88rem',
-            lineHeight: 1.7,
-            color: 'var(--accent)',
-            whiteSpace: 'pre-line',
-          }}>
-            {slide.body}
-          </p>
-        </div>
-
-        {/* Right arrow */}
-        <button
-          onClick={() => setCurrent(i => (i + 1) % slides.length)}
-          aria-label="Next slide"
-          style={{
-            position: 'absolute',
-            right: '0.5rem',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            background: 'rgba(255,255,255,0.6)',
-            border: 'none',
-            borderRadius: '50%',
-            width: '32px',
-            height: '32px',
-            cursor: 'pointer',
-            fontSize: '1rem',
-            color: 'var(--accent)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          ›
-        </button>
-        {/* Left arrow */}
-        <button
-          onClick={() => setCurrent(i => (i - 1 + slides.length) % slides.length)}
-          aria-label="Previous slide"
-          style={{
-            position: 'absolute',
-            left: '0.5rem',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            background: 'rgba(255,255,255,0.6)',
-            border: 'none',
-            borderRadius: '50%',
-            width: '32px',
-            height: '32px',
-            cursor: 'pointer',
-            fontSize: '1rem',
-            color: 'var(--accent)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          ‹
-        </button>
       </div>
 
-      {/* Dots */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '0.4rem', padding: '0.6rem 0' }}>
+      {/* Gradient overlay — bottom two-thirds */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to bottom, transparent 25%, rgba(18,13,9,0.55) 60%, rgba(18,13,9,0.82) 100%)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Text — bottom left */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '3.5rem',
+          left: '0',
+          right: '0',
+          padding: '0 3rem',
+          maxWidth: '640px',
+          opacity: fading ? 0 : 1,
+          transform: fading ? 'translateY(6px)' : 'translateY(0)',
+          transition: 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out',
+        }}
+      >
+        {/* Thin accent rule */}
+        <div style={{
+          width: '40px',
+          height: '2px',
+          backgroundColor: '#A26F4C',
+          marginBottom: '0.85rem',
+        }} />
+        <h2
+          style={{
+            fontFamily: 'var(--font-fredericka), serif',
+            fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)',
+            lineHeight: 1.2,
+            color: '#F7F5F5',
+            marginBottom: '0.6rem',
+            letterSpacing: '0.01em',
+          }}
+        >
+          {slide.heading}
+        </h2>
+        <p
+          style={{
+            fontFamily: 'var(--font-avenir), sans-serif',
+            fontWeight: 300,
+            fontSize: 'clamp(0.85rem, 1.4vw, 1rem)',
+            lineHeight: 1.75,
+            color: 'rgba(247,245,245,0.78)',
+          }}
+        >
+          {slide.body}
+        </p>
+      </div>
+
+      {/* Left arrow */}
+      <button
+        onClick={prev}
+        aria-label="Previous slide"
+        style={{
+          position: 'absolute',
+          left: '1.25rem',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          background: 'none',
+          border: '1px solid rgba(247,245,245,0.35)',
+          borderRadius: '50%',
+          width: '42px',
+          height: '42px',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          transition: 'border-color 0.2s, background 0.2s',
+          backdropFilter: 'blur(4px)',
+        }}
+        onMouseEnter={e => {
+          (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(247,245,245,0.8)'
+          ;(e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.1)'
+        }}
+        onMouseLeave={e => {
+          (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(247,245,245,0.35)'
+          ;(e.currentTarget as HTMLButtonElement).style.background = 'none'
+        }}
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(247,245,245,0.85)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="9 2 4 7 9 12" />
+        </svg>
+      </button>
+
+      {/* Right arrow */}
+      <button
+        onClick={next}
+        aria-label="Next slide"
+        style={{
+          position: 'absolute',
+          right: '1.25rem',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          background: 'none',
+          border: '1px solid rgba(247,245,245,0.35)',
+          borderRadius: '50%',
+          width: '42px',
+          height: '42px',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          transition: 'border-color 0.2s, background 0.2s',
+          backdropFilter: 'blur(4px)',
+        }}
+        onMouseEnter={e => {
+          (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(247,245,245,0.8)'
+          ;(e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.1)'
+        }}
+        onMouseLeave={e => {
+          (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(247,245,245,0.35)'
+          ;(e.currentTarget as HTMLButtonElement).style.background = 'none'
+        }}
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(247,245,245,0.85)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="5 2 10 7 5 12" />
+        </svg>
+      </button>
+
+      {/* Dots — inside hero, bottom right */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '1.25rem',
+          right: '1.5rem',
+          display: 'flex',
+          gap: '0.5rem',
+          alignItems: 'center',
+        }}
+      >
         {slides.map((_, i) => (
           <button
             key={i}
-            onClick={() => setCurrent(i)}
+            onClick={() => goTo(i)}
             aria-label={`Go to slide ${i + 1}`}
             style={{
-              width: '8px', height: '8px',
-              borderRadius: '50%',
+              width: i === current ? '24px' : '7px',
+              height: '7px',
+              borderRadius: '99px',
               border: 'none',
               cursor: 'pointer',
-              backgroundColor: i === current ? 'var(--accent)' : 'var(--border)',
+              backgroundColor: i === current ? '#A26F4C' : 'rgba(247,245,245,0.45)',
               padding: 0,
-              transition: 'background-color 0.2s',
+              transition: 'width 0.3s ease, background-color 0.3s ease',
             }}
           />
         ))}
