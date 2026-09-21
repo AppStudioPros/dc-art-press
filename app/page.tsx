@@ -39,22 +39,61 @@ export default function HomePage() {
       </section>
 
       {/* ── A Tradition of Devotion ── */}
-      <section style={{ padding: '3rem 0', borderBottom: '1px solid var(--rule)' }}>
-        <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }} >
-          <div>
-            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.8rem', marginBottom: '1rem' }}>
-              A Tradition<br />Of Devotion
-            </h2>
-            <p>
-              Scheduled for late October 2026 will be an exhibit of woodblocks and watercolors of the
-              &ldquo;remudding&rdquo; of the San Francisco de Asis Mission at Ranchos de Taos.
-              The exhibit will be at McLarry Fine Art in Santa Fe, NM on Oct 16, 2026.
-            </p>
-            <Link href="/in-the-works" style={{ display: 'inline-block', marginTop: '1rem', padding: '0.5rem 1.5rem', backgroundColor: 'var(--note-btn)', color: '#fff', textDecoration: 'none', fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              Visit Exhibit Page
-            </Link>
-          </div>
-          <Image src="/images/home-ranchos-taos.jpg" alt="San Francisco de Asis Mission, Ranchos de Taos — woodblock print by Leon Loughridge" width={540} height={300} className="w-full object-contain" />
+      <section style={{ position: 'relative', width: '100%', height: 'clamp(360px, 60vh, 580px)', overflow: 'hidden' }}>
+        {/* Full-bleed image */}
+        <Image
+          src="/images/home-ranchos-taos.jpg"
+          alt="San Francisco de Asis Mission, Ranchos de Taos — woodblock print by Leon Loughridge"
+          fill
+          sizes="100vw"
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
+        />
+        {/* Olive card — bottom left */}
+        <div style={{
+          position: 'absolute',
+          bottom: '2.5rem',
+          left: '2.5rem',
+          maxWidth: '480px',
+          padding: '1.5rem 1.75rem',
+          background: 'rgba(78, 87, 75, 0.82)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
+          border: '1px solid rgba(78,87,75,0.4)',
+          borderRadius: '3px',
+        }}>
+          <div style={{ width: '36px', height: '2px', backgroundColor: '#A26F4C', marginBottom: '0.8rem' }} />
+          <h2 style={{
+            fontFamily: 'var(--font-fredericka), serif',
+            fontSize: 'clamp(1.4rem, 2.8vw, 2.2rem)',
+            lineHeight: 1.2,
+            color: '#F7F5F5',
+            marginBottom: '0.6rem',
+          }}>
+            A Tradition of Devotion
+          </h2>
+          <p style={{
+            fontFamily: 'var(--font-avenir), sans-serif',
+            fontWeight: 300,
+            fontSize: '0.92rem',
+            lineHeight: 1.75,
+            color: 'rgba(247,245,245,0.82)',
+            marginBottom: '1.1rem',
+          }}>
+            Scheduled for late October 2026 — an exhibit of woodblocks and watercolors of the &ldquo;remudding&rdquo; of the San Francisco de Asis Mission at Ranchos de Taos. McLarry Fine Art, Santa Fe, NM · Oct 16, 2026.
+          </p>
+          <Link href="/in-the-works" style={{
+            display: 'inline-block',
+            padding: '0.5rem 1.4rem',
+            backgroundColor: '#A26F4C',
+            color: '#fff',
+            textDecoration: 'none',
+            fontSize: '0.78rem',
+            letterSpacing: '0.09em',
+            textTransform: 'uppercase',
+            borderRadius: '2px',
+          }}>
+            Visit Exhibit Page
+          </Link>
         </div>
       </section>
 
