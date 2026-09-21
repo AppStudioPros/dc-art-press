@@ -83,14 +83,15 @@ export default function HomePage() {
             Visit Exhibit Page
           </Link>
         </div>
-        {/* Image — right side, tall, object-cover */}
-        <div style={{ position: 'relative', minHeight: '420px', borderRadius: '2px', overflow: 'hidden' }}>
+        {/* Image — right side, full artwork shown, never cropped */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Image
             src="/images/home-ranchos-taos.jpg"
             alt="San Francisco de Asis Mission, Ranchos de Taos — woodblock print by Leon Loughridge"
-            fill
+            width={600}
+            height={450}
             sizes="50vw"
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
           />
         </div>
         </div>
