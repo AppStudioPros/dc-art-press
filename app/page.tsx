@@ -39,24 +39,13 @@ export default function HomePage() {
       </section>
 
       {/* ── A Tradition of Devotion ── */}
-      <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '480px', borderBottom: '1px solid var(--rule)' }}>
-        {/* Image — left side, full bleed, object-cover */}
-        <div style={{ position: 'relative', minHeight: '480px' }}>
-          <Image
-            src="/images/home-ranchos-taos.jpg"
-            alt="San Francisco de Asis Mission, Ranchos de Taos — woodblock print by Leon Loughridge"
-            fill
-            sizes="50vw"
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
-        </div>
-        {/* Text — right side, gallery label style */}
+      <section style={{ backgroundColor: '#fff', padding: '5rem 0', borderBottom: '1px solid var(--rule)' }}>
+        <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', minHeight: '420px' }}>
+        {/* Text — left side, gallery label style */}
         <div style={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          padding: '4rem 4.5rem',
-          backgroundColor: '#F7F5F5',
         }}>
           <div style={{ width: '32px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
           <h2 style={{
@@ -93,6 +82,17 @@ export default function HomePage() {
           }}>
             Visit Exhibit Page
           </Link>
+        </div>
+        {/* Image — right side, tall, object-cover */}
+        <div style={{ position: 'relative', minHeight: '420px', borderRadius: '2px', overflow: 'hidden' }}>
+          <Image
+            src="/images/home-ranchos-taos.jpg"
+            alt="San Francisco de Asis Mission, Ranchos de Taos — woodblock print by Leon Loughridge"
+            fill
+            sizes="50vw"
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
+        </div>
         </div>
       </section>
 
