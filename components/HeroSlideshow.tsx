@@ -69,25 +69,19 @@ export default function HeroSlideshow() {
         />
       </div>
 
-      {/* Gradient overlay — bottom two-thirds */}
+      {/* Text card — bottom left, frosted */}
       <div
         style={{
           position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to bottom, transparent 25%, rgba(18,13,9,0.55) 60%, rgba(18,13,9,0.82) 100%)',
-          pointerEvents: 'none',
-        }}
-      />
-
-      {/* Text — bottom left */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '3.5rem',
-          left: '0',
-          right: '0',
-          padding: '0 3rem',
-          maxWidth: '640px',
+          bottom: '3rem',
+          left: '2.5rem',
+          maxWidth: '520px',
+          padding: '1.5rem 1.75rem',
+          background: 'rgba(247, 245, 245, 0.13)',
+          backdropFilter: 'blur(14px)',
+          WebkitBackdropFilter: 'blur(14px)',
+          border: '1px solid rgba(247,245,245,0.2)',
+          borderRadius: '3px',
           opacity: fading ? 0 : 1,
           transform: fading ? 'translateY(6px)' : 'translateY(0)',
           transition: 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out',
@@ -95,18 +89,18 @@ export default function HeroSlideshow() {
       >
         {/* Thin accent rule */}
         <div style={{
-          width: '40px',
+          width: '36px',
           height: '2px',
           backgroundColor: '#A26F4C',
-          marginBottom: '0.85rem',
+          marginBottom: '0.8rem',
         }} />
         <h2
           style={{
             fontFamily: 'var(--font-fredericka), serif',
-            fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)',
+            fontSize: 'clamp(1.5rem, 3vw, 2.4rem)',
             lineHeight: 1.2,
             color: '#F7F5F5',
-            marginBottom: '0.6rem',
+            marginBottom: '0.55rem',
             letterSpacing: '0.01em',
           }}
         >
@@ -116,9 +110,9 @@ export default function HeroSlideshow() {
           style={{
             fontFamily: 'var(--font-avenir), sans-serif',
             fontWeight: 300,
-            fontSize: 'clamp(0.85rem, 1.4vw, 1rem)',
+            fontSize: 'clamp(0.85rem, 1.3vw, 0.95rem)',
             lineHeight: 1.75,
-            color: 'rgba(247,245,245,0.78)',
+            color: 'rgba(247,245,245,0.82)',
           }}
         >
           {slide.body}
