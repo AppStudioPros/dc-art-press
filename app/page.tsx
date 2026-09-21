@@ -134,32 +134,94 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Quote ── */}
-      <section style={{ backgroundColor: '#F0EEE2', padding: '5rem 2rem', borderBottom: '1px solid var(--rule)', textAlign: 'center' }}>
-        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-          <div style={{
-            fontFamily: 'var(--font-fredericka), serif',
-            fontSize: 'clamp(4rem, 8vw, 7rem)',
-            color: '#A26F4C',
-            lineHeight: 1,
-            marginBottom: '-1rem',
-            opacity: 0.35,
-            userSelect: 'none',
-          }}>&ldquo;</div>
-          <p style={{
-            fontFamily: 'var(--font-fredericka), serif',
-            fontSize: 'clamp(1.2rem, 2.4vw, 1.75rem)',
-            lineHeight: 1.65,
-            color: '#2a1f14',
-            letterSpacing: '0.01em',
-          }}>
-            Art has been a part of my life since I can remember. It is how I see what is around me.
-            The world makes sense when I can record what I feel and see with sketches and drawings.
-            My woodblocks are a more complete story of the moment.
-          </p>
-          <p style={{ marginTop: '1.5rem', fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.8rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#A26F4C' }}>
-            — Leon Loughridge
-          </p>
+      {/* ── Quote — flip card on hover ── */}
+      <section style={{ backgroundColor: '#F0EEE2', padding: '5rem 2rem', borderBottom: '1px solid var(--rule)' }}>
+        <style>{`
+          .quote-flip-wrap {
+            perspective: 1200px;
+            max-width: 760px;
+            margin: 0 auto;
+            height: 320px;
+            cursor: pointer;
+          }
+          .quote-flip-card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .quote-flip-wrap:hover .quote-flip-card {
+            transform: rotateY(180deg);
+          }
+          .quote-front, .quote-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .quote-back {
+            transform: rotateY(180deg);
+            overflow: hidden;
+          }
+        `}</style>
+
+        <div className="quote-flip-wrap">
+          <div className="quote-flip-card">
+            {/* Front — quote text */}
+            <div className="quote-front" style={{ flexDirection: 'column', textAlign: 'center', padding: '0 2rem' }}>
+              <div style={{
+                fontFamily: 'var(--font-fredericka), serif',
+                fontSize: 'clamp(4rem, 8vw, 7rem)',
+                color: '#A26F4C',
+                lineHeight: 1,
+                marginBottom: '-1rem',
+                opacity: 0.35,
+                userSelect: 'none',
+              }}>&ldquo;</div>
+              <p style={{
+                fontFamily: 'var(--font-fredericka), serif',
+                fontSize: 'clamp(1.1rem, 2vw, 1.55rem)',
+                lineHeight: 1.65,
+                color: '#2a1f14',
+                letterSpacing: '0.01em',
+              }}>
+                Art has been a part of my life since I can remember. It is how I see what is around me.
+                The world makes sense when I can record what I feel and see with sketches and drawings.
+                My woodblocks are a more complete story of the moment.
+              </p>
+              <p style={{ marginTop: '1.25rem', fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#A26F4C' }}>
+                — Leon Loughridge &nbsp;·&nbsp; hover to meet him
+              </p>
+            </div>
+
+            {/* Back — Leon's photo */}
+            <div className="quote-back">
+              <Image
+                src="/images/about/leon-with-print.jpg"
+                alt="Leon Loughridge in his studio holding a woodblock print"
+                fill
+                sizes="760px"
+                style={{ objectFit: 'cover', objectPosition: 'center top' }}
+              />
+              <div style={{
+                position: 'absolute',
+                bottom: 0, left: 0, right: 0,
+                padding: '1.25rem 1.5rem',
+                background: 'linear-gradient(to top, rgba(20,13,7,0.75), transparent)',
+                color: '#F0EEE2',
+                fontFamily: 'var(--font-avenir), sans-serif',
+                fontWeight: 300,
+                fontSize: '0.8rem',
+                letterSpacing: '0.06em',
+              }}>
+                Leon Loughridge — Dry Creek Art Press, Denver
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
