@@ -113,19 +113,42 @@ export default function HomePage() {
       </section>
 
       {/* ── Watercolor Sketches ── */}
-      <section style={{ padding: '3rem 0', borderBottom: '1px solid var(--rule)' }}>
-        <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
-          <div>
-            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.6rem', marginBottom: '1rem' }}>Watercolor<br />Sketches</h2>
-            <p>
-              A collection of watercolor sketches available on the Watercolor Page. These are on-site watercolors
-              from my adventures around Colorado and New Mexico. Most are loose sheets without frame or matting.
-            </p>
-            <Link href="/watercolors" style={{ display: 'inline-block', marginTop: '1rem', padding: '0.5rem 1.5rem', backgroundColor: 'var(--note-btn)', color: '#fff', textDecoration: 'none', fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+      <section style={{ backgroundColor: '#fff', padding: '5rem 0', borderBottom: '1px solid var(--rule)' }}>
+        <div className="page-wrap">
+          {/* Header row */}
+          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '3rem', flexWrap: 'wrap', gap: '1.5rem' }}>
+            <div>
+              <div style={{ width: '32px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1rem' }} />
+              <h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: '#A26F4C', fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', marginBottom: '0.5rem' }}>Watercolor Sketches</h2>
+              <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.8, color: '#000', maxWidth: '480px' }}>
+                On-site watercolors from adventures around Colorado and New Mexico. Most are loose sheets without frame or matting.
+              </p>
+            </div>
+            <Link href="/watercolors" style={{ display: 'inline-block', padding: '0.6rem 1.6rem', backgroundColor: 'var(--note-btn)', color: '#fff', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
               Visit The Page
             </Link>
           </div>
-          <div className="img-placeholder" style={{ height: '260px' }}>[ Watercolor sketches image ]</div>
+
+          {/* 3-column preview grid — swap src values when images arrive */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+            {[
+              { src: null, title: 'Mt Sopris Morning', dims: '14.5 × 19"' },
+              { src: null, title: 'Lupines', dims: '9 × 8"' },
+              { src: null, title: 'Frozen Butte', dims: '17 × 13"' },
+            ].map((item) => (
+              <div key={item.title}>
+                {item.src ? (
+                  <Image src={item.src} alt={item.title} width={400} height={320} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                ) : (
+                  <div style={{ width: '100%', aspectRatio: '4/3', backgroundColor: '#F0EEE2', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <span style={{ fontFamily: 'var(--font-fredericka), serif', color: '#A26F4C', opacity: 0.4, fontSize: '0.8rem' }}>image coming</span>
+                  </div>
+                )}
+                <p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.85rem', color: '#A26F4C', marginTop: '0.6rem' }}>{item.title}</p>
+                <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.78rem', color: '#666', marginTop: '0.15rem' }}>{item.dims}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
