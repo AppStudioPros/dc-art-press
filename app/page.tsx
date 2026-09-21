@@ -113,7 +113,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Watercolor Sketches ── */}
-      <section style={{ backgroundColor: '#fff', padding: '5rem 0', borderBottom: '1px solid var(--rule)' }}>
+      <section style={{ backgroundColor: '#F7F5F5', padding: '5rem 0', borderBottom: '1px solid var(--rule)' }}>
         <div className="page-wrap">
           {/* Header row */}
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '3rem', flexWrap: 'wrap', gap: '1.5rem' }}>
@@ -129,23 +129,28 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* 3-column preview grid — swap src values when images arrive */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+          {/* Masonry grid — CSS columns, images at natural proportions, never cropped */}
+          <div style={{ columns: 3, columnGap: '1.5rem' }}>
             {[
-              { src: null, title: 'Mt Sopris Morning', dims: '14.5 × 19"' },
-              { src: null, title: 'Lupines', dims: '9 × 8"' },
-              { src: null, title: 'Frozen Butte', dims: '17 × 13"' },
+              { src: '/images/watercolor-mt-sopris-morning.png', title: 'Mt Sopris Morning', dims: '14.5 × 19"' },
+              { src: '/images/watercolor-will-rogers-shrine.png', title: 'From Will Rogers Shrine', dims: '18.5 × 13"' },
+              { src: '/images/watercolor-lupines.png', title: 'Lupines', dims: '9 × 8"' },
+              { src: '/images/watercolor-frozen-butte.png', title: 'Frozen Butte', dims: '17 × 13"' },
+              { src: '/images/watercolor-snow-squall.png', title: 'Snow Squall', dims: '12 × 18"' },
+              { src: '/images/watercolor-october-vail-valley.png', title: 'October — Vail Valley', dims: '18 × 12"' },
+              { src: '/images/watercolor-san-luis-lakes.png', title: 'May — San Luis Lakes', dims: '18 × 12"' },
+              { src: '/images/watercolor-summer-cabin.png', title: 'Mountain Cabin', dims: 'watercolor on paper' },
             ].map((item) => (
-              <div key={item.title}>
-                {item.src ? (
-                  <Image src={item.src} alt={item.title} width={400} height={320} style={{ width: '100%', height: 'auto', display: 'block' }} />
-                ) : (
-                  <div style={{ width: '100%', aspectRatio: '4/3', backgroundColor: '#F0EEE2', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <span style={{ fontFamily: 'var(--font-fredericka), serif', color: '#A26F4C', opacity: 0.4, fontSize: '0.8rem' }}>image coming</span>
-                  </div>
-                )}
-                <p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.85rem', color: '#A26F4C', marginTop: '0.6rem' }}>{item.title}</p>
-                <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.78rem', color: '#666', marginTop: '0.15rem' }}>{item.dims}</p>
+              <div key={item.title} style={{ breakInside: 'avoid', marginBottom: '1.5rem' }}>
+                <Image
+                  src={item.src}
+                  alt={`${item.title} — watercolor by Leon Loughridge`}
+                  width={500}
+                  height={600}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                />
+                <p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.83rem', color: '#A26F4C', marginTop: '0.5rem' }}>{item.title}</p>
+                <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.75rem', color: '#888', marginTop: '0.1rem' }}>{item.dims}</p>
               </div>
             ))}
           </div>
