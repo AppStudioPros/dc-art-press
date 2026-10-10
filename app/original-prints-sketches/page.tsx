@@ -68,6 +68,30 @@ export default function OriginalPrintsPage() {
     <>
       <PageHero title="Original Prints &amp; Sketches" subtitle="Woodblocks, etchings, serigraphs, and watercolors from the Dry Creek Art Press studio." accent="The Collection" />
 
+      {/* What is an Original Print? */}
+      <div className="page-wrap" style={{ padding: '2.5rem 2rem', borderBottom: '1px solid var(--border)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
+          <div>
+            <h2 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', color: 'var(--body-text)', marginBottom: '1.25rem', lineHeight: 1.2 }}>
+              What is an<br />Original Print?
+            </h2>
+            <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 600, fontSize: '0.88rem', color: 'var(--body-text)', marginBottom: '0.5rem' }}>
+              As Defined by The Philadelphia Print Shop.
+            </p>
+            <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.88rem', lineHeight: 1.85, color: 'var(--body-text)' }}>
+              An original print is one printed from a matrix on which the design was created by hand and issued as part of the original publishing venture or as part of a connected, subsequent publishing venture. For fine art prints the criteria used is more strict. A fine art print is original only if the artist both conceived and had a direct hand in the production of the print. An original print should be distinguished from a reproduction, which is produced photo-mechanically, and from a restrike, which is produced as part of a later, unconnected publishing venture.
+            </p>
+          </div>
+          <Image
+            src="/images/process/carving-passing-through.jpg"
+            alt="Leon Loughridge carving a woodblock at Dry Creek Art Press"
+            width={540}
+            height={400}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+          />
+        </div>
+      </div>
+
       <div className="page-wrap" style={{ padding: '2rem' }}>
         {/* Tab nav */}
         <div style={{ display: 'flex', borderBottom: '1px solid var(--border)', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
