@@ -71,7 +71,7 @@ export default function OriginalPrintsPage() {
       {/* What is an Original Print? */}
       <div className="page-wrap" style={{ padding: '2.5rem 2rem', borderBottom: '1px solid var(--border)' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
-          <div>
+          <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <h2 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', color: 'var(--body-text)', marginBottom: '1.25rem', lineHeight: 1.2 }}>
               What is an<br />Original Print?
             </h2>
