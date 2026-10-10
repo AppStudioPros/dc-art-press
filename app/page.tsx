@@ -100,17 +100,15 @@ export default function HomePage() {
       </section>
 
       {/* ── Quest for the West ── */}
-      <section style={{ padding: '4rem 0', borderBottom: '1px solid var(--rule)', backgroundColor: '#F7F5F5' }}>
-        <div className="page-wrap" style={{ marginBottom: '2.5rem' }}>
-          <div style={{ width: '32px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1rem' }} />
-          <h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: '#A26F4C', fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', marginBottom: '0.4rem' }}>Quest for the West</h2>
-          <p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.88rem', color: '#A26F4C', marginBottom: '0.9rem', opacity: 0.75 }}>The Eiteljorg Museum, Indianapolis</p>
-          <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.8, maxWidth: '560px', color: '#000' }}>
+      <section style={{ borderBottom: '1px solid var(--rule)' }}>
+        <QuestMarquee
+          title={<h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: '#A26F4C', fontSize: 'clamp(1.5rem, 2.5vw, 2.1rem)', marginBottom: '0.4rem' }}>Quest for the West</h2>}
+          subtitle={<p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.85rem', color: '#A26F4C', marginBottom: '0.9rem', opacity: 0.75 }}>The Eiteljorg Museum, Indianapolis</p>}
+          body={<p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.9rem', lineHeight: 1.8, color: '#1a1008' }}>
             I am very honored to have been invited to exhibit my woodblocks at the Eiteljorg Museum in Indianapolis.
             Four woodblocks on display: Ranchos Sunset, Acoma Pueblo, Snowy Plateau and Freezing Over.
-          </p>
-        </div>
-        <QuestMarquee />
+          </p>}
+        />
       </section>
 
       {/* ── Watercolor Sketches ── */}

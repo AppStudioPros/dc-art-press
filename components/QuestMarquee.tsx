@@ -9,10 +9,15 @@ const images = [
   { src: '/images/eiteljorg-freezing-over.jpg', alt: 'Freezing Over — woodblock print by Leon Loughridge' },
 ]
 
-// Duplicate for seamless infinite loop
 const track = [...images, ...images]
 
-export default function QuestMarquee() {
+interface Props {
+  title?: React.ReactNode
+  subtitle?: React.ReactNode
+  body?: React.ReactNode
+}
+
+export default function QuestMarquee({ title, subtitle, body }: Props) {
   return (
     <>
       <style>{`
@@ -22,8 +27,8 @@ export default function QuestMarquee() {
         }
         .marquee-track {
           display: flex;
-          gap: 2rem;
-          animation: marquee-scroll 18s linear infinite;
+          gap: 0;
+          animation: marquee-scroll 22s linear infinite;
           width: max-content;
         }
         .marquee-track:hover {
@@ -31,30 +36,51 @@ export default function QuestMarquee() {
         }
       `}</style>
 
-      <div style={{ overflow: 'hidden', width: '100%' }}>
+      <div style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
+
+        {/* Scrolling images — full height, no crop */}
         <div className="marquee-track">
           {track.map((img, i) => (
             <div
               key={`${img.src}-${i}`}
-              style={{
-                flexShrink: 0,
-                width: '320px',
-              }}
+              style={{ flexShrink: 0, lineHeight: 0 }}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
-                width={320}
-                height={320}
-                style={{
-                  width: '320px',
-                  height: 'auto',
-                  display: 'block',
-                }}
+                width={480}
+                height={480}
+                style={{ width: '480px', height: 'auto', display: 'block' }}
               />
             </div>
           ))}
         </div>
+
+        {/* Centered text overlay */}
+        {(title || body) && (
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '2rem',
+          }}>
+            <div style={{
+              backgroundColor: 'rgba(247, 245, 245, 0.82)',
+              backdropFilter: 'blur(6px)',
+              WebkitBackdropFilter: 'blur(6px)',
+              padding: '2.25rem 2.75rem',
+              maxWidth: '540px',
+              textAlign: 'center',
+            }}>
+              {title}
+              {subtitle}
+              {body}
+            </div>
+          </div>
+        )}
+
       </div>
     </>
   )
