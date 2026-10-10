@@ -260,9 +260,9 @@ export default function HomePage() {
           <div className="art-grid">
             {categories.map(cat => (
               <Link key={cat.href} href={cat.href} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div style={{ border: '1px solid var(--border)', padding: '1.25rem', textAlign: 'center', backgroundColor: 'var(--white)', cursor: 'pointer', transition: 'box-shadow 0.2s' }}
+                <div style={{ border: '1px solid var(--border)', padding: '1.25rem', textAlign: 'center', backgroundColor: 'var(--white)', cursor: 'pointer', transition: 'box-shadow 0.2s', display: 'flex', flexDirection: 'column', height: '100%' }}
                   className="hover:shadow-md transition-shadow">
-                  <div style={{ position: 'relative', width: '100%', paddingBottom: '72%', backgroundColor: '#e8e4dc', marginBottom: '1rem', overflow: 'hidden' }}>
+                  <div style={{ position: 'relative', width: '100%', paddingBottom: '82%', backgroundColor: '#e8e4dc', marginBottom: '1rem', overflow: 'hidden', flexShrink: 0 }}>
                     <Image
                       src={cat.img}
                       alt={cat.label}
