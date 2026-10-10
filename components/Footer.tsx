@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: 'var(--footer-bg)', marginTop: '4rem' }}>
-      <div className="page-wrap py-10">
+      <div className="page-wrap py-16">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem' }}>
 
           {/* Brand + Address */}
