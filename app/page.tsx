@@ -48,6 +48,8 @@ export default function HomePage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
+          alignItems: 'center',
+          textAlign: 'center',
         }}>
           <div style={{ width: '32px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
           <h2 style={{
@@ -73,7 +75,6 @@ export default function HomePage() {
           </p>
           <Link href="/in-the-works" style={{
             display: 'inline-block',
-            alignSelf: 'flex-start',
             padding: '0.6rem 1.6rem',
             backgroundColor: 'var(--note-btn)',
             color: '#fff',
