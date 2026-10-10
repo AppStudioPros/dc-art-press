@@ -7,7 +7,7 @@ interface PageHeroProps {
 export default function PageHero({ title, subtitle, accent }: PageHeroProps) {
   return (
     <div style={{
-      backgroundColor: 'rgba(78, 87, 75, 0.82)',
+      backgroundColor: 'rgba(78, 87, 75, 0.95)',
       color: '#F7F5F5',
       padding: '4rem 0 3.5rem',
       borderBottom: '3px solid #A26F4C',
