@@ -22,12 +22,12 @@ const jsonLd = {
 }
 
 const categories = [
-  { label: 'Woodblocks' as const, href: '/woodblocks', desc: 'Hand printed woodblocks in small editions.', img: '/images/woodblocks/72263d_31b1a245.jpg' },
-  { label: 'Editioned Books', href: '/books/editioned', desc: 'A collection of hand printed and bound books in small editions.', img: '/images/books/hirosada.jpg' },
+  { label: 'Woodblocks' as const, href: '/woodblocks', desc: 'Hand printed woodblocks in small editions.', img: '/images/woodblocks/evergreens.jpg' },
+  { label: 'Editioned Books', href: '/books/editioned', desc: 'A collection of hand printed and bound books in small editions.', img: '/images/books/traveling-watercolors-cover.jpg' },
   { label: 'Serigraphs', href: '/serigraphs', desc: 'Hand printed serigraphs in small editions.', img: '/images/serigraphs/summer-garden.jpg' },
-  { label: 'Etchings', href: '/etchings', desc: 'Intaglio prints using various techniques.', img: '/images/etchings/lambs.jpg' },
-  { label: 'Collections', href: '/a-bit-more', desc: 'Various collections of vintage prints and originals.', img: '/images/woodblocks/72263d_3ba8fe91.jpg' },
-  { label: 'Watercolors', href: '/watercolors', desc: 'Studio watercolor and watercolor sketches.', img: '/images/watercolor-lupines.png' },
+  { label: 'Etchings', href: '/etchings', desc: 'Intaglio prints using various techniques.', img: '/images/etchings/grey-day.jpg' },
+  { label: 'Collections', href: '/a-bit-more', desc: 'Various collections of vintage prints and originals.', img: '/images/collections/horse-racing-etching.jpg' },
+  { label: 'Watercolors', href: '/watercolors', desc: 'Studio watercolor and watercolor sketches.', img: '/images/watercolors/forest-watercolor.jpg' },
 ]
 
 export default function HomePage() {
