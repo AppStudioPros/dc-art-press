@@ -119,7 +119,7 @@ export default function HomePage() {
             {/* Left: fading portrait watercolors */}
             <WatercolorFader />
             {/* Right: text */}
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center' }}>
               <div style={{ width: '32px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
               <h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: '#A26F4C', fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', marginBottom: '1rem' }}>Watercolor Sketches</h2>
               <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.85, color: '#000', marginBottom: '2rem', maxWidth: '400px' }}>
