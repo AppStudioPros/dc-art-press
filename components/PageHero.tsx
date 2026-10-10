@@ -1,13 +1,13 @@
 interface PageHeroProps {
   title: string
   subtitle?: string
-  accent?: string // small eyebrow label above title
+  accent?: string
 }
 
 export default function PageHero({ title, subtitle, accent }: PageHeroProps) {
   return (
     <div style={{
-      backgroundColor: '#1e1d1a',
+      backgroundColor: 'rgba(78, 87, 75, 0.82)',
       color: '#F7F5F5',
       padding: '4rem 0 3.5rem',
       borderBottom: '3px solid #A26F4C',
@@ -42,7 +42,7 @@ export default function PageHero({ title, subtitle, accent }: PageHeroProps) {
             fontFamily: 'var(--font-avenir), sans-serif',
             fontWeight: 300,
             fontSize: '0.95rem',
-            color: 'rgba(247,245,245,0.6)',
+            color: 'rgba(247,245,245,0.65)',
             maxWidth: '500px',
             margin: '0 auto',
             lineHeight: 1.8,
