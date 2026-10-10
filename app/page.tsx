@@ -22,12 +22,12 @@ const jsonLd = {
 }
 
 const categories = [
-  { label: 'Woodblocks', href: '/woodblocks', desc: 'Hand printed woodblocks in small editions.' },
-  { label: 'Editioned Books', href: '/books/editioned', desc: 'A collection of hand printed and bound books in small editions.' },
-  { label: 'Serigraphs', href: '/serigraphs', desc: 'Hand printed serigraphs in small editions.' },
-  { label: 'Etchings', href: '/etchings', desc: 'Intaglio prints using various techniques.' },
-  { label: 'Collections', href: '/a-bit-more', desc: 'Various collections of vintage prints and originals.' },
-  { label: 'Watercolors', href: '/watercolors', desc: 'Studio watercolor and watercolor sketches.' },
+  { label: 'Woodblocks' as const, href: '/woodblocks', desc: 'Hand printed woodblocks in small editions.', img: '/images/woodblocks/72263d_31b1a245.jpg' },
+  { label: 'Editioned Books', href: '/books/editioned', desc: 'A collection of hand printed and bound books in small editions.', img: '/images/books/hirosada.jpg' },
+  { label: 'Serigraphs', href: '/serigraphs', desc: 'Hand printed serigraphs in small editions.', img: '/images/serigraphs/summer-garden.jpg' },
+  { label: 'Etchings', href: '/etchings', desc: 'Intaglio prints using various techniques.', img: '/images/etchings/lambs.jpg' },
+  { label: 'Collections', href: '/a-bit-more', desc: 'Various collections of vintage prints and originals.', img: '/images/woodblocks/72263d_3ba8fe91.jpg' },
+  { label: 'Watercolors', href: '/watercolors', desc: 'Studio watercolor and watercolor sketches.', img: '/images/watercolor-lupines.png' },
 ]
 
 export default function HomePage() {
@@ -260,16 +260,20 @@ export default function HomePage() {
           <div className="art-grid">
             {categories.map(cat => (
               <Link key={cat.href} href={cat.href} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div style={{ border: '1px solid var(--border)', padding: '1.5rem', textAlign: 'center', backgroundColor: 'var(--white)', cursor: 'pointer' }}
-                  className="hover:shadow-sm transition-shadow">
-                  <div className="img-placeholder" style={{ height: '160px', marginBottom: '1rem' }}>
-                    [ {cat.label} ]
+                <div style={{ border: '1px solid var(--border)', padding: '1.25rem', textAlign: 'center', backgroundColor: 'var(--white)', cursor: 'pointer', transition: 'box-shadow 0.2s' }}
+                  className="hover:shadow-md transition-shadow">
+                  <div style={{ position: 'relative', width: '100%', paddingBottom: '72%', backgroundColor: '#F0EEE2', marginBottom: '1rem', overflow: 'hidden' }}>
+                    <Image
+                      src={cat.img}
+                      alt={cat.label}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      style={{ objectFit: 'contain', padding: '0.5rem' }}
+                    />
                   </div>
-                  <h3 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '1rem', color: 'var(--body-text)', marginBottom: '0.5rem' }}>{cat.label}</h3>
-                  <p style={{ fontSize: '0.8rem', color: '#777', fontStyle: 'italic' }}>{cat.desc}</p>
-                  <p style={{ marginTop: '0.75rem' }}>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--accent)', textDecoration: 'underline' }}>Visit Page</span>
-                  </p>
+                  <h3 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '1.05rem', color: 'var(--body-text)', marginBottom: '0.4rem' }}>{cat.label}</h3>
+                  <p style={{ fontSize: '0.8rem', color: '#777', fontStyle: 'italic', marginBottom: '0.75rem' }}>{cat.desc}</p>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--accent)', textDecoration: 'underline' }}>Visit Page</span>
                 </div>
               </Link>
             ))}
