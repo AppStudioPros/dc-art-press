@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Breadcrumb from '@/components/Breadcrumb'
+
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
@@ -16,7 +16,6 @@ const studios = [
 export default function ContactPage() {
   return (
     <>
-      <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
 
       <div className="page-wrap" style={{ padding: '2rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', marginBottom: '4rem' }} className="max-sm:grid-cols-1">

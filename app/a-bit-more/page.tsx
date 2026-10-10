@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Breadcrumb from '@/components/Breadcrumb'
+
 
 export const metadata: Metadata = {
   title: 'A Bit More — Ephemera & Collections',
@@ -24,7 +24,6 @@ const collections = [
 export default function ABitMorePage() {
   return (
     <>
-      <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'A Bit More' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
         <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '2rem' }}>A Bit More</h1>
 

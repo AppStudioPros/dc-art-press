@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Breadcrumb from '@/components/Breadcrumb'
+
 
 export const metadata: Metadata = {
   title: 'Books',
@@ -18,7 +18,6 @@ const sections = [
 export default function BooksPage() {
   return (
     <>
-      <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Books' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
         <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '0.5rem' }}>Editioned Books and More</h1>
         <div className="img-placeholder" style={{ height: '200px', marginBottom: '2rem' }}>[ Books accordion-fold hero image ]</div>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Breadcrumb from '@/components/Breadcrumb'
+
 
 export const metadata: Metadata = {
   title: 'Commissions',
@@ -20,7 +20,6 @@ const commissions = [
 export default function CommissionsPage() {
   return (
     <>
-      <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'About', href: '/about' }, { label: 'Commissions' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
         <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '1rem' }}>Commissions</h1>
         <p style={{ maxWidth: '700px', fontSize: '0.9rem', marginBottom: '0.75rem' }}>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import Breadcrumb from '@/components/Breadcrumb'
+
 
 export const metadata: Metadata = {
   title: 'About — Bio & Collections',
@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: '3rem' }}>
 

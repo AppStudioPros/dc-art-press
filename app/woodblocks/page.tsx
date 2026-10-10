@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Breadcrumb from '@/components/Breadcrumb'
+
 
 export const metadata: Metadata = {
   title: 'Woodblocks',
@@ -36,7 +36,6 @@ function ArtCard({ title, dims, edition, price, status, img }: { title: string; 
 export default function WoodblocksPage() {
   return (
     <>
-      <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Original Prints', href: '/original-prints-sketches' }, { label: 'Woodblocks' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
 
         {/* New Woodblock Feature */}

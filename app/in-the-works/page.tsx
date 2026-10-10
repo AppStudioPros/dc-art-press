@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Breadcrumb from '@/components/Breadcrumb'
+
 
 export const metadata: Metadata = {
   title: 'A Tradition of Devotion — In The Works',
@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export default function InTheWorksPage() {
   return (
     <>
-      <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'Books', href: '/books' }, { label: 'A Tradition of Devotion' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
         <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2.2rem', marginBottom: '0.5rem' }}>
           A Tradition Of Devotion

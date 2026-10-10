@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Breadcrumb from '@/components/Breadcrumb'
+
 
 export const metadata: Metadata = {
   title: 'About The Process',
@@ -18,7 +18,6 @@ const sections = [
 export default function ProcessPage() {
   return (
     <>
-      <Breadcrumb crumbs={[{ label: 'Home', href: '/' }, { label: 'About The Process' }]} />
       <div className="page-wrap" style={{ padding: '2rem' }}>
         <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '0.75rem' }}>About The Process</h1>
         <p style={{ maxWidth: '700px', fontSize: '0.9rem', marginBottom: '2rem', fontStyle: 'italic' }}>
