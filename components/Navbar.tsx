@@ -77,29 +77,8 @@ export default function Navbar() {
           <Link href="/" style={navLinkStyle}>Home</Link>
           <Link href="/original-prints-sketches" style={navLinkStyle}>Original Prints &amp; Sketches</Link>
 
-          {/* Books dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setBooksOpen(true)}
-            onMouseLeave={() => setBooksOpen(false)}
-          >
-            <button style={{ ...navLinkStyle, display: 'flex', alignItems: 'center', gap: '3px', background: 'none', border: 'none', cursor: 'pointer' }}>
-              Books <ChevronDown size={12} />
-            </button>
-            <Dropdown links={booksLinks} open={booksOpen} />
-          </div>
-
-          {/* About dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setAboutOpen(true)}
-            onMouseLeave={() => setAboutOpen(false)}
-          >
-            <button style={{ ...navLinkStyle, display: 'flex', alignItems: 'center', gap: '3px', background: 'none', border: 'none', cursor: 'pointer' }}>
-              About <ChevronDown size={12} />
-            </button>
-            <Dropdown links={aboutLinks} open={aboutOpen} />
-          </div>
+          <Link href="/books" style={navLinkStyle}>Books</Link>
+          <Link href="/about" style={navLinkStyle}>About</Link>
 
           <Link href="/a-bit-more" style={navLinkStyle}>A Bit More</Link>
           <Link href="/contact" style={navLinkStyle}>Contact</Link>
@@ -124,12 +103,7 @@ export default function Navbar() {
             { label: 'Home', href: '/' },
             { label: 'Original Prints & Sketches', href: '/original-prints-sketches' },
             { label: 'Books', href: '/books' },
-            { label: 'Editioned Books', href: '/books/editioned' },
-            { label: 'Small Edition Books', href: '/books/small-editions' },
-            { label: 'Exhibit Catalogs', href: '/books/exhibit-catalogs' },
-            { label: 'Bio / Collections', href: '/about' },
-            { label: 'Exhibiting Galleries', href: '/galleries' },
-            { label: 'Commissions', href: '/commissions' },
+            { label: 'About', href: '/about' },
             { label: 'Publicity', href: '/publicity' },
             { label: 'A Bit More', href: '/a-bit-more' },
             { label: 'Contact', href: '/contact' },
