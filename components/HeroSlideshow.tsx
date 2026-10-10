@@ -69,30 +69,34 @@ export default function HeroSlideshow() {
         />
       </div>
 
-      {/* Text card — bottom left, frosted */}
+      {/* Text card — centered, frosted */}
       <div
         style={{
           position: 'absolute',
-          bottom: '3rem',
-          left: '2.5rem',
-          maxWidth: '520px',
-          padding: '1.5rem 1.75rem',
+          top: '50%',
+          left: '50%',
+          transform: fading
+            ? 'translate(-50%, calc(-50% + 6px))'
+            : 'translate(-50%, -50%)',
+          width: '90%',
+          maxWidth: '560px',
+          padding: '1.75rem 2.25rem',
           background: 'rgba(78, 87, 75, 0.82)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
           border: '1px solid rgba(78,87,75,0.4)',
           borderRadius: '3px',
+          textAlign: 'center',
           opacity: fading ? 0 : 1,
-          transform: fading ? 'translateY(6px)' : 'translateY(0)',
           transition: 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out',
         }}
       >
-        {/* Thin accent rule */}
+        {/* Thin accent rule — centered */}
         <div style={{
           width: '36px',
           height: '2px',
           backgroundColor: '#A26F4C',
-          marginBottom: '0.8rem',
+          margin: '0 auto 0.8rem',
         }} />
         <h2
           style={{
