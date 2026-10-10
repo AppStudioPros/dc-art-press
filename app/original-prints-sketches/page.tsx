@@ -1,3 +1,4 @@
+import PageHero from '@/components/PageHero'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -18,6 +19,7 @@ const categories = [
 export default function OriginalPrintsPage() {
   return (
     <>
+      <PageHero title="Original Prints &amp; Sketches" subtitle="Woodblocks, etchings, serigraphs, and watercolors from the Dry Creek Art Press studio." accent="The Collection" />
       <div className="page-wrap" style={{ padding: '2rem' }}>
         <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '0.5rem' }}>
           Original Prints and Sketches

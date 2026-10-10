@@ -1,3 +1,4 @@
+import PageHero from '@/components/PageHero'
 import type { Metadata } from 'next'
 
 import ContactForm from '@/components/ContactForm'
@@ -16,7 +17,7 @@ const studios = [
 export default function ContactPage() {
   return (
     <>
-
+      <PageHero title="Contact" subtitle="Reach out about artwork, commissions, studio visits, or the DCAP Bookstore." accent="Dry Creek Art Press" />
       <div className="page-wrap" style={{ padding: '2rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', marginBottom: '4rem' }} className="max-sm:grid-cols-1">
 

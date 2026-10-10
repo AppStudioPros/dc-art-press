@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import type { Metadata } from 'next'
+import PageHero from '@/components/PageHero'
 
 const editionedBooks = [
   { title: 'Esboccos de Porto', year: 2024, status: 'Available', notes: 'Contact for pricing' },
@@ -35,17 +35,9 @@ export default function BooksPage() {
   const [active, setActive] = useState(0)
 
   return (
+    <>
+      <PageHero title="Books &amp; Publications" subtitle="Hand-printed editions, small studio books, exhibit catalogs, and commission booklets." accent="DCAP Bookstore" />
     <div className="page-wrap" style={{ padding: '3rem 2rem' }}>
-      {/* Page heading */}
-      <div style={{ marginBottom: '2.5rem' }}>
-        <div style={{ width: '32px', height: '1px', backgroundColor: 'var(--accent)', marginBottom: '1rem' }} />
-        <h1 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', marginBottom: '0.5rem' }}>
-          Books &amp; Publications
-        </h1>
-        <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', color: 'var(--body-text)', maxWidth: '560px', lineHeight: 1.8 }}>
-          Hand-printed editions, small studio books, exhibit catalogs, and commission booklets from the Dry Creek Art Press studio.
-        </p>
-      </div>
 
       {/* Tab nav */}
       <div style={{ display: 'flex', gap: '0', borderBottom: '1px solid var(--border)', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
@@ -153,5 +145,6 @@ export default function BooksPage() {
         </div>
       )}
     </div>
+    </>
   )
 }

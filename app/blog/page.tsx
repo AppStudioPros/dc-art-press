@@ -1,3 +1,4 @@
+import PageHero from '@/components/PageHero'
 import type { Metadata } from 'next'
 
 
@@ -15,8 +16,9 @@ const posts = [
 export default function BlogPage() {
   return (
     <>
+      <PageHero title="Studio Blog" subtitle="Notes, updates, and stories from the press room." accent="Dry Creek Art Press" />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '2rem' }}>Studio Blog</h1>
+
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '2rem' }}>
           {posts.map(p => (
             <article key={p.title} style={{ border: '1px solid var(--border)', backgroundColor: 'var(--white)' }}>

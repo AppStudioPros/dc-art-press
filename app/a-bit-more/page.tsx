@@ -1,3 +1,4 @@
+import PageHero from '@/components/PageHero'
 import type { Metadata } from 'next'
 
 
@@ -24,8 +25,9 @@ const collections = [
 export default function ABitMorePage() {
   return (
     <>
+      <PageHero title="A Bit More" subtitle="Ephemera, collections, and the things that don't fit neatly anywhere else." accent="Dry Creek Art Press" />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '2rem' }}>A Bit More</h1>
+
 
         {/* Ephemera */}
         <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>Ephemera</h2>

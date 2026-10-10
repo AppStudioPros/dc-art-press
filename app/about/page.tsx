@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import PageHero from '@/components/PageHero'
 
 const tabs = ['About The Studio', 'Special Collections', 'Special Projects', 'Exhibiting Galleries']
 
@@ -18,17 +19,9 @@ export default function AboutPage() {
   const [active, setActive] = useState(0)
 
   return (
+    <>
+      <PageHero title="About" subtitle="Leon Loughridge, Dry Creek Art Press, and the world of handmade printmaking." accent="Dry Creek Art Press" />
     <div className="page-wrap" style={{ padding: '3rem 2rem' }}>
-      {/* Page heading */}
-      <div style={{ marginBottom: '2.5rem' }}>
-        <div style={{ width: '32px', height: '1px', backgroundColor: 'var(--accent)', marginBottom: '1rem' }} />
-        <h1 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', marginBottom: '0.5rem' }}>
-          About
-        </h1>
-        <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', color: 'var(--body-text)', maxWidth: '560px', lineHeight: 1.8 }}>
-          Leon Loughridge, Dry Creek Art Press, and the world of handmade printmaking.
-        </p>
-      </div>
 
       {/* Tab nav */}
       <div style={{ display: 'flex', gap: '0', borderBottom: '1px solid var(--border)', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
@@ -148,5 +141,6 @@ export default function AboutPage() {
         </div>
       )}
     </div>
+    </>
   )
 }
