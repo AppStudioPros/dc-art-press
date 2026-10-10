@@ -15,7 +15,7 @@
   --rule:        #D8D4CE;   /* thin hr rules */
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: 110%; }
 
 body {
   background-color: var(--white);
