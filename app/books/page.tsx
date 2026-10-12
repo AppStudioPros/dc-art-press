@@ -1,15 +1,16 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 import PageHero from '@/components/PageHero'
 
 const editionedBooks = [
-  { title: 'Esboccos de Porto', year: 2024, status: 'Available', notes: 'Contact for pricing' },
+  { title: 'Esboccos de Porto', year: 2024, status: 'Available', notes: 'Contact for pricing', img: '/images/books/cover.jpg' },
   { title: 'Chaco Sojourn', year: 2021, status: 'Available', notes: 'Contact for pricing' },
-  { title: 'Gorge Songs', year: 2018, status: 'Available', notes: 'Available through DCAP Bookstore' },
+  { title: 'Gorge Songs', year: 2018, status: 'Available', notes: 'Available through DCAP Bookstore', img: '/images/books/gorge-songs.jpg' },
   { title: 'Royal Road', year: 2016, status: 'Sold Out', notes: null },
   { title: 'Las Montanas', year: 2009, status: 'Sold Out', notes: null },
   { title: 'Spring Thaw in the Gore Range', year: 2008, status: 'Sold Out', notes: null },
-  { title: 'Woodblocks of the Santa Fe Trail — New Mexico', year: 2008, status: 'Available', notes: '1 copy available' },
+  { title: 'Woodblocks of the Santa Fe Trail — New Mexico', year: 2008, status: 'Available', notes: '1 copy available', img: '/images/books/title.jpg' },
   { title: 'Woodblocks of the Santa Fe Trail — Colorado', year: 2007, status: 'Sold Out', notes: null },
   { title: 'Chapels of San Luis', year: 2002, status: 'Sold Out', notes: null },
   { title: 'Views of McNichols', year: 2000, status: 'Available', notes: 'Contact for pricing' },
@@ -20,7 +21,7 @@ const smallEditions = [
   { title: 'El Rialto', author: 'John Macker', price: 45 },
   { title: 'Three Block Reduction Prints', author: 'Leon Loughridge', price: 325 },
   { title: 'Memories of the Diamond A', author: 'Leon Loughridge', price: 160 },
-  { title: 'Traveling With Watercolors', author: 'Leon Loughridge', price: 175 },
+  { title: 'Traveling With Watercolors', author: 'Leon Loughridge', price: 175, img: '/images/books/traveling-watercolors-cover.jpg' },
 ]
 
 const catalogs = [
@@ -75,7 +76,9 @@ export default function BooksPage() {
           <div style={{ borderTop: '1px solid var(--border)' }}>
             {editionedBooks.map(b => (
               <div key={b.title} style={{ display: 'grid', gridTemplateColumns: '160px 1fr', gap: '2rem', padding: '1.5rem 0', borderBottom: '1px solid var(--border)', alignItems: 'start' }}>
-                <div className="img-placeholder" style={{ height: '130px' }}>[ {b.title} ]</div>
+                {'img' in b && b.img
+                  ? <Image src={b.img as string} alt={`${b.title} — book by Leon Loughridge`} width={160} height={130} style={{ width: '160px', height: '130px', objectFit: 'contain', background: '#F0EEE2', display: 'block' }} />
+                  : <div className="img-placeholder" style={{ height: '130px' }}>[ {b.title} ]</div>}
                 <div>
                   <h3 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '1.1rem', color: 'var(--body-text)', marginBottom: '0.25rem' }}>{b.title}</h3>
                   <p style={{ fontSize: '0.78rem', color: '#999', marginBottom: '0.5rem' }}>{b.year}</p>
@@ -102,7 +105,9 @@ export default function BooksPage() {
           <div className="art-grid">
             {smallEditions.map(b => (
               <div key={b.title} className="art-card">
-                <div className="img-placeholder" style={{ height: '160px' }}>[ {b.title} ]</div>
+                {'img' in b && b.img
+                  ? <Image src={b.img as string} alt={`${b.title} — book by Leon Loughridge`} width={300} height={160} style={{ width: '100%', height: '160px', objectFit: 'contain', background: '#F0EEE2', display: 'block' }} />
+                  : <div className="img-placeholder" style={{ height: '160px' }}>[ {b.title} ]</div>}
                 <h4>{b.title}</h4>
                 <p className="dims">{b.author}</p>
                 <p className="price">${b.price}</p>

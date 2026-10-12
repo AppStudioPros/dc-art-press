@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import PageHero from '@/components/PageHero'
 import type { Metadata } from 'next'
 
@@ -15,11 +16,11 @@ const ephemera = [
 
 const collections = [
   { title: 'Pawel Kontny Drawings', desc: 'A collection of drawings by Pawel Kontny.' },
-  { title: 'Kondo Chihiro', desc: 'Prints and works by Kondo Chihiro.' },
+  { title: 'Kondo Chihiro', desc: 'Prints and works by Kondo Chihiro.', img: '/images/collections/kondo-chihiro.jpg' },
   { title: '20th Century Prints & Drawings', desc: 'Collected prints and drawings from the 20th century.' },
-  { title: 'A Japanese Sketchbook', desc: 'A sketchbook of Japanese imagery and study.' },
-  { title: 'The Sterling Project', desc: 'Prints from The Sterling Project series.' },
-  { title: 'Japanese Woodblocks (1820–1960)', desc: 'Vintage Japanese woodblock prints from the collection.' },
+  { title: 'A Japanese Sketchbook', desc: 'A sketchbook of Japanese imagery and study.', img: '/images/collections/hirosada.jpg' },
+  { title: 'The Sterling Project', desc: 'Prints from The Sterling Project series.', img: '/images/collections/sterling-project.jpg' },
+  { title: 'Japanese Woodblocks (1820–1960)', desc: 'Vintage Japanese woodblock prints from the collection.', img: '/images/collections/japanese-woodblocks.jpg' },
 ]
 
 export default function ABitMorePage() {
@@ -53,7 +54,9 @@ export default function ABitMorePage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.5rem' }}>
           {collections.map(c => (
             <div key={c.title} style={{ border: '1px solid var(--border)', padding: '1.25rem', backgroundColor: 'var(--white)' }}>
-              <div className="img-placeholder" style={{ height: '140px', marginBottom: '0.75rem' }}>[ {c.title} ]</div>
+              {'img' in c && c.img
+                ? <Image src={c.img as string} alt={`${c.title} — collection at Dry Creek Art Press`} width={300} height={140} style={{ width: '100%', height: '140px', objectFit: 'contain', background: '#F0EEE2', display: 'block', marginBottom: '0.75rem' }} />
+                : <div className="img-placeholder" style={{ height: '140px', marginBottom: '0.75rem' }}>[ {c.title} ]</div>}
               <h3 style={{ fontSize: '0.95rem', fontFamily: 'var(--font-avenir), serif', color: 'var(--body-text)', marginBottom: '0.4rem' }}>{c.title}</h3>
               <p style={{ fontSize: '0.82rem', color: '#777' }}>{c.desc}</p>
             </div>

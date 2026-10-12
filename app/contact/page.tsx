@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import PageHero from '@/components/PageHero'
 import type { Metadata } from 'next'
 
@@ -9,9 +10,9 @@ export const metadata: Metadata = {
 }
 
 const studios = [
-  { name: 'Denver Studio', desc: 'Located in our remodeled garage, the home studio is in south central Denver in the university area. It is the home base where I get framing done and store all my ideas and supplies. Studio visits are welcome.', img: 'denver-studio' },
-  { name: 'Mountain Studio', desc: "Just a short hour drive from the Denver studio, the mountain studio is at the base of Mt Blue Sky (Mt Evans) and a world away from the hustle of Denver. The studio is \"off the grid\" and surrounded by inspiration.", img: 'mountain-studio' },
-  { name: 'Art Gym Denver', desc: "This is a printmaker's dream come true. The maker's space is complete with two litho presses, three etching presses, and complete serigraph facilities. Also, a great cafe and the comradery of other printmakers.", img: 'art-gym' },
+  { name: 'Denver Studio', desc: 'Located in our remodeled garage, the home studio is in south central Denver in the university area. It is the home base where I get framing done and store all my ideas and supplies. Studio visits are welcome.', img: '/images/about/72263d_406e4b7c.jpg' },
+  { name: 'Mountain Studio', desc: "Just a short hour drive from the Denver studio, the mountain studio is at the base of Mt Blue Sky (Mt Evans) and a world away from the hustle of Denver. The studio is \"off the grid\" and surrounded by inspiration.", img: '/images/about/gallery-exterior.jpg' },
+  { name: 'Art Gym Denver', desc: "This is a printmaker's dream come true. The maker's space is complete with two litho presses, three etching presses, and complete serigraph facilities. Also, a great cafe and the comradery of other printmakers.", img: '/images/about/art-gym-denver-facade.jpg' },
 ]
 
 export default function ContactPage() {
@@ -62,8 +63,7 @@ export default function ContactPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }} className="max-sm:grid-cols-1">
           {studios.map(s => (
             <div key={s.name}>
-              {/* TODO: Replace with actual studio photo */}
-              <div className="img-placeholder" style={{ height: '200px', marginBottom: '1rem' }}>[ {s.name} photo ]</div>
+              <Image src={s.img} alt={`${s.name} — Dry Creek Art Press`} width={500} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block', marginBottom: '1rem' }} />
               <h3 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '0.5rem' }}>{s.name}</h3>
               <p style={{ fontSize: '0.85rem', lineHeight: 1.7 }}>{s.desc}</p>
             </div>

@@ -19,7 +19,7 @@ const trailsEnd = [
 ]
 const serigraphs = [
   { title: 'Pueblo Arroyo', dims: '14 x 11', price: 525, status: 'Available' },
-  { title: 'Summer Garden', dims: '14 x 11', price: null, status: 'Out of Stock' },
+  { title: 'Summer Garden', dims: '14 x 11', price: null, status: 'Out of Stock', img: '/images/serigraphs/summer-garden.jpg' },
   { title: 'Summer Splendor', dims: '14 x 11', price: null, status: 'Out of Stock' },
   { title: 'Summer Sparkle', dims: '14 x 11', price: null, status: 'Out of Stock' },
   { title: 'Snow Tracks Demo Booklet', dims: '', price: 45, status: 'Available' },
@@ -33,7 +33,16 @@ const etchings = [
   { title: 'Main Street Pair', dims: '9 x 12', price: null, status: 'Out of Stock' },
   { title: 'Dragonfly', dims: '4 x 6', price: 30, status: 'Available' },
 ]
-const watercolorsGallery = ['MtSoprisMorning','From Will Rodgers S.','Lupines','Frozen Butte','Snow Squall','October-Vail Valley','May-San Luis Lakes','March-HayBarn']
+const watercolorsGallery = [
+  { title: 'Mt. Sopris Morning', src: '/images/watercolor-mt-sopris-morning.png' },
+  { title: 'From Will Rogers Shrine', src: '/images/watercolor-will-rogers-shrine.png' },
+  { title: 'Lupines', src: '/images/watercolor-lupines.png' },
+  { title: 'Frozen Butte', src: '/images/watercolor-frozen-butte.png' },
+  { title: 'Snow Squall', src: '/images/watercolor-snow-squall.png' },
+  { title: 'October — Vail Valley', src: '/images/watercolor-october-vail-valley.png' },
+  { title: 'May — San Luis Lakes', src: '/images/watercolor-san-luis-lakes.png' },
+  { title: 'Summer Cabin', src: '/images/watercolor-summer-cabin.png' },
+]
 const watercolorsForSale = [
   { title: 'Setting Moon', price: 140 },
   { title: 'Last Light Sketch', price: 180 },
@@ -165,7 +174,7 @@ export default function OriginalPrintsPage() {
                   Intaglio printing is one of the oldest printmaking techniques, dating back to the 15th century.
                 </p>
               </div>
-              <div className="img-placeholder" style={{ height: '200px' }}>[ Intaglio process diagram ]</div>
+              <Image src="/images/process/72263d_136cd6a7.jpg" alt="Printmaking process at Dry Creek Art Press" width={540} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block' }} />
             </div>
             <hr className="dc-rule" />
             <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.3rem', margin: '1.5rem 0 1rem' }}>Available Etchings</h3>
@@ -178,8 +187,11 @@ export default function OriginalPrintsPage() {
           <div>
             <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.3rem', marginBottom: '1rem' }}>Watercolors Gallery</h3>
             <div className="art-grid">
-              {watercolorsGallery.map(t => (
-                <div key={t} className="art-card"><div className="img-placeholder" style={{ height: '160px' }}>[ {t} ]</div><h4>{t}</h4></div>
+              {watercolorsGallery.map(item => (
+                <div key={item.title} className="art-card">
+                  <Image src={item.src} alt={`${item.title} — watercolor by Leon Loughridge`} width={300} height={220} style={{ width: '100%', height: '180px', objectFit: 'contain', background: '#F0EEE2', display: 'block' }} />
+                  <h4>{item.title}</h4>
+                </div>
               ))}
             </div>
             <div style={{ textAlign: 'center', margin: '1.5rem 0' }}>

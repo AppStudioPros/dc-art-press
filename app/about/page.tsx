@@ -71,7 +71,13 @@ export default function AboutPage() {
                 The studio is located in South Denver and visitors are welcome. Please call or make an appointment to make sure I am in the studio and not out sketching.
               </p>
             </div>
-            <div className="img-placeholder" style={{ height: '260px' }}>[ Leon portrait ]</div>
+            <Image
+              src="/images/about/leon-with-print.jpg"
+              alt="Leon Loughridge — artist and printmaker at Dry Creek Art Press"
+              width={200}
+              height={260}
+              style={{ width: '200px', height: '260px', objectFit: 'cover', display: 'block' }}
+            />
           </div>
 
           <hr className="dc-rule" />
@@ -79,12 +85,12 @@ export default function AboutPage() {
           <h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.5rem', margin: '2rem 0 1.5rem' }}>Studio Spaces</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
             {[
-              { name: 'Denver Studio', desc: 'Located in our remodeled garage in south central Denver, the university area. Home base for framing and supplies. Studio visits are welcome.' },
-              { name: 'Mountain Studio', desc: 'Just a short hour drive from Denver, at the base of Mt Blue Sky (Mt Evans). The studio is off the grid and surrounded by inspiration.' },
-              { name: 'Art Gym Denver', desc: "A printmaker's dream come true — two litho presses, three etching presses, complete serigraph facilities, cafe, and fellow printmakers." },
+              { name: 'Denver Studio', desc: 'Located in our remodeled garage in south central Denver, the university area. Home base for framing and supplies. Studio visits are welcome.', img: '/images/about/72263d_406e4b7c.jpg' },
+              { name: 'Mountain Studio', desc: 'Just a short hour drive from Denver, at the base of Mt Blue Sky (Mt Evans). The studio is off the grid and surrounded by inspiration.', img: '/images/about/gallery-exterior.jpg' },
+              { name: 'Art Gym Denver', desc: "A printmaker's dream come true — two litho presses, three etching presses, complete serigraph facilities, cafe, and fellow printmakers.", img: '/images/about/art-gym-denver-facade.jpg' },
             ].map(s => (
               <div key={s.name}>
-                <div className="img-placeholder" style={{ height: '160px', marginBottom: '0.75rem' }}>[ {s.name} ]</div>
+                <Image src={s.img} alt={`${s.name} — Dry Creek Art Press`} width={400} height={160} style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block', marginBottom: '0.75rem' }} />
                 <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1rem', marginBottom: '0.4rem' }}>{s.name}</h3>
                 <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', lineHeight: 1.75, color: 'var(--body-text)' }}>{s.desc}</p>
               </div>
@@ -100,10 +106,14 @@ export default function AboutPage() {
             Over the years, I have collected prints from various sources — or should I say, they have found me. I keep saying &ldquo;no more&rdquo; and then turn the corner to find a print I can&apos;t live without.
           </p>
           <div style={{ borderTop: '1px solid var(--border)' }}>
-            {['Japanese Prints', 'Kondo Chihiro', 'Collection Overview'].map(c => (
-              <div key={c} style={{ padding: '1.5rem 0', borderBottom: '1px solid var(--border)' }}>
-                <div className="img-placeholder" style={{ height: '200px', marginBottom: '1rem' }}>[ {c} ]</div>
-                <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '0.5rem' }}>{c}</h3>
+            {[
+              { name: 'Japanese Prints', img: '/images/collections/hirosada.jpg' },
+              { name: 'Kondo Chihiro', img: '/images/collections/kondo-chihiro.jpg' },
+              { name: 'Collection Overview', img: '/images/collections/horse-racing-etching.jpg' },
+            ].map(c => (
+              <div key={c.name} style={{ padding: '1.5rem 0', borderBottom: '1px solid var(--border)' }}>
+                <Image src={c.img} alt={`${c.name} — collected works at Dry Creek Art Press`} width={700} height={200} style={{ width: '100%', height: '200px', objectFit: 'contain', background: '#F0EEE2', display: 'block', marginBottom: '1rem' }} />
+                <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '0.5rem' }}>{c.name}</h3>
                 <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', lineHeight: 1.8, color: 'var(--body-text)', fontStyle: 'italic' }}>
                   [Content to be provided by client]
                 </p>
