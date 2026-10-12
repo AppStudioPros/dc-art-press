@@ -34,19 +34,40 @@ const etchings = [
   { title: 'Dragonfly', dims: '4 x 6', price: 30, status: 'Available', img: '/images/etchings/dragonfly.jpg' },
 ]
 const watercolorsGallery = [
-  { title: 'Mt. Sopris Morning', src: '/images/watercolor-mt-sopris-morning.png' },
-  { title: 'From Will Rogers Shrine', src: '/images/watercolor-will-rogers-shrine.png' },
-  { title: 'Lupines', src: '/images/watercolor-lupines.png' },
-  { title: 'Frozen Butte', src: '/images/watercolor-frozen-butte.png' },
-  { title: 'Snow Squall', src: '/images/watercolor-snow-squall.png' },
-  { title: 'October — Vail Valley', src: '/images/watercolor-october-vail-valley.png' },
-  { title: 'May — San Luis Lakes', src: '/images/watercolor-san-luis-lakes.png' },
-  { title: 'Summer Cabin', src: '/images/watercolor-summer-cabin.png' },
+  { title: 'Mt. Sopris Morning', src: '/images/watercolors/watercolor-mt-sopris-morning.png' },
+  { title: 'From Will Rogers Shrine', src: '/images/watercolors/watercolor-will-rogers-shrine.png' },
+  { title: 'Lupines', src: '/images/watercolors/watercolor-lupines.png' },
+  { title: 'Frozen Butte', src: '/images/watercolors/watercolor-frozen-butte.png' },
+  { title: 'Snow Squall', src: '/images/watercolors/watercolor-snow-squall.png' },
+  { title: 'October — Vail Valley', src: '/images/watercolors/watercolor-october-vail-valley.png' },
+  { title: 'May — San Luis Lakes', src: '/images/watercolors/watercolor-san-luis-lakes.png' },
+  { title: 'Summer Cabin', src: '/images/watercolors/watercolor-summer-cabin.png' },
+  { title: 'Watercolor Study 1', src: '/images/watercolors/wc-gallery-1.jpg' },
+  { title: 'Watercolor Study 2', src: '/images/watercolors/wc-gallery-2.jpg' },
+  { title: 'Watercolor Study 3', src: '/images/watercolors/wc-gallery-3.jpg' },
+  { title: 'Watercolor Study 4', src: '/images/watercolors/wc-gallery-4.jpg' },
+  { title: 'Watercolor Study 5', src: '/images/watercolors/wc-gallery-5.jpg' },
+  { title: 'Watercolor Study 6', src: '/images/watercolors/wc-gallery-6.jpg' },
+  { title: 'Watercolor Study 7', src: '/images/watercolors/wc-gallery-7.jpg' },
+  { title: 'Watercolor Study 8', src: '/images/watercolors/wc-gallery-8.jpg' },
+  { title: 'Watercolor Study 9', src: '/images/watercolors/wc-gallery-9.jpg' },
+  { title: 'Watercolor Study 10', src: '/images/watercolors/wc-gallery-10.jpg' },
+  { title: 'Watercolor Study 11', src: '/images/watercolors/wc-gallery-11.jpg' },
+  { title: 'Watercolor Study 12', src: '/images/watercolors/wc-gallery-12.jpg' },
+  { title: 'Watercolor Study 13', src: '/images/watercolors/wc-gallery-13.jpg' },
+  { title: 'Watercolor Study 14', src: '/images/watercolors/wc-gallery-14.jpg' },
+  { title: 'Watercolor Study 15', src: '/images/watercolors/wc-gallery-15.jpg' },
+  { title: 'Watercolor Study 16', src: '/images/watercolors/wc-gallery-16.jpg' },
+  { title: 'Watercolor Study 17', src: '/images/watercolors/wc-gallery-17.jpg' },
+  { title: 'Watercolor Study 18', src: '/images/watercolors/wc-gallery-18.jpg' },
+  { title: 'Watercolor Study 19', src: '/images/watercolors/wc-gallery-19.jpg' },
+  { title: 'Watercolor Study 20', src: '/images/watercolors/wc-gallery-20.png' },
 ]
+const GALLERY_PAGE = 8
 const watercolorsForSale = [
-  { title: 'Setting Moon', price: 140 },
-  { title: 'Last Light Sketch', price: 180 },
-  { title: 'Lodge Pole Hillside', price: 120 },
+  { title: 'Setting Moon', price: 140, img: '/images/watercolors/setting-moon.jpg' },
+  { title: 'Last Light Sketch', price: 180, img: '/images/watercolors/last-light-sketch.jpg' },
+  { title: 'Lodge Pole Hillside', price: 120, img: '/images/watercolors/lodge-pole-hillside.jpg' },
 ]
 const processSections = [
   { name: 'Relief Prints', desc: 'The image is carved into a block of wood, leaving the design in relief. Ink is applied to the raised surface and transferred to paper.' },
@@ -66,6 +87,45 @@ function ArtCard({ title, dims, edition, price, status, img }: { title: string; 
       {status === 'Available' && price
         ? <><p className="price">${price}</p><button className="buy-btn">Add to Cart</button></>
         : <p className="sold-out">{status}</p>}
+    </div>
+  )
+}
+
+function WatercolorsTab() {
+  const [shown, setShown] = useState(GALLERY_PAGE)
+  const visible = watercolorsGallery.slice(0, shown)
+  const hasMore = shown < watercolorsGallery.length
+  return (
+    <div>
+      <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.3rem', marginBottom: '1rem' }}>Watercolors Gallery</h3>
+      <div className="art-grid">
+        {visible.map(item => (
+          <div key={item.src} className="art-card">
+            <Image src={item.src} alt={`${item.title} — watercolor by Leon Loughridge`} width={300} height={220} style={{ width: '100%', height: '180px', objectFit: 'contain', background: '#F0EEE2', display: 'block' }} />
+            <h4>{item.title}</h4>
+          </div>
+        ))}
+      </div>
+      {hasMore && (
+        <div style={{ textAlign: 'center', margin: '1.5rem 0' }}>
+          <button onClick={() => setShown(s => s + GALLERY_PAGE)} style={{ padding: '0.5rem 2rem', border: '1px solid var(--border)', backgroundColor: 'var(--white)', fontSize: '0.8rem', cursor: 'pointer', color: 'var(--accent)' }}>
+            Show More Images ({watercolorsGallery.length - shown} remaining)
+          </button>
+        </div>
+      )}
+      <hr className="dc-rule" />
+      <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.3rem', margin: '2rem 0 0.5rem' }}>Watercolor Sketches For Sale</h3>
+      <p style={{ fontSize: '0.82rem', fontStyle: 'italic', marginBottom: '1.5rem', color: '#777' }}>On-site watercolors from adventures around Colorado and New Mexico. Most are loose sheets without frame or matting.</p>
+      <div className="art-grid">
+        {watercolorsForSale.map(p => (
+          <div key={p.title} className="art-card">
+            <Image src={p.img} alt={`${p.title} — watercolor for sale by Leon Loughridge`} width={300} height={220} style={{ width: '100%', height: '180px', objectFit: 'contain', background: '#F0EEE2', display: 'block' }} />
+            <h4>{p.title}</h4>
+            <p className="price">${p.price}</p>
+            <button className="buy-btn">Add to Cart</button>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
@@ -184,33 +244,7 @@ export default function OriginalPrintsPage() {
 
         {/* Watercolors */}
         {active === 3 && (
-          <div>
-            <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.3rem', marginBottom: '1rem' }}>Watercolors Gallery</h3>
-            <div className="art-grid">
-              {watercolorsGallery.map(item => (
-                <div key={item.title} className="art-card">
-                  <Image src={item.src} alt={`${item.title} — watercolor by Leon Loughridge`} width={300} height={220} style={{ width: '100%', height: '180px', objectFit: 'contain', background: '#F0EEE2', display: 'block' }} />
-                  <h4>{item.title}</h4>
-                </div>
-              ))}
-            </div>
-            <div style={{ textAlign: 'center', margin: '1.5rem 0' }}>
-              <button style={{ padding: '0.5rem 2rem', border: '1px solid var(--border)', backgroundColor: 'var(--white)', fontSize: '0.8rem', cursor: 'pointer', color: 'var(--accent)' }}>Show More Images</button>
-            </div>
-            <hr className="dc-rule" />
-            <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.3rem', margin: '2rem 0 0.5rem' }}>Watercolor Sketches For Sale</h3>
-            <p style={{ fontSize: '0.82rem', fontStyle: 'italic', marginBottom: '1.5rem', color: '#777' }}>On-site watercolors from adventures around Colorado and New Mexico. Most are loose sheets without frame or matting.</p>
-            <div className="art-grid">
-              {watercolorsForSale.map(p => (
-                <div key={p.title} className="art-card">
-                  <div className="img-placeholder" style={{ height: '180px' }}>[ {p.title} ]</div>
-                  <h4>{p.title}</h4>
-                  <p className="price">${p.price}</p>
-                  <button className="buy-btn">Add to Cart</button>
-                </div>
-              ))}
-            </div>
-          </div>
+          <WatercolorsTab />
         )}
 
         {/* The Process */}
