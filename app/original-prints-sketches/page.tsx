@@ -18,12 +18,12 @@ const trailsEnd = [
   { title: 'Afternoon Cumulus', dims: '22 x 14', edition: 'Ed. 19', price: null, status: 'Out of Stock', img: '/images/woodblocks/72263d_85a337c5.jpg' },
 ]
 const serigraphs = [
-  { title: 'Pueblo Arroyo', dims: '14 x 11', price: 525, status: 'Available' },
+  { title: 'Pueblo Arroyo', dims: '14 x 11', price: 525, status: 'Available', img: '/images/serigraphs/pueblo-arroyo.jpg' },
   { title: 'Summer Garden', dims: '14 x 11', price: null, status: 'Out of Stock', img: '/images/serigraphs/summer-garden.jpg' },
-  { title: 'Summer Splendor', dims: '14 x 11', price: null, status: 'Out of Stock' },
-  { title: 'Summer Sparkle', dims: '14 x 11', price: null, status: 'Out of Stock' },
-  { title: 'Snow Tracks Demo Booklet', dims: '', price: 45, status: 'Available' },
-  { title: 'Pecos Sunrise', dims: '14 x 11', price: null, status: 'Out of Stock' },
+  { title: 'Summer Splendor', dims: '14 x 11', price: null, status: 'Out of Stock', img: '/images/serigraphs/summer-splendor.jpg' },
+  { title: 'Summer Sparkle', dims: '14 x 11', price: null, status: 'Out of Stock', img: '/images/serigraphs/summer-sparkle.jpg' },
+  { title: 'Snow Tracks Demo Booklet', dims: '', price: 45, status: 'Available', img: '/images/serigraphs/snow-tracks-booklet.jpg' },
+  { title: 'Pecos Sunrise', dims: '14 x 11', price: null, status: 'Out of Stock', img: '/images/serigraphs/pecos-sunrise.jpg' },
 ]
 const etchings = [
   { title: 'The Bear', dims: '8 x 6', price: 45, status: 'Available' },
@@ -158,7 +158,7 @@ export default function OriginalPrintsPage() {
             </p>
             <p style={{ fontSize: '0.82rem', fontStyle: 'italic', color: '#888', marginBottom: '2rem' }}>Note: Some prints are gallery sales only and may not be available through this site.</p>
             <hr className="dc-rule" />
-            <div className="art-grid">{serigraphs.map(p => <ArtCard key={p.title} title={p.title} dims={p.dims} price={p.price} status={p.status} />)}</div>
+            <div className="art-grid">{serigraphs.map(p => <ArtCard key={p.title} title={p.title} dims={p.dims} price={p.price} status={p.status} img={p.img} />)}</div>
           </div>
         )}
 
