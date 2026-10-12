@@ -26,12 +26,12 @@ const serigraphs = [
   { title: 'Pecos Sunrise', dims: '14 x 11', price: null, status: 'Out of Stock', img: '/images/serigraphs/pecos-sunrise.jpg' },
 ]
 const etchings = [
-  { title: 'The Bear', dims: '8 x 6', price: 45, status: 'Available' },
-  { title: 'Covered Bridge Beaver Creek', dims: '9 x 6', price: 75, status: 'Available' },
-  { title: 'Main Street', dims: '12 x 9', price: null, status: 'Out of Stock' },
-  { title: 'Mellow Yellow', dims: '6 x 9', price: 75, status: 'Available' },
-  { title: 'Main Street Pair', dims: '9 x 12', price: null, status: 'Out of Stock' },
-  { title: 'Dragonfly', dims: '4 x 6', price: 30, status: 'Available' },
+  { title: 'The Bear', dims: '8 x 6', price: 45, status: 'Available', img: '/images/etchings/the-bear.jpg' },
+  { title: 'Covered Bridge Beaver Creek', dims: '9 x 6', price: 75, status: 'Available', img: '/images/etchings/covered-bridge.jpg' },
+  { title: 'Main Street', dims: '12 x 9', price: null, status: 'Out of Stock', img: '/images/etchings/main-street.jpg' },
+  { title: 'Mellow Yellow', dims: '6 x 9', price: 75, status: 'Available', img: '/images/etchings/mellow-yellow.jpg' },
+  { title: 'Main Street Pair', dims: '9 x 12', price: null, status: 'Out of Stock', img: '/images/etchings/main-street-pair.jpg' },
+  { title: 'Dragonfly', dims: '4 x 6', price: 30, status: 'Available', img: '/images/etchings/dragonfly.jpg' },
 ]
 const watercolorsGallery = [
   { title: 'Mt. Sopris Morning', src: '/images/watercolor-mt-sopris-morning.png' },
@@ -178,7 +178,7 @@ export default function OriginalPrintsPage() {
             </div>
             <hr className="dc-rule" />
             <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.3rem', margin: '1.5rem 0 1rem' }}>Available Etchings</h3>
-            <div className="art-grid">{etchings.map(p => <ArtCard key={p.title} title={p.title} dims={p.dims} price={p.price} status={p.status} />)}</div>
+            <div className="art-grid">{etchings.map(p => <ArtCard key={p.title} title={p.title} dims={p.dims} price={p.price} status={p.status} img={p.img} />)}</div>
           </div>
         )}
 
