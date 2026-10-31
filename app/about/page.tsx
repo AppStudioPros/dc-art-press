@@ -7,12 +7,12 @@ import PageHero from '@/components/PageHero'
 const tabs = ['About The Studio', 'Special Collections', 'About The Process', 'Exhibiting Galleries']
 
 const galleries = [
-  { name: 'McLarry Fine Art', location: 'Santa Fe, NM', url: '#' },
-  { name: 'Oh Be Joyful', location: 'Crested Butte, CO', url: '#' },
-  { name: 'Ann Korologos Gallery', location: 'Basalt, CO', url: '#' },
-  { name: 'Broadmoor Galleries', location: 'Colorado Springs, CO', url: '#' },
-  { name: 'Breckenridge Gallery', location: 'Breckenridge, CO', url: '#' },
-  { name: 'Wild Horse Gallery', location: 'Jackson, WY', url: '#' },
+  { name: 'McLarry Fine Art', location: 'Santa Fe, NM', url: 'https://mclarryfineart.com/leon-loughridge' },
+  { name: 'Oh Be Joyful Gallery', location: 'Crested Butte, CO', url: 'https://ohbejoyfulgallery.com/artist/leon-loughridge' },
+  { name: 'Ann Korologos Gallery', location: 'Basalt, CO', url: 'https://korologosgallery.com/artist/leon-loughridge/#works' },
+  { name: 'Broadmoor Galleries', location: 'Colorado Springs, CO', url: 'https://broadmoorgalleries.com/artist/leon-loughridge/' },
+  { name: 'Breckenridge Gallery', location: 'Breckenridge, CO', url: 'https://breckenridgegallery.com/artist/leon-loughridge' },
+  { name: 'Wild Horse Gallery', location: 'Jackson, WY', url: 'https://www.wildhorsegallery.com/' },
 ]
 
 export default function AboutPage() {
