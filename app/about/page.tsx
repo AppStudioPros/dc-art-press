@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import PageHero from '@/components/PageHero'
 
-const tabs = ['About The Studio', 'Special Collections', 'Special Projects', 'Exhibiting Galleries']
+const tabs = ['About The Studio', 'Special Collections', 'About The Process', 'Exhibiting Galleries']
 
 const galleries = [
   { name: 'McLarry Fine Art', location: 'Santa Fe, NM', url: '#' },
@@ -123,13 +123,19 @@ export default function AboutPage() {
         </div>
       )}
 
-      {/* Special Projects */}
+      {/* About The Process */}
       {active === 2 && (
         <div style={{ maxWidth: '700px' }}>
-          <div className="img-placeholder" style={{ height: '300px', marginBottom: '2rem' }}>[ Special projects content — to be provided by client ]</div>
-          <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.9rem', lineHeight: 1.85, color: '#999', fontStyle: 'italic' }}>
-            Content for this section will be added once assets are provided.
+          <div style={{ position: 'relative', height: '280px', marginBottom: '2rem', overflow: 'hidden', borderRadius: '2px' }}>
+            <Image src="/images/process/72263d_bf508c20da074735960a0c7b4c118d3a~mv2.jpg" alt="Leon Loughridge's printmaking studio" fill style={{ objectFit: 'cover' }} />
+          </div>
+          <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '0.75rem' }}>From carved block to pulled impression.</h3>
+          <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.92rem', lineHeight: 1.9, color: 'var(--body-text)', marginBottom: '1rem' }}>
+            At Dry Creek Art Press, every print is made by hand. Leon works primarily in woodblock — carving the image, inking by brush, and pressing to dampened paper one color at a time. The techniques vary — Moku Hanga, reduction relief, serigraph, intaglio — but the principle is the same: direct contact between artist, material, and paper.
           </p>
+          <Link href="/process" style={{ display: 'inline-block', marginTop: '0.5rem', padding: '0.65rem 1.75rem', backgroundColor: 'var(--note-btn)', color: '#fff', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'var(--font-avenir), sans-serif' }}>
+            Explore The Process →
+          </Link>
         </div>
       )}
 
