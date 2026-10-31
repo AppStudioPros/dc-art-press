@@ -4,15 +4,15 @@ import Image from 'next/image'
 import PageHero from '@/components/PageHero'
 
 const editionedBooks = [
-  { title: 'Esboccos de Porto', year: 2024, status: 'Available', notes: 'Contact for pricing', img: '/images/books/cover.jpg' },
-  { title: 'Chaco Sojourn', year: 2021, status: 'Available', notes: 'Contact for pricing' },
-  { title: 'Gorge Songs', year: 2018, status: 'Available', notes: 'Available through DCAP Bookstore', img: '/images/books/gorge-songs.jpg' },
-  { title: 'Royal Road', year: 2016, status: 'Sold Out', notes: null },
-  { title: 'Las Montanas', year: 2009, status: 'Sold Out', notes: null },
-  { title: 'Spring Thaw in the Gore Range', year: 2008, status: 'Sold Out', notes: null },
+  { title: 'Esboccos de Porto', year: 2024, status: 'Available', notes: 'Contact for pricing', img: '/images/books/esboccos-de-porto.jpg' },
+  { title: 'Chaco Sojourn', year: 2021, status: 'Available', notes: 'Contact for pricing', img: '/images/books/chaco-sojourn.jpg' },
+  { title: 'Gorge Songs', year: 2018, status: 'Available', notes: 'Available through DCAP Bookstore', img: '/images/books/gorge-songs-print.jpg' },
+  { title: 'Royal Road', year: 2016, status: 'Sold Out', notes: null, img: '/images/books/royal-road.jpg' },
+  { title: 'Las Montanas', year: 2009, status: 'Sold Out', notes: null, img: '/images/books/las-montanas.jpg' },
+  { title: 'Spring Thaw in the Gore Range', year: 2008, status: 'Sold Out', notes: null, img: '/images/books/spring-thaw.jpg' },
   { title: 'Woodblocks of the Santa Fe Trail — New Mexico', year: 2008, status: 'Available', notes: '1 copy available', img: '/images/books/title.jpg' },
   { title: 'Woodblocks of the Santa Fe Trail — Colorado', year: 2007, status: 'Sold Out', notes: null },
-  { title: 'Chapels of San Luis', year: 2002, status: 'Sold Out', notes: null },
+  { title: 'Chapels of San Luis', year: 2002, status: 'Sold Out', notes: null, img: '/images/books/chapels-of-san-luis.jpg' },
   { title: 'Views of McNichols', year: 2000, status: 'Available', notes: 'Contact for pricing' },
 ]
 
