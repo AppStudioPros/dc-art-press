@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import FadeUp from '@/components/FadeUp'
 import PageHero from '@/components/PageHero'
+import { FileText, ExternalLink } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About The Process | Dry Creek Art Press',
@@ -10,12 +11,19 @@ export const metadata: Metadata = {
   alternates: { canonical: '/process' },
 }
 
-const techniques = [
+type Technique = { title: string; subtitle: string; img: string | null; body: string; pdfs?: { label: string; href: string }[]; demoHref?: string }
+const techniques: Technique[] = [
   {
     title: 'Relief Prints',
     subtitle: 'Woodblock · Linocut · Reduction',
     img: '/images/process/72263d_bf508c20da074735960a0c7b4c118d3a~mv2.jpg',
     body: `Relief printing is one of the oldest forms of printmaking. The image is carved by hand into a wood or linoleum block — the raised surface accepts the ink, while the cut-away areas stay white. Each color requires a separate pass through the press or a separate hand-printing step.\n\nLeon's reduction prints remove material from a single block between each color, making each edition inherently unique and irreproducible once the block is fully reduced.`,
+    pdfs: [
+      { label: 'Single Block Relief Print', href: '/pdfs/SingleBlockReliefPrint.pdf' },
+      { label: 'Multi Block Relief Print', href: '/pdfs/MultiBlockReliefPrint.pdf' },
+      { label: 'Reduction Block Relief Print', href: '/pdfs/ReductionBlockReliefPrint.pdf' },
+    ],
+    demoHref: '/wbdemos',
   },
   {
     title: 'Moku Hanga',
@@ -94,6 +102,22 @@ export default function ProcessPage() {
                     {t.body.split('\n\n').map((para, j) => (
                       <p key={j} style={{ fontWeight: 300, fontSize: '0.92rem', lineHeight: 1.9, color: 'var(--body-text)', marginBottom: '1rem' }}>{para}</p>
                     ))}
+                    {(t.pdfs || t.demoHref) && (
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginTop: '1.25rem' }}>
+                        {t.pdfs?.map(pdf => (
+                          <a key={pdf.href} href={pdf.href} target="_blank" rel="noopener noreferrer"
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.5rem 1rem', border: '1px solid var(--accent)', color: 'var(--accent)', textDecoration: 'none', fontSize: '0.75rem', letterSpacing: '0.06em', fontFamily: 'var(--font-avenir), sans-serif', transition: 'all 0.2s' }}>
+                            <FileText size={13} /> {pdf.label}
+                          </a>
+                        ))}
+                        {t.demoHref && (
+                          <Link href={t.demoHref}
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.5rem 1rem', backgroundColor: 'var(--note-btn)', color: '#fff', textDecoration: 'none', fontSize: '0.75rem', letterSpacing: '0.06em', fontFamily: 'var(--font-avenir), sans-serif' }}>
+                            <ExternalLink size={13} /> View Demo Page
+                          </Link>
+                        )}
+                      </div>
+                    )}
                   </div>
                   {t.img && (
                     <div style={{ position: 'relative', height: '300px', overflow: 'hidden', borderRadius: '2px' }}>
