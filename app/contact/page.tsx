@@ -20,7 +20,7 @@ export default function ContactPage() {
     <>
       <PageHero title="Contact" subtitle="Reach out about artwork, commissions, studio visits, or the DCAP Bookstore." accent="Dry Creek Art Press" />
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', marginBottom: '4rem' }} className="max-sm:grid-cols-1">
+        <div className="dc-grid-2" style={{ marginBottom: '4rem' }}>
 
           {/* Left — Info */}
           <div>
@@ -60,7 +60,7 @@ export default function ContactPage() {
         <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.8rem', textAlign: 'center', margin: '2rem 0' }}>
           Studio Spaces
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }} className="max-sm:grid-cols-1">
+        <div className="dc-grid-3-lg">
           {studios.map(s => (
             <div key={s.name}>
               <Image src={s.img} alt={`${s.name} — Dry Creek Art Press`} width={500} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block', marginBottom: '1rem' }} />

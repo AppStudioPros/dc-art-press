@@ -39,7 +39,7 @@ export default function WoodblocksPage() {
       <div className="page-wrap" style={{ padding: '2rem' }}>
 
         {/* New Woodblock Feature */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '3rem', alignItems: 'center' }}>
+        <div className="dc-grid-2-sm" style={{ marginBottom: '3rem' }}>
           <Image
             src="/images/woodblocks/warm-evening-9x6.jpg"
             alt="Warm Evening — 9x6 woodblock print by Leon Loughridge"

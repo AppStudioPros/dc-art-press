@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import HeroSlideshow from '@/components/HeroSlideshow'
 import QuestMarquee from '@/components/QuestMarquee'
+import FadeUp from '@/components/FadeUp'
 import WatercolorFader from '@/components/WatercolorFader'
 
 export const metadata: Metadata = {
@@ -41,100 +42,101 @@ export default function HomePage() {
       </section>
 
       {/* ── A Tradition of Devotion ── */}
-      <section style={{ backgroundColor: '#fff', padding: '5rem 0', borderBottom: '1px solid var(--rule)' }}>
-        <div className="page-wrap" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', minHeight: '420px' }}>
-        {/* Text — left side, gallery label style */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-        }}>
-          <div style={{ width: '32px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
-          <h2 style={{
-            fontFamily: 'var(--font-fredericka), serif',
-            fontSize: 'clamp(1.6rem, 2.5vw, 2.4rem)',
-            lineHeight: 1.25,
-            color: '#A26F4C',
-            marginBottom: '1.25rem',
-            letterSpacing: '0.01em',
-          }}>
-            A Tradition<br />of Devotion
-          </h2>
-          <p style={{
-            fontFamily: 'var(--font-avenir), sans-serif',
-            fontWeight: 300,
-            fontSize: '0.95rem',
-            lineHeight: 1.85,
-            color: '#000',
-            marginBottom: '2rem',
-            maxWidth: '380px',
-          }}>
-            Scheduled for late October 2026 — an exhibit of woodblocks and watercolors of the &ldquo;remudding&rdquo; of the San Francisco de Asis Mission at Ranchos de Taos. McLarry Fine Art, Santa Fe, NM · Oct 16, 2026.
-          </p>
-          <Link href="/in-the-works" style={{
-            display: 'inline-block',
-            padding: '0.6rem 1.6rem',
-            backgroundColor: 'var(--note-btn)',
-            color: '#fff',
-            textDecoration: 'none',
-            fontSize: '0.78rem',
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-          }}>
-            Visit Exhibit Page
-          </Link>
-        </div>
-        {/* Image — right side, full artwork shown, never cropped */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Image
-            src="/images/home-ranchos-taos.jpg"
-            alt="San Francisco de Asis Mission, Ranchos de Taos — woodblock print by Leon Loughridge"
-            width={600}
-            height={450}
-            sizes="50vw"
-            style={{ width: '100%', height: 'auto', display: 'block' }}
-          />
-        </div>
+      <section className="dc-section" style={{ backgroundColor: '#fff', borderBottom: '1px solid var(--rule)' }}>
+        <div className="page-wrap dc-grid-2" style={{ minHeight: '420px' }}>
+          {/* Text — left side */}
+          <FadeUp anim="left">
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              textAlign: 'center',
+            }}>
+              <div style={{ width: '32px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
+              <h2 style={{
+                fontFamily: 'var(--font-fredericka), serif',
+                fontSize: 'clamp(1.6rem, 2.5vw, 2.4rem)',
+                lineHeight: 1.25,
+                color: '#A26F4C',
+                marginBottom: '1.25rem',
+                letterSpacing: '0.01em',
+              }}>
+                A Tradition<br />of Devotion
+              </h2>
+              <p style={{
+                fontFamily: 'var(--font-avenir), sans-serif',
+                fontWeight: 300,
+                fontSize: '0.95rem',
+                lineHeight: 1.85,
+                color: '#000',
+                marginBottom: '2rem',
+                maxWidth: '380px',
+              }}>
+                Scheduled for late October 2026 — an exhibit of woodblocks and watercolors of the &ldquo;remudding&rdquo; of the San Francisco de Asis Mission at Ranchos de Taos. McLarry Fine Art, Santa Fe, NM · Oct 16, 2026.
+              </p>
+              <Link href="/in-the-works" className="dc-btn">
+                Visit Exhibit Page
+              </Link>
+            </div>
+          </FadeUp>
+          {/* Image — right side, full artwork shown, never cropped */}
+          <FadeUp anim="right" delay={120}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Image
+                src="/images/home-ranchos-taos.jpg"
+                alt="San Francisco de Asis Mission, Ranchos de Taos — woodblock print by Leon Loughridge"
+                width={600}
+                height={450}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </div>
+          </FadeUp>
         </div>
       </section>
 
       {/* ── Quest for the West ── */}
       <section style={{ borderBottom: '1px solid var(--rule)' }}>
-        <QuestMarquee
-          title={<h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: '#A26F4C', fontSize: 'clamp(1.5rem, 2.5vw, 2.1rem)', marginBottom: '0.4rem' }}>Quest for the West</h2>}
-          subtitle={<p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.85rem', color: '#A26F4C', marginBottom: '0.9rem', opacity: 0.75 }}>The Eiteljorg Museum, Indianapolis</p>}
-          body={<p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.9rem', lineHeight: 1.8, color: '#1a1008' }}>
-            I am very honored to have been invited to exhibit my woodblocks at the Eiteljorg Museum in Indianapolis.
-            Four woodblocks on display: Ranchos Sunset, Acoma Pueblo, Snowy Plateau and Freezing Over.
-          </p>}
-        />
+        <FadeUp>
+          <QuestMarquee
+            title={<h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: '#A26F4C', fontSize: 'clamp(1.5rem, 2.5vw, 2.1rem)', marginBottom: '0.4rem' }}>Quest for the West</h2>}
+            subtitle={<p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.85rem', color: '#A26F4C', marginBottom: '0.9rem', opacity: 0.75 }}>The Eiteljorg Museum, Indianapolis</p>}
+            body={<p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.9rem', lineHeight: 1.8, color: '#1a1008' }}>
+              I am very honored to have been invited to exhibit my woodblocks at the Eiteljorg Museum in Indianapolis.
+              Four woodblocks on display: Ranchos Sunset, Acoma Pueblo, Snowy Plateau and Freezing Over.
+            </p>}
+          />
+        </FadeUp>
       </section>
 
       {/* ── Watercolor Sketches ── */}
-      <section style={{ backgroundColor: '#F7F5F5', padding: '5rem 0', borderBottom: '1px solid var(--rule)' }}>
+      <section className="dc-section" style={{ backgroundColor: '#F7F5F5', borderBottom: '1px solid var(--rule)' }}>
         <div className="page-wrap">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+          <div className="dc-grid-2">
             {/* Left: fading portrait watercolors */}
-            <WatercolorFader />
+            <FadeUp anim="left">
+              <WatercolorFader />
+            </FadeUp>
             {/* Right: text */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center' }}>
-              <div style={{ width: '32px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
-              <h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: '#A26F4C', fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', marginBottom: '1rem' }}>Watercolor Sketches</h2>
-              <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.85, color: '#000', marginBottom: '2rem', maxWidth: '400px' }}>
-                On-site watercolors from adventures around Colorado and New Mexico. Captured in the moment — each piece a quick study of light, landscape, and place. Most are loose sheets without frame or matting.
-              </p>
-              <Link href="/watercolors" style={{ display: 'inline-block', padding: '0.6rem 1.6rem', backgroundColor: 'var(--note-btn)', color: '#fff', textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                Visit The Page
-              </Link>
-            </div>
+            <FadeUp anim="right" delay={120}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'center' }}>
+                <div style={{ width: '32px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
+                <h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: '#A26F4C', fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', marginBottom: '1rem' }}>Watercolor Sketches</h2>
+                <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.85, color: '#000', marginBottom: '2rem', maxWidth: '400px' }}>
+                  On-site watercolors from adventures around Colorado and New Mexico. Captured in the moment — each piece a quick study of light, landscape, and place. Most are loose sheets without frame or matting.
+                </p>
+                <Link href="/watercolors" className="dc-btn">
+                  Visit The Page
+                </Link>
+              </div>
+            </FadeUp>
           </div>
         </div>
       </section>
 
       {/* ── Quote — flip card on hover ── */}
-      <section style={{ backgroundColor: '#F0EEE2', padding: '5rem 2rem', borderBottom: '1px solid var(--rule)' }}>
+      <section className="dc-section" style={{ backgroundColor: '#F0EEE2', borderBottom: '1px solid var(--rule)', paddingLeft: '2rem', paddingRight: '2rem' }}>
         <style>{`
           .quote-flip-wrap {
             perspective: 1200px;
@@ -168,113 +170,120 @@ export default function HomePage() {
           }
         `}</style>
 
-        <div className="quote-flip-wrap">
-          <div className="quote-flip-card">
-            {/* Front — quote text */}
-            <div className="quote-front" style={{ flexDirection: 'column', textAlign: 'center', padding: '0 2rem' }}>
-              <div style={{
-                fontFamily: 'var(--font-fredericka), serif',
-                fontSize: 'clamp(4rem, 8vw, 7rem)',
-                color: '#A26F4C',
-                lineHeight: 1,
-                marginBottom: '-1rem',
-                opacity: 0.35,
-                userSelect: 'none',
-              }}>&ldquo;</div>
-              <p style={{
-                fontFamily: 'var(--font-fredericka), serif',
-                fontSize: 'clamp(1.1rem, 2vw, 1.55rem)',
-                lineHeight: 1.65,
-                color: '#2a1f14',
-                letterSpacing: '0.01em',
-              }}>
-                Art has been a part of my life since I can remember. It is how I see what is around me.
-                The world makes sense when I can record what I feel and see with sketches and drawings.
-                My woodblocks are a more complete story of the moment.
-              </p>
-              <p style={{ marginTop: '1.25rem', fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#A26F4C' }}>
-                — Leon Loughridge &nbsp;·&nbsp; hover to meet him
-              </p>
-            </div>
+        <FadeUp anim="scale">
+          <div className="quote-flip-wrap">
+            <div className="quote-flip-card">
+              {/* Front — quote text */}
+              <div className="quote-front" style={{ flexDirection: 'column', textAlign: 'center', padding: '0 2rem' }}>
+                <div style={{
+                  fontFamily: 'var(--font-fredericka), serif',
+                  fontSize: 'clamp(4rem, 8vw, 7rem)',
+                  color: '#A26F4C',
+                  lineHeight: 1,
+                  marginBottom: '-1rem',
+                  opacity: 0.35,
+                  userSelect: 'none',
+                }}>&ldquo;</div>
+                <p style={{
+                  fontFamily: 'var(--font-fredericka), serif',
+                  fontSize: 'clamp(1.1rem, 2vw, 1.55rem)',
+                  lineHeight: 1.65,
+                  color: '#2a1f14',
+                  letterSpacing: '0.01em',
+                }}>
+                  Art has been a part of my life since I can remember. It is how I see what is around me.
+                  The world makes sense when I can record what I feel and see with sketches and drawings.
+                  My woodblocks are a more complete story of the moment.
+                </p>
+                <p style={{ marginTop: '1.25rem', fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#A26F4C' }}>
+                  — Leon Loughridge &nbsp;·&nbsp; hover to meet him
+                </p>
+              </div>
 
-            {/* Back — Leon's photo */}
-            <div className="quote-back" style={{ backgroundColor: '#F0EEE2' }}>
-              <Image
-                src="/images/about/leon-with-print.jpg"
-                alt="Leon Loughridge in his studio holding a woodblock print"
-                fill
-                sizes="760px"
-                style={{ objectFit: 'contain', objectPosition: 'top center' }}
-              />
-              <div style={{
-                position: 'absolute',
-                bottom: 0, left: 0, right: 0,
-                padding: '1.25rem 1.5rem',
-                background: 'linear-gradient(to top, rgba(20,13,7,0.75), transparent)',
-                color: '#F0EEE2',
-                fontFamily: 'var(--font-avenir), sans-serif',
-                fontWeight: 300,
-                fontSize: '0.8rem',
-                letterSpacing: '0.06em',
-              }}>
-                Leon Loughridge — Dry Creek Art Press, Denver
+              {/* Back — Leon's photo */}
+              <div className="quote-back" style={{ backgroundColor: '#F0EEE2' }}>
+                <Image
+                  src="/images/about/leon-with-print.jpg"
+                  alt="Leon Loughridge in his studio holding a woodblock print"
+                  fill
+                  sizes="760px"
+                  style={{ objectFit: 'contain', objectPosition: 'top center' }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  bottom: 0, left: 0, right: 0,
+                  padding: '1.25rem 1.5rem',
+                  background: 'linear-gradient(to top, rgba(20,13,7,0.75), transparent)',
+                  color: '#F0EEE2',
+                  fontFamily: 'var(--font-avenir), sans-serif',
+                  fontWeight: 300,
+                  fontSize: '0.8rem',
+                  letterSpacing: '0.06em',
+                }}>
+                  Leon Loughridge — Dry Creek Art Press, Denver
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </FadeUp>
       </section>
 
       {/* ── Modern Bungalow ── */}
       <section style={{ backgroundColor: '#4E574B', borderBottom: '1px solid rgba(0,0,0,0.2)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '360px' }}>
+        <div className="dc-bungalow-grid">
           {/* Logo card */}
-          <div style={{ backgroundColor: '#F0EEE2', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem' }}>
-            <Image
-              src="/images/modern-bungalow-logo.jpg"
-              alt="Modern Bungalow — Denver Colorado"
-              width={280}
-              height={240}
-              style={{ width: 'auto', maxWidth: '260px', height: 'auto', display: 'block' }}
-            />
-          </div>
-          {/* Text */}
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3.5rem 4rem' }}>
-            <div style={{ width: '28px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
-            <h2 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', color: '#F0EEE2', marginBottom: '1rem' }}>Modern Bungalow</h2>
-            <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.92rem', lineHeight: 1.85, color: 'rgba(240,238,226,0.82)', marginBottom: '1.5rem' }}>
-              My woodblocks are now on display at Modern Bungalow on South Gaylord — a lovely historic building with parking right behind the shop at the painted doorway in the alley.
-            </p>
-            <div style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: 'rgba(240,238,226,0.65)', lineHeight: 2 }}>
-              1028 S. Gaylord Street, Denver CO 80209<br />
-              Mon–Sat 10AM–5PM &nbsp;·&nbsp; Sun 10AM–2PM<br />
-              <a href="tel:3033003332" style={{ color: '#A26F4C', textDecoration: 'none' }}>303-300-3332</a>
+          <FadeUp anim="left">
+            <div style={{ backgroundColor: '#F0EEE2', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem', minHeight: '360px' }}>
+              <Image
+                src="/images/modern-bungalow-logo.jpg"
+                alt="Modern Bungalow — Denver Colorado"
+                width={280}
+                height={240}
+                style={{ width: 'auto', maxWidth: '260px', height: 'auto', display: 'block' }}
+              />
             </div>
-          </div>
+          </FadeUp>
+          {/* Text */}
+          <FadeUp anim="right" delay={120}>
+            <div className="dc-bungalow-text" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3.5rem 4rem', minHeight: '360px' }}>
+              <div style={{ width: '28px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
+              <h2 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', color: '#F0EEE2', marginBottom: '1rem' }}>Modern Bungalow</h2>
+              <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.92rem', lineHeight: 1.85, color: 'rgba(240,238,226,0.82)', marginBottom: '1.5rem' }}>
+                My woodblocks are now on display at Modern Bungalow on South Gaylord — a lovely historic building with parking right behind the shop at the painted doorway in the alley.
+              </p>
+              <div style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: 'rgba(240,238,226,0.65)', lineHeight: 2 }}>
+                1028 S. Gaylord Street, Denver CO 80209<br />
+                Mon–Sat 10AM–5PM &nbsp;·&nbsp; Sun 10AM–2PM<br />
+                <a href="tel:3033003332" style={{ color: '#A26F4C', textDecoration: 'none' }}>303-300-3332</a>
+              </div>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
       {/* ── Category Grid ── */}
-      <section style={{ padding: '3rem 0' }}>
+      <section className="dc-section" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
         <div className="page-wrap">
           <div className="art-grid">
-            {categories.map(cat => (
-              <Link key={cat.href} href={cat.href} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div style={{ border: '1px solid var(--border)', padding: '1.25rem', textAlign: 'center', backgroundColor: 'var(--white)', cursor: 'pointer', transition: 'box-shadow 0.2s', display: 'flex', flexDirection: 'column', height: '100%' }}
-                  className="hover:shadow-md transition-shadow">
-                  <div style={{ position: 'relative', width: '100%', paddingBottom: '82%', backgroundColor: '#e8e4dc', marginBottom: '1rem', overflow: 'hidden', flexShrink: 0 }}>
-                    <Image
-                      src={cat.img}
-                      alt={cat.label}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      style={{ objectFit: 'cover' }}
-                    />
+            {categories.map((cat, i) => (
+              <FadeUp key={cat.href} delay={i * 100}>
+                <Link href={cat.href} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <div className="cat-grid-card">
+                    <div style={{ position: 'relative', width: '100%', paddingBottom: '82%', backgroundColor: '#e8e4dc', marginBottom: '1rem', overflow: 'hidden', flexShrink: 0 }}>
+                      <Image
+                        src={cat.img}
+                        alt={cat.label}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <h3 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '1.05rem', color: 'var(--body-text)', marginBottom: '0.4rem' }}>{cat.label}</h3>
+                    <p style={{ fontSize: '0.8rem', color: '#777', fontStyle: 'italic', marginBottom: '0.75rem' }}>{cat.desc}</p>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--accent)', textDecoration: 'underline' }}>Visit Page</span>
                   </div>
-                  <h3 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '1.05rem', color: 'var(--body-text)', marginBottom: '0.4rem' }}>{cat.label}</h3>
-                  <p style={{ fontSize: '0.8rem', color: '#777', fontStyle: 'italic', marginBottom: '0.75rem' }}>{cat.desc}</p>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--accent)', textDecoration: 'underline' }}>Visit Page</span>
-                </div>
-              </Link>
+                </Link>
+              </FadeUp>
             ))}
           </div>
         </div>

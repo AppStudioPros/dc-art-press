@@ -20,7 +20,7 @@ export default function InTheWorksPage() {
         {/* Folio Prints */}
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '1rem' }}>The Folio Prints</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'start' }}>
+          <div className="dc-grid-2-xs">
             <div className="img-placeholder" style={{ height: '240px' }}>[ Folio prints image ]</div>
             <div className="prose-dc">
               <p>The folio consists of 16 folios, 2 artist proofs. Each folio contains woodblocks and watercolors depicting the San Francisco de Asis Mission church at Ranchos de Taos, NM — one of the most painted and photographed adobe structures in North America.</p>
@@ -34,7 +34,7 @@ export default function InTheWorksPage() {
         {/* Watercolors */}
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '1rem' }}>The Watercolors</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+          <div className="dc-grid-2-xs">
             <div className="prose-dc">
               <p>On-site watercolor sketches painted during visits to the Ranchos de Taos mission. These companion works provide the initial color and composition studies for the woodblock editions.</p>
             </div>
@@ -47,7 +47,7 @@ export default function InTheWorksPage() {
         {/* In The Process */}
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '1rem' }}>In The Process</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+          <div className="dc-grid-2-xs">
             <div className="img-placeholder" style={{ height: '200px' }}>[ Studio process photo ]</div>
             <div className="prose-dc">
               <p>The woodblock process begins with drawings and watercolor sketches made on-site. The image is then transferred to cherry wood blocks, carved, and hand-printed using the Japanese Moku Hanga method with rice paste and watercolor pigments.</p>
@@ -71,7 +71,7 @@ export default function InTheWorksPage() {
         {/* Printing the Woodblocks */}
         <section>
           <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', marginBottom: '1rem' }}>Printing The Woodblocks</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+          <div className="dc-grid-2-xs">
             <div className="prose-dc">
               <p>Using the Japanese Moku Hanga technique, each color is printed one at a time. Rice paste is mixed with watercolor pigment and brushed across the carved surface of the woodblock with stiff-haired brushes. Paper is registered to pins and the image transferred with a baren — a textured disk — allowing 4–5 colors to be printed in an afternoon.</p>
             </div>

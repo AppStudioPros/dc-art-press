@@ -75,7 +75,7 @@ export default function BooksPage() {
           </p>
           <div style={{ borderTop: '1px solid var(--border)' }}>
             {editionedBooks.map(b => (
-              <div key={b.title} style={{ display: 'grid', gridTemplateColumns: '160px 1fr', gap: '2rem', padding: '1.5rem 0', borderBottom: '1px solid var(--border)', alignItems: 'start' }}>
+              <div key={b.title} className="dc-grid-book-entry" style={{ padding: '1.5rem 0', borderBottom: '1px solid var(--border)' }}>
                 {'img' in b && b.img
                   ? <Image src={b.img as string} alt={`${b.title} — book by Leon Loughridge`} width={160} height={130} style={{ width: '160px', height: '130px', objectFit: 'contain', background: '#F0EEE2', display: 'block' }} />
                   : <div className="img-placeholder" style={{ height: '130px' }}>[ {b.title} ]</div>}

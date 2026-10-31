@@ -30,7 +30,7 @@ export default function CommissionsPage() {
         </p>
         <hr className="dc-rule" />
         {commissions.map(c => (
-          <div key={c.title} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', padding: '2rem 0', borderBottom: '1px solid var(--border)', alignItems: 'start' }}>
+          <div key={c.title} className="dc-grid-2-sm" style={{ padding: '2rem 0', borderBottom: '1px solid var(--border)' }}>
             <div className="img-placeholder" style={{ height: '220px' }}>[ {c.title} ]</div>
             <div>
               <p style={{ fontSize: '0.75rem', color: '#999', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.3rem' }}>{c.year}</p>

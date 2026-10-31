@@ -82,6 +82,13 @@ a.accent-link:hover { text-decoration: underline; }
 }
 
 /* ─────────────────────────────────────────
+   Section padding utility
+───────────────────────────────────────── */
+.dc-section {
+  padding: 5rem 0;
+}
+
+/* ─────────────────────────────────────────
    Image placeholder
 ───────────────────────────────────────── */
 .img-placeholder {
@@ -110,10 +117,19 @@ a.accent-link:hover { text-decoration: underline; }
   background: var(--white);
   padding: 0.75rem;
   text-align: center;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.art-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
 }
 .art-card .img-placeholder,
 .art-card img {
   width: 100%; aspect-ratio: 1/1; object-fit: contain; margin-bottom: 0.75rem;
+  transition: filter 0.3s ease;
+}
+.art-card:hover img {
+  filter: brightness(1.05);
 }
 .art-card h4 { font-size: 0.85rem; font-style: italic; color: var(--body-text); margin-bottom: 0.2rem; font-weight: 300; }
 .art-card .dims { font-size: 0.72rem; color: #888; font-weight: 300; }
@@ -125,6 +141,52 @@ a.accent-link:hover { text-decoration: underline; }
   font-size: 0.7rem; padding: 0.3rem 1rem; letter-spacing: 0.08em;
   text-transform: uppercase; border: none; cursor: pointer;
   font-family: var(--font-avenir), sans-serif; font-weight: 300;
+  transition: transform 0.18s ease;
+}
+.art-card .buy-btn:hover {
+  transform: scale(1.03);
+}
+
+/* ─────────────────────────────────────────
+   Category grid card hover (homepage)
+───────────────────────────────────────── */
+.cat-grid-card {
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  text-align: center;
+  background-color: var(--white);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.cat-grid-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
+}
+.cat-grid-card img {
+  transition: filter 0.3s ease;
+}
+.cat-grid-card:hover img {
+  filter: brightness(1.05);
+}
+
+/* CTA buttons */
+.dc-btn {
+  display: inline-block;
+  padding: 0.6rem 1.6rem;
+  background-color: var(--note-btn);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.dc-btn:hover {
+  transform: scale(1.02);
+  opacity: 0.92;
 }
 
 /* ─────────────────────────────────────────
@@ -142,8 +204,273 @@ hr.dc-rule { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
 }
 .cat-row:last-child { border-bottom: none; }
 
+/* ─────────────────────────────────────────
+   Responsive Grid Utilities
+   (replace inline style grids that can't
+    be targeted by media queries)
+───────────────────────────────────────── */
+
+/* 2-col equal, 4rem gap, items centered */
+.dc-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* 2-col equal, 2.5rem gap, items start */
+.dc-grid-2-sm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* 2-col equal, 2rem gap, items start */
+.dc-grid-2-xs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* 3-col equal, 1.5rem gap */
+.dc-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* 3-col equal, 2rem gap */
+.dc-grid-3-lg {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* 160px sidebar + 1fr content */
+.dc-grid-book-entry {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* 200px sidebar + 1fr content */
+.dc-grid-pub-entry {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* 1fr content + 200px photo sidebar */
+.dc-grid-with-photo {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Modern Bungalow full-bleed 2-col */
+.dc-bungalow-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 360px;
+}
+
+/* ─────────────────────────────────────────
+   Scroll-In Animations
+───────────────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-scale {
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Accessibility: respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up,
+  .fade-left,
+  .fade-right,
+  .fade-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Mobile — 768px breakpoint
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* All 2-col grids → single column */
+  .dc-grid-2,
+  .dc-grid-2-sm,
+  .dc-grid-2-xs,
+  .dc-bungalow-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* 3-col → single column */
+  .dc-grid-3,
+  .dc-grid-3-lg {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Sidebar grids → single column */
+  .dc-grid-book-entry,
+  .dc-grid-pub-entry,
+  .dc-grid-with-photo,
+  .cat-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Art grid → 2 columns on tablet */
+  .art-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Container side padding */
+  .page-wrap {
+    padding: 0 1.25rem;
+  }
+
+  /* Section padding — halved */
+  .dc-section {
+    padding: 2.5rem 0;
+  }
+
+  /* Quote flip card — allow taller on mobile */
+  .quote-flip-wrap {
+    height: auto !important;
+    min-height: 420px;
+  }
+
+  /* Modern Bungalow text padding */
+  .dc-bungalow-text {
+    padding: 2rem 1.5rem !important;
+  }
+
+  /* Modern Bungalow — ensure full-width card stacks properly */
+  .dc-bungalow-grid > * {
+    min-height: 240px;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Mobile — 480px breakpoint (phones)
+───────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* Art grid → single column on small phones */
+  .art-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-wrap {
+    padding: 0 1rem;
+  }
+
+  /* Tabs: smaller padding so they all fit */
+  .dc-tabs-nav button {
+    padding: 0.6rem 0.8rem !important;
+    font-size: 0.7rem !important;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Legacy 640px breakpoint (kept for cat-row)
+───────────────────────────────────────── */
 @media (max-width: 640px) {
   .cat-row { grid-template-columns: 1fr; }
   .art-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .page-wrap { padding: 0 1rem; }
+}
+
+/* ─────────────────────────────────────────
+   Mobile text centering
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page-wrap { text-align: center; }
+  .dc-grid-2 > * { text-align: center; }
+  .dc-bungalow-text { text-align: center !important; }
+  .dc-bungalow-text a, .dc-bungalow-text p { text-align: center !important; }
+  /* Keep lists and book entry rows left-aligned */
+  .dc-grid-book-entry, .cat-row { text-align: left; }
+}
+
+/* ─────────────────────────────────────────
+   Scroll animations — fade up
+───────────────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-up.delay-1 { transition-delay: 0.1s; }
+.fade-up.delay-2 { transition-delay: 0.2s; }
+.fade-up.delay-3 { transition-delay: 0.3s; }
+.fade-up.delay-4 { transition-delay: 0.4s; }
+.fade-up.delay-5 { transition-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1; transform: none; transition: none; }
+}
+
+/* Hover lift on art grid cards */
+.art-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.art-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+}
+
+/* Image hover brightness */
+.artwork-img {
+  transition: filter 0.3s ease;
+}
+.artwork-img:hover {
+  filter: brightness(1.06);
 }

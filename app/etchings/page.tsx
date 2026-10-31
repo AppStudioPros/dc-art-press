@@ -19,7 +19,7 @@ export default function EtchingsPage() {
   return (
     <>
       <div className="page-wrap" style={{ padding: '2rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '2rem', alignItems: 'start' }}>
+        <div className="dc-grid-2-sm" style={{ marginBottom: '2rem' }}>
           <div>
             <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '1rem' }}>Etchings</h1>
             <p style={{ fontSize: '0.9rem', marginBottom: '1rem' }}>

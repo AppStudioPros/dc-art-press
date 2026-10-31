@@ -139,7 +139,7 @@ export default function OriginalPrintsPage() {
 
       {/* What is an Original Print? */}
       <div className="page-wrap" style={{ padding: '2.5rem 2rem', borderBottom: '1px solid var(--border)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3.5rem', alignItems: 'center' }}>
+        <div className="dc-grid-2">
           <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <h2 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', color: 'var(--body-text)', marginBottom: '1.25rem', lineHeight: 1.2 }}>
               What is an<br />Original Print?
@@ -181,7 +181,7 @@ export default function OriginalPrintsPage() {
         {/* Woodblocks */}
         {active === 0 && (
           <div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '3rem', alignItems: 'center' }}>
+            <div className="dc-grid-2-sm" style={{ marginBottom: '3rem' }}>
               <Image src="/images/woodblocks/warm-evening-9x6.jpg" alt="Warm Evening woodblock" width={540} height={380} style={{ width: '100%', height: 'auto', display: 'block' }} />
               <div>
                 <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)' }}>New Woodblock</p>
@@ -225,7 +225,7 @@ export default function OriginalPrintsPage() {
         {/* Etchings */}
         {active === 2 && (
           <div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '2rem', alignItems: 'start' }}>
+            <div className="dc-grid-2-sm" style={{ marginBottom: '2rem' }}>
               <div>
                 <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.9rem', lineHeight: 1.85, marginBottom: '1rem', color: 'var(--body-text)' }}>
                   The etching process involves incising an image into a metal plate. The plate is then covered with ink, the surface wiped clean, and the ink remaining in the recessed lines is transferred to dampened paper under the pressure of the printing press.

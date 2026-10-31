@@ -53,7 +53,7 @@ export default function AboutPage() {
       {/* About The Studio */}
       {active === 0 && (
         <div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 200px', gap: '2.5rem', marginBottom: '2.5rem', alignItems: 'start' }}>
+          <div className="dc-grid-with-photo" style={{ marginBottom: '2.5rem' }}>
             <div>
               <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.9, marginBottom: '1rem', color: 'var(--body-text)' }}>
                 I am passionate about printmaking and watercolor sketching. This website is home to the outcome of my efforts.
@@ -83,7 +83,7 @@ export default function AboutPage() {
           <hr className="dc-rule" />
 
           <h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.5rem', margin: '2rem 0 1.5rem' }}>Studio Spaces</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+          <div className="dc-grid-3">
             {[
               { name: 'Denver Studio', desc: 'Located in our remodeled garage in south central Denver, the university area. Home base for framing and supplies. Studio visits are welcome.', img: '/images/about/72263d_406e4b7c.jpg' },
               { name: 'Mountain Studio', desc: 'Just a short hour drive from Denver, at the base of Mt Blue Sky (Mt Evans). The studio is off the grid and surrounded by inspiration.', img: '/images/about/gallery-exterior.jpg' },

@@ -26,7 +26,7 @@ export default function PublicityPage() {
         <h1 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '2rem', marginBottom: '2rem' }}>Publicity</h1>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
           {press.map((p, i) => (
-            <div key={p.title} style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '2rem', padding: '2rem 0', borderBottom: '1px solid var(--border)', alignItems: 'start' }}>
+            <div key={p.title} className="dc-grid-pub-entry" style={{ padding: '2rem 0', borderBottom: '1px solid var(--border)' }}>
               <div className="img-placeholder" style={{ height: '160px' }}>[ {p.img} ]</div>
               <div>
                 <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.2rem', marginBottom: '0.25rem' }}>{p.title}</h2>
