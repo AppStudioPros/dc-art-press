@@ -73,24 +73,21 @@ export default function BooksPage() {
           <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.9rem', lineHeight: 1.85, maxWidth: '640px', marginBottom: '2rem', color: 'var(--body-text)' }}>
             The Editioned Books are printed in low numbered editions. The books evolve from a nebulous concept, work their way through various hand-print processes until they are finally bound at the DCArtPress studio. Woodblocks are designed and printed specifically for each book.
           </p>
-          <div style={{ borderTop: '1px solid var(--border)' }}>
+          <div className="art-grid">
             {editionedBooks.map(b => (
-              <div key={b.title} className="dc-grid-book-entry" style={{ padding: '1.5rem 0', borderBottom: '1px solid var(--border)' }}>
+              <div key={b.title} className="art-card" style={{ opacity: b.status === 'Sold Out' ? 0.6 : 1 }}>
                 {'img' in b && b.img
-                  ? <Image src={b.img as string} alt={`${b.title} — book by Leon Loughridge`} width={160} height={130} style={{ width: '160px', height: '130px', objectFit: 'contain', background: '#F0EEE2', display: 'block' }} />
-                  : <div className="img-placeholder" style={{ height: '130px' }}>[ {b.title} ]</div>}
-                <div>
-                  <h3 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '1.1rem', color: 'var(--body-text)', marginBottom: '0.25rem' }}>{b.title}</h3>
-                  <p style={{ fontSize: '0.78rem', color: '#999', marginBottom: '0.5rem' }}>{b.year}</p>
-                  {b.status === 'Available'
-                    ? <p style={{ fontSize: '0.82rem', color: 'var(--note-btn)', fontWeight: 500 }}>Available{b.notes ? ` — ${b.notes}` : ''}</p>
-                    : <p style={{ fontSize: '0.82rem', color: '#bbb', fontStyle: 'italic' }}>Sold Out</p>}
-                  {b.status === 'Available' && (
-                    <a href="mailto:Leon@DCArtPress.com" style={{ display: 'inline-block', marginTop: '0.5rem', fontSize: '0.75rem', color: 'var(--accent)', textDecoration: 'underline' }}>
-                      Inquire →
-                    </a>
-                  )}
-                </div>
+                  ? <Image src={b.img as string} alt={`${b.title} — book by Leon Loughridge`} width={300} height={180} style={{ width: '100%', height: '180px', objectFit: 'contain', background: '#F0EEE2', display: 'block' }} />
+                  : <div className="img-placeholder" style={{ height: '180px' }}>[ {b.title} ]</div>}
+                <h4 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontStyle: 'italic' }}>{b.title}</h4>
+                <p className="dims">{b.year}</p>
+                {b.status === 'Available'
+                  ? <>
+                      <p className="price" style={{ color: 'var(--note-btn)', fontSize: '0.8rem', fontWeight: 500 }}>{b.notes ?? 'Contact for pricing'}</p>
+                      <a href="mailto:Leon@DCArtPress.com" className="buy-btn" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>Inquire →</a>
+                    </>
+                  : <p className="price" style={{ color: '#bbb', fontStyle: 'italic' }}>Sold Out</p>
+                }
               </div>
             ))}
           </div>
