@@ -150,7 +150,7 @@ export default function AboutPage() {
               <div key={g.name} style={{ padding: '1.5rem', border: '1px solid var(--border)', backgroundColor: 'var(--white)' }}>
                 <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1rem', marginBottom: '0.3rem' }}>{g.name}</h3>
                 <p style={{ fontSize: '0.8rem', color: '#999', marginBottom: '0.75rem' }}>{g.location}</p>
-                <a href={g.url} style={{ fontSize: '0.75rem', color: 'var(--accent)', textDecoration: 'underline', letterSpacing: '0.05em' }}>View Gallery →</a>
+                <a href={g.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.75rem', color: 'var(--accent)', textDecoration: 'underline', letterSpacing: '0.05em' }}>View Gallery →</a>
               </div>
             ))}
           </div>
