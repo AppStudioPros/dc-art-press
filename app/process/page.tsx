@@ -42,6 +42,9 @@ const techniques: Technique[] = [
     subtitle: 'Etching · Engraving',
     img: null,
     body: `Intaglio is the inverse of relief printing. Lines and textures are incised directly into a metal plate — either cut by hand (engraving) or bitten by acid (etching). Ink is forced into the recessed lines, the surface wiped clean, and dampened paper is pressed onto the plate under significant pressure, pulling the ink from the grooves.\n\nThe characteristic richness of an intaglio print — the plate impression visible in the paper, the dense velvety ink — comes directly from this physical contact between paper, ink, and metal.`,
+    pdfs: [
+      { label: 'Intaglio Process Guide', href: '/pdfs/IntaglioProcess.pdf' },
+    ],
   },
 ]
 
