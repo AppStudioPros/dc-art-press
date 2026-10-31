@@ -16,7 +16,7 @@ const techniques: Technique[] = [
   {
     title: 'Relief Prints',
     subtitle: 'Woodblock · Linocut · Reduction',
-    img: '/images/process/72263d_bf508c20da074735960a0c7b4c118d3a~mv2.jpg',
+    img: null,
     body: `Relief printing is one of the oldest forms of printmaking. The image is carved by hand into a wood or linoleum block — the raised surface accepts the ink, while the cut-away areas stay white. Each color requires a separate pass through the press or a separate hand-printing step.\n\nLeon's reduction prints remove material from a single block between each color, making each edition inherently unique and irreproducible once the block is fully reduced.`,
     pdfs: [
       { label: 'Single Block Relief Print', href: '/pdfs/SingleBlockReliefPrint.pdf' },
