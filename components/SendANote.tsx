@@ -8,10 +8,10 @@ export default function SendANote() {
       href="/contact"
       style={{
         position: 'fixed',
-        right: 0,
+        right: '-2.2rem',
         top: '50%',
         transform: 'translateY(-50%) rotate(90deg)',
-        transformOrigin: 'right center',
+        transformOrigin: 'center center',
         backgroundColor: 'var(--note-btn)',
         color: '#fff',
         fontSize: '0.7rem',
