@@ -78,7 +78,7 @@ export default function BooksPage() {
               <div key={b.title} className="art-card" style={{ opacity: b.status === 'Sold Out' ? 0.6 : 1 }}>
                 {'img' in b && b.img
                   ? <Image src={b.img as string} alt={`${b.title} — book by Leon Loughridge`} width={300} height={180} style={{ width: '100%', height: '180px', objectFit: 'contain', background: '#F0EEE2', display: 'block' }} />
-                  : <div className="img-placeholder" style={{ height: '180px' }}>[ {b.title} ]</div>}
+                  : <div style={{ height: '180px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />}
                 <h4 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontStyle: 'italic' }}>{b.title}</h4>
                 <p className="dims">{b.year}</p>
                 {b.status === 'Available'
@@ -104,7 +104,7 @@ export default function BooksPage() {
               <div key={b.title} className="art-card">
                 {'img' in b && b.img
                   ? <Image src={b.img as string} alt={`${b.title} — book by Leon Loughridge`} width={300} height={160} style={{ width: '100%', height: '160px', objectFit: 'contain', background: '#F0EEE2', display: 'block' }} />
-                  : <div className="img-placeholder" style={{ height: '160px' }}>[ {b.title} ]</div>}
+                  : <div style={{ height: '160px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />}
                 <h4>{b.title}</h4>
                 <p className="dims">{b.author}</p>
                 <p className="price">${b.price}</p>
@@ -123,7 +123,7 @@ export default function BooksPage() {
           <div className="art-grid">
             {catalogs.map(c => (
               <div key={c.title} className="art-card">
-                <div className="img-placeholder" style={{ height: '180px' }}>[ {c.title} ]</div>
+                <div style={{ height: '180px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
                 <h4>{c.title}</h4>
                 <p className="price">${c.price.toFixed(2)}</p>
                 <button className="buy-btn">Add to Cart</button>

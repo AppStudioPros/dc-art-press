@@ -31,7 +31,7 @@ export default function CommissionsPage() {
         <hr className="dc-rule" />
         {commissions.map(c => (
           <div key={c.title} className="dc-grid-2-sm" style={{ padding: '2rem 0', borderBottom: '1px solid var(--border)' }}>
-            <div className="img-placeholder" style={{ height: '220px' }}>[ {c.title} ]</div>
+            <div style={{ height: '220px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
             <div>
               <p style={{ fontSize: '0.75rem', color: '#999', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.3rem' }}>{c.year}</p>
               <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.3rem', marginBottom: '0.3rem' }}>{c.title}</h2>

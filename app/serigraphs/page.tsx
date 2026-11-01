@@ -30,7 +30,7 @@ export default function SerigraphsPage() {
         <div className="art-grid">
           {prints.map(p => (
             <div key={p.title} className="art-card">
-              <div className="img-placeholder" style={{ height: '180px' }}>[ {p.title} ]</div>
+              <div style={{ height: '180px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
               <h4>{p.title}</h4>
               {p.dims && <p className="dims">{p.dims}</p>}
               {p.status === 'Available' && p.price

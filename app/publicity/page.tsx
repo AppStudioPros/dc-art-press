@@ -27,7 +27,7 @@ export default function PublicityPage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
           {press.map((p, i) => (
             <div key={p.title} className="dc-grid-pub-entry" style={{ padding: '2rem 0', borderBottom: '1px solid var(--border)' }}>
-              <div className="img-placeholder" style={{ height: '160px' }}>[ {p.img} ]</div>
+              <div style={{ height: '160px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
               <div>
                 <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.2rem', marginBottom: '0.25rem' }}>{p.title}</h2>
                 <p style={{ fontSize: '0.85rem', fontStyle: 'italic', color: 'var(--accent)', marginBottom: '0.25rem' }}>{p.pub}</p>

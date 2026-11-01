@@ -30,7 +30,7 @@ export default function EditionedBooksPage() {
         <hr className="dc-rule" />
         {books.map(b => (
           <div key={b.title} className="dc-grid-book-entry" style={{ padding: '1.5rem 0', borderBottom: '1px solid var(--border)' }}>
-            <div className="img-placeholder" style={{ height: '130px' }}>[ {b.title} ]</div>
+            <div style={{ height: '130px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
             <div>
               <h3 style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '1.15rem', color: 'var(--body-text)', marginBottom: '0.3rem' }}>{b.title}</h3>
               <p style={{ fontSize: '0.8rem', color: '#888', marginBottom: '0.5rem' }}>{b.year}</p>

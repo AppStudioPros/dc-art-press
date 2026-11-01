@@ -29,15 +29,14 @@ export default function EtchingsPage() {
               Intaglio printing is one of the oldest printmaking techniques, dating back to the 15th century.
             </p>
           </div>
-          {/* TODO: Replace with actual intaglio diagram */}
-          <div className="img-placeholder" style={{ height: '200px' }}>[ Intaglio process diagram ]</div>
+
         </div>
         <hr className="dc-rule" />
         <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.4rem', margin: '1.5rem 0 1rem' }}>Available Etchings</h2>
         <div className="art-grid">
           {prints.map(p => (
             <div key={p.title} className="art-card">
-              <div className="img-placeholder" style={{ height: '180px' }}>[ {p.title} ]</div>
+              <div style={{ height: '180px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
               <h4>{p.title}</h4>
               <p className="dims">{p.dims}</p>
               {p.status === 'Available' && p.price

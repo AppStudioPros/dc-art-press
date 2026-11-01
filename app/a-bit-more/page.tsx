@@ -35,7 +35,7 @@ export default function ABitMorePage() {
         <div className="art-grid" style={{ marginBottom: '3rem' }}>
           {ephemera.map(e => (
             <div key={e.title} className="art-card">
-              <div className="img-placeholder" style={{ height: '180px' }}>[ {e.title} ]</div>
+              <div style={{ height: '180px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
               <h4>{e.title}</h4>
               {e.status === 'Available' && e.price
                 ? <><p className="price">${e.price}</p><button className="buy-btn">Add to Cart</button></>
@@ -56,7 +56,7 @@ export default function ABitMorePage() {
             <div key={c.title} style={{ border: '1px solid var(--border)', padding: '1.25rem', backgroundColor: 'var(--white)' }}>
               {'img' in c && c.img
                 ? <Image src={c.img as string} alt={`${c.title} — collection at Dry Creek Art Press`} width={300} height={140} style={{ width: '100%', height: '140px', objectFit: 'contain', background: '#F0EEE2', display: 'block', marginBottom: '0.75rem' }} />
-                : <div className="img-placeholder" style={{ height: '140px', marginBottom: '0.75rem' }}>[ {c.title} ]</div>}
+                : <div style={{ height: '140px', backgroundColor: 'var(--card-bg)', borderRadius: '2px', marginBottom: '0.75rem' }} />}
               <h3 style={{ fontSize: '0.95rem', fontFamily: 'var(--font-avenir), serif', color: 'var(--body-text)', marginBottom: '0.4rem' }}>{c.title}</h3>
               <p style={{ fontSize: '0.82rem', color: '#777' }}>{c.desc}</p>
             </div>

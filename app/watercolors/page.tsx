@@ -28,7 +28,7 @@ export default function WatercolorsPage() {
         <div className="art-grid">
           {gallery.map(t => (
             <div key={t} className="art-card">
-              <div className="img-placeholder" style={{ height: '160px' }}>[ {t} ]</div>
+              <div style={{ height: '160px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
               <h4>{t}</h4>
             </div>
           ))}
@@ -49,7 +49,7 @@ export default function WatercolorsPage() {
         <div className="art-grid">
           {forSale.map(p => (
             <div key={p.title} className="art-card">
-              <div className="img-placeholder" style={{ height: '180px' }}>[ {p.title} ]</div>
+              <div style={{ height: '180px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
               <h4>{p.title}</h4>
               <p className="price">${p.price}</p>
               <button className="buy-btn">Add to Cart</button>

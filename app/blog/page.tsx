@@ -22,7 +22,7 @@ export default function BlogPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '2rem' }}>
           {posts.map(p => (
             <article key={p.title} style={{ border: '1px solid var(--border)', backgroundColor: 'var(--white)' }}>
-              <div className="img-placeholder" style={{ height: '200px' }}>[ {p.img} ]</div>
+              <div style={{ height: '200px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
               <div style={{ padding: '1.25rem' }}>
                 <p style={{ fontSize: '0.72rem', color: '#999', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.4rem' }}>{p.date}</p>
                 <h2 style={{ fontFamily: 'var(--font-avenir), serif', fontSize: '1.05rem', color: 'var(--body-text)', marginBottom: '0.5rem' }}>{p.title}</h2>
@@ -34,10 +34,7 @@ export default function BlogPage() {
             </article>
           ))}
         </div>
-        {/* TODO: Add full blog post content from Wix export */}
-        <p style={{ marginTop: '2rem', fontStyle: 'italic', fontSize: '0.85rem', color: '#999', textAlign: 'center' }}>
-          [ Full blog post content to be migrated from Wix ]
-        </p>
+
       </div>
     </>
   )

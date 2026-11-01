@@ -81,7 +81,7 @@ function ArtCard({ title, dims, edition, price, status, img }: { title: string; 
     <div className="art-card">
       {img
         ? <Image src={img} alt={`${title} — print by Leon Loughridge`} width={300} height={220} style={{ width: '100%', height: 'auto', display: 'block' }} />
-        : <div className="img-placeholder" style={{ height: '180px' }}>[ {title} ]</div>}
+        : <div style={{ height: '180px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />}
       <h4>{title}</h4>
       {(dims || edition) && <p className="dims">{dims}{edition ? ` | ${edition}` : ''}</p>}
       {status === 'Available' && price
@@ -256,7 +256,7 @@ export default function OriginalPrintsPage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
               {processSections.map(s => (
                 <div key={s.name} style={{ padding: '1.75rem', border: '1px solid var(--border)', backgroundColor: 'var(--white)' }}>
-                  <div className="img-placeholder" style={{ height: '150px', marginBottom: '1rem' }}>[ {s.name} ]</div>
+                  <div style={{ height: '150px', backgroundColor: 'var(--card-bg)', borderRadius: '2px', marginBottom: '1rem' }} />
                   <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.05rem', marginBottom: '0.5rem' }}>{s.name}</h3>
                   <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', lineHeight: 1.8, color: 'var(--body-text)' }}>{s.desc}</p>
                 </div>

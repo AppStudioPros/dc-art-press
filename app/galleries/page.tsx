@@ -25,7 +25,7 @@ export default function GalleriesPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
           {galleries.map(g => (
             <div key={g.name} style={{ border: '1px solid var(--border)', padding: '1.5rem', backgroundColor: 'var(--white)' }}>
-              <div className="img-placeholder" style={{ height: '130px', marginBottom: '1rem' }}>[ {g.name} ]</div>
+              <div style={{ height: '130px', backgroundColor: 'var(--card-bg)', borderRadius: '2px', marginBottom: '1rem' }} />
               <h3 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--body-text)', fontSize: '1.05rem', marginBottom: '0.5rem' }}>{g.name}</h3>
               <p style={{ fontSize: '0.82rem', lineHeight: 1.7, color: '#555' }}>
                 {g.address}<br />{g.city}

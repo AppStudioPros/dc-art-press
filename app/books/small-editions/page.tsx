@@ -26,7 +26,7 @@ export default function SmallEditionsPage() {
         <div className="art-grid">
           {books.map(b => (
             <div key={b.title} className="art-card">
-              <div className="img-placeholder" style={{ height: '160px' }}>[ {b.title} ]</div>
+              <div style={{ height: '160px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
               <h4>{b.title}</h4>
               <p className="dims">{b.author}</p>
               <p className="price">${b.price}</p>

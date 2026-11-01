@@ -21,7 +21,7 @@ export default function ExhibitCatalogsPage() {
         <div className="art-grid">
           {catalogs.map(c => (
             <div key={c.title} className="art-card">
-              <div className="img-placeholder" style={{ height: '180px' }}>[ {c.title} ]</div>
+              <div style={{ height: '180px', backgroundColor: 'var(--card-bg)', borderRadius: '2px' }} />
               <h4>{c.title}</h4>
               <p className="price">${c.price.toFixed(2)}</p>
               <button className="buy-btn">Add to Cart</button>

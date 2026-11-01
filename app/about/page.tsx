@@ -114,8 +114,8 @@ export default function AboutPage() {
               <div key={c.name} style={{ padding: '1.5rem 0', borderBottom: '1px solid var(--border)' }}>
                 <Image src={c.img} alt={`${c.name} — collected works at Dry Creek Art Press`} width={700} height={200} style={{ width: '100%', height: '200px', objectFit: 'contain', background: '#F0EEE2', display: 'block', marginBottom: '1rem' }} />
                 <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '0.5rem' }}>{c.name}</h3>
-                <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', lineHeight: 1.8, color: 'var(--body-text)', fontStyle: 'italic' }}>
-                  [Content to be provided by client]
+                <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', lineHeight: 1.8, color: 'var(--body-text)' }}>
+                  Special collections will be listed here. Contact us to inquire about availability.
                 </p>
               </div>
             ))}
