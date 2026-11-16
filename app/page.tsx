@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import HeroSlideshow from '@/components/HeroSlideshow'
-import QuestMarquee from '@/components/QuestMarquee'
 import FadeUp from '@/components/FadeUp'
 import WatercolorFader from '@/components/WatercolorFader'
 
@@ -29,6 +28,13 @@ const categories = [
   { label: 'Etchings', href: '/etchings', desc: 'Intaglio prints using various techniques.', img: '/images/etchings/grey-day.jpg' },
   { label: 'Collections', href: '/a-bit-more', desc: 'Various collections of vintage prints and originals.', img: '/images/collections/horse-racing-etching.jpg' },
   { label: 'Watercolors', href: '/watercolors', desc: 'Studio watercolor and watercolor sketches.', img: '/images/watercolors/forest-watercolor.jpg' },
+]
+
+const coorsArtwork = [
+  { title: 'Gorge Nocturne', src: '/images/exhibits/gorge-nocturne.webp' },
+  { title: 'Mule Deer', src: '/images/exhibits/mule-deer.webp' },
+  { title: 'Steeple Repair', src: '/images/exhibits/steeple-repair.webp' },
+  { title: 'Ranchos Sunset', src: '/images/exhibits/ranchos-sunset.webp' },
 ]
 
 export default function HomePage() {
@@ -73,7 +79,7 @@ export default function HomePage() {
                 marginBottom: '2rem',
                 maxWidth: '380px',
               }}>
-                Scheduled for late October 2026 — an exhibit of woodblocks and watercolors of the &ldquo;remudding&rdquo; of the San Francisco de Asis Mission at Ranchos de Taos. McLarry Fine Art, Santa Fe, NM · Oct 16, 2026.
+                An exhibit of woodblocks and watercolors of the &ldquo;remudding&rdquo; of the San Francisco de Asis Mission at Ranchos de Taos. McLarry Fine Art, Santa Fe, NM · Oct 16, 2026 through November.
               </p>
               <Link href="/in-the-works" className="dc-btn">
                 Visit Exhibit Page
@@ -96,18 +102,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Quest for the West ── */}
-      <section style={{ borderBottom: '1px solid var(--rule)' }}>
-        <FadeUp>
-          <QuestMarquee
-            title={<h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: '#A26F4C', fontSize: 'clamp(1.5rem, 2.5vw, 2.1rem)', marginBottom: '0.4rem' }}>Quest for the West</h2>}
-            subtitle={<p style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '0.85rem', color: '#A26F4C', marginBottom: '0.9rem', opacity: 0.75 }}>The Eiteljorg Museum, Indianapolis</p>}
-            body={<p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.9rem', lineHeight: 1.8, color: '#1a1008' }}>
-              I am very honored to have been invited to exhibit my woodblocks at the Eiteljorg Museum in Indianapolis.
-              Four woodblocks on display: Ranchos Sunset, Acoma Pueblo, Snowy Plateau and Freezing Over.
-            </p>}
-          />
-        </FadeUp>
+      <section className="dc-section coors-exhibit" aria-labelledby="coors-exhibit-title">
+        <div className="page-wrap">
+          <FadeUp>
+            <h2 id="coors-exhibit-title" className="coors-exhibit-title">Coors Western Art Exhibit</h2>
+            <p className="coors-exhibit-dates">
+              <time dateTime="2027-01-06">January 6</time>–<time dateTime="2027-01-24">24, 2027</time>
+            </p>
+            <div className="coors-exhibit-grid">
+              {coorsArtwork.map(({ title, src }) => (
+                <figure key={src}>
+                  <div className="coors-exhibit-image">
+                    <Image
+                      src={src}
+                      alt={title + ' by Leon Loughridge'}
+                      fill
+                      sizes="(max-width: 600px) 45vw, (max-width: 1080px) 23vw, 235px"
+                    />
+                  </div>
+                  <figcaption>{title}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </FadeUp>
+        </div>
       </section>
 
       {/* ── Watercolor Sketches ── */}
@@ -226,39 +244,6 @@ export default function HomePage() {
             </div>
           </div>
         </FadeUp>
-      </section>
-
-      {/* ── Modern Bungalow ── */}
-      <section style={{ backgroundColor: '#4E574B', borderBottom: '1px solid rgba(0,0,0,0.2)' }}>
-        <div className="dc-bungalow-grid">
-          {/* Logo card */}
-          <FadeUp anim="left">
-            <div style={{ backgroundColor: '#F0EEE2', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem', minHeight: '360px' }}>
-              <Image
-                src="/images/modern-bungalow-logo.jpg"
-                alt="Modern Bungalow — Denver Colorado"
-                width={280}
-                height={240}
-                style={{ width: 'auto', maxWidth: '260px', height: 'auto', display: 'block' }}
-              />
-            </div>
-          </FadeUp>
-          {/* Text */}
-          <FadeUp anim="right" delay={120}>
-            <div className="dc-bungalow-text" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3.5rem 4rem', minHeight: '360px' }}>
-              <div style={{ width: '28px', height: '1px', backgroundColor: '#A26F4C', marginBottom: '1.25rem' }} />
-              <h2 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', color: '#F0EEE2', marginBottom: '1rem' }}>Modern Bungalow</h2>
-              <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.92rem', lineHeight: 1.85, color: 'rgba(240,238,226,0.82)', marginBottom: '1.5rem' }}>
-                My woodblocks are now on display at Modern Bungalow on South Gaylord — a lovely historic building with parking right behind the shop at the painted doorway in the alley.
-              </p>
-              <div style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: 'rgba(240,238,226,0.65)', lineHeight: 2 }}>
-                1028 S. Gaylord Street, Denver CO 80209<br />
-                Mon–Sat 10AM–5PM &nbsp;·&nbsp; Sun 10AM–2PM<br />
-                <a href="tel:3033003332" style={{ color: '#A26F4C', textDecoration: 'none' }}>303-300-3332</a>
-              </div>
-            </div>
-          </FadeUp>
-        </div>
       </section>
 
       {/* ── Category Grid ── */}
