@@ -9,6 +9,7 @@ type ArchivePrint = {
   src?: string          // optional — pieces awaiting image upload show a placeholder
   year?: number
   dimensions?: string
+  editionSize?: number
   selected?: boolean
   series?: string
 }
@@ -74,15 +75,15 @@ const archive: ArchivePrint[] = [
   { title: 'Moon Over Gorge',           year: 2017, series: 'Gorge Songs' },
   { title: 'Above Bear Lake',           year: 2017, src: '/images/woodblocks/mountain-stream.jpg' },
   // ── 2016 ──────────────────────────────────────────────────────────────
-  { title: 'Senora de la Paz', year: 2016, dimensions: '22 × 14', src: '/images/woodblocks/72263d_3ba8fe91.jpg' },
-  { title: 'Last Spruce',      year: 2016, src: '/images/woodblocks/evergreens.jpg' },
-  { title: 'Winters Hay',      year: 2016 },
-  { title: 'Peak Study',       year: 2016 },
-  { title: 'Peak Nocturne',    year: 2016 },
-  { title: 'Golden Sentinels', year: 2016 },
-  { title: 'Barn Study',       year: 2016, src: '/images/woodblocks/grey-day.jpg' },
-  { title: 'Aspen Stand',      year: 2016 },
-  { title: 'Aglow',            year: 2016 },
+  { title: 'Senora de la Paz', src: '/images/woodblocks/archive/2016/senora-de-la-paz.webp', year: 2016, dimensions: '6 × 6 in.', editionSize: 36 },
+  { title: 'Last Spruce', src: '/images/woodblocks/archive/2016/last-spruce.webp', year: 2016, dimensions: '16 × 7 in.', editionSize: 21 },
+  { title: 'Winters Hay', src: '/images/woodblocks/archive/2016/winters-hay.webp', year: 2016, dimensions: '9 × 12 in.', editionSize: 18 },
+  { title: 'Peak Study', src: '/images/woodblocks/archive/2016/peak-study.webp', year: 2016, dimensions: '10 × 8 in.', editionSize: 15 },
+  { title: 'Peak Nocturne', src: '/images/woodblocks/archive/2016/peak-nocturne.webp', year: 2016, dimensions: '10 × 8 in.', editionSize: 8 },
+  { title: 'Golden Sentinels', src: '/images/woodblocks/archive/2016/golden-sentinels.webp', year: 2016, dimensions: '18 × 12 in.', editionSize: 14 },
+  { title: 'Barn Study', src: '/images/woodblocks/archive/2016/barn-study.webp', year: 2016, dimensions: '8 × 10 in.', editionSize: 14 },
+  { title: 'Aspen Stand', src: '/images/woodblocks/archive/2016/aspen-stand.webp', year: 2016, dimensions: '12 × 9 in.', editionSize: 26 },
+  { title: 'Aglow', src: '/images/woodblocks/archive/2016/aglow.webp', year: 2016, dimensions: '14 × 11 in.', editionSize: 16 },
   // ── 2015 ──────────────────────────────────────────────────────────────
   { title: 'Shady Vista', src: '/images/woodblocks/archive/2015/shady-vista.webp', year: 2015, dimensions: '6.5 × 16.5' },
   { title: 'San Xavier Interior', src: '/images/woodblocks/archive/2015/san-xavier-interior.webp', year: 2015, dimensions: '8 × 5' },
@@ -160,6 +161,13 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
         </label>
       </div>
 
+      {year === '2016' && (
+        <p>
+          <a href="https://www.dcartpress.com/_files/ugd/72263d_263614916ae14ae2920c3bc25e6593ac.pdf">
+            Original 2016 price list (PDF)
+          </a>
+        </p>
+      )}
       <p role="status">
         {prints.length === 0 && `Prints for ${year} are coming soon.`}
       </p>
@@ -220,7 +228,10 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
               </div>
               <figcaption aria-live="polite">
                 <cite>{activePrint.title}</cite>
-                <span>{['Woodblock', activePrint.year, activePrint.dimensions].filter(Boolean).join(' · ')}</span>
+                <span>
+                  {['Woodblock', activePrint.year, activePrint.dimensions, activePrint.editionSize && `Edition of ${activePrint.editionSize}`]
+                    .filter(Boolean).join(' · ')}
+                </span>
               </figcaption>
             </figure>
             {slides.length > 1 && (
