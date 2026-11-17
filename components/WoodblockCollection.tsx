@@ -6,19 +6,89 @@ import styles from './WoodblockCollection.module.css'
 
 type ArchivePrint = {
   title: string
-  src: string
+  src?: string          // optional — pieces awaiting image upload show a placeholder
   year?: number
   dimensions?: string
   selected?: boolean
+  series?: string
 }
 
-// Assign years when Leon supplies his selections for the archive.
 const archive: ArchivePrint[] = [
-  { title: 'Acoma Pueblo', src: '/images/eiteljorg-acoma-pueblo.jpg', selected: true },
-  { title: 'Snowy Plateau', src: '/images/eiteljorg-snowy-plateau.jpg', selected: true },
-  { title: 'Freezing Over', src: '/images/eiteljorg-freezing-over.jpg', selected: true },
+  // ── 2023 ──────────────────────────────────────────────────────────────
+  { title: 'Gorge Nocturne',              year: 2023, dimensions: '18 × 12' },
+  { title: 'Viejo San Acacio',            year: 2023, dimensions: '12 × 9' },
+  { title: 'Rio Grande Gorge Track',      year: 2023, dimensions: '11.5 × 16.5' },
+  { title: 'Snowy Plateau',               year: 2023, dimensions: '12 × 9',  src: '/images/woodblocks/snowy-mesa.jpg' },
+  { title: 'Old Rio Pueblo Road',         year: 2023, dimensions: '12 × 9' },
+  { title: 'March Dance',                 year: 2023, dimensions: '14.75 × 20' },
+  { title: 'Quaral Mission',              year: 2023,                           src: '/images/woodblocks/adobe-church.jpg' },
+  { title: 'Fields Of Gold',              year: 2023 },
+  { title: 'Spirits Of Abo',              year: 2023, dimensions: '18 × 12',  src: '/images/woodblocks/desert-pueblo-sunset.jpg' },
+  { title: 'Idle Clouds',                 year: 2023 },
+  { title: 'Snow Angel',                  year: 2023 },
+  { title: 'Sunrise, Broadmoor Motif',    year: 2023, dimensions: '12 × 9' },
+  { title: 'Moon Rise, Broadmoor Motif',  year: 2023, dimensions: '12 × 9' },
+  { title: 'Warm Evening',                year: 2023, dimensions: '9 × 6',    src: '/images/woodblocks/warm-evening-9x6.jpg', selected: true },
+  // ── 2022 ──────────────────────────────────────────────────────────────
+  { title: 'Afternoon Thunderheads',  year: 2022 },
+  { title: 'Evening Enchantment',     year: 2022 },
+  { title: 'Frosty Moon',             year: 2022 },
+  { title: 'November Tapestry',       year: 2022 },
+  { title: 'March Ascent',            year: 2022 },
+  { title: 'Frosty Streamers',        year: 2022 },
+  { title: 'Moon Crossing',           year: 2022 },
+  // ── 2021 ──────────────────────────────────────────────────────────────
+  { title: 'Sunset Chapel',  year: 2021, src: '/images/woodblocks/sunset-chapel.jpg', selected: true },
+  { title: 'San Geronimo',   year: 2021 },
+  // ── 2020 ──────────────────────────────────────────────────────────────
+  { title: 'Aspen Mtn McLains Flat',    year: 2020, src: '/images/woodblocks/cb-evening.jpg' },
+  { title: 'Morning Float',             year: 2020 },
+  { title: 'Flurries At The Broadmoor', year: 2020 },
+  { title: 'Emile',                     year: 2020 },
+  { title: 'Evening Iris',              year: 2020 },
+  { title: 'Summer Lily',               year: 2020 },
+  { title: 'Sunny Iris',                year: 2020 },
+  // ── 2019 ──────────────────────────────────────────────────────────────
+  { title: 'Pecos Mission 1780',       year: 2019, series: 'NM ReImagined' },
+  { title: 'Chaco Canyon Sunrise',     year: 2019, series: 'NM ReImagined' },
+  { title: 'Passing Time',             year: 2019, dimensions: '14 × 11', series: 'NM ReImagined' },
+  { title: 'Lodgepole Sunset',         year: 2019 },
+  { title: 'Pecos Reconstruction 1694',year: 2019, series: 'NM ReImagined' },
+  { title: 'Lower Cliff House',        year: 2019, series: 'NM ReImagined' },
+  { title: 'Frijoles Canyon',          year: 2019, series: 'NM ReImagined' },
+  { title: 'Cicuye Morning',           year: 2019, series: 'NM ReImagined' },
+  // ── 2018 ──────────────────────────────────────────────────────────────
+  { title: 'Wet Mtn Hay',      year: 2018, src: '/images/woodblocks/log-cabin-barn.jpg' },
+  { title: 'Moon Gorge',       year: 2018, series: 'Gorge Songs' },
+  { title: 'Gorge Song',       year: 2018, series: 'Gorge Songs' },
+  { title: 'Fractured Gorge',  year: 2018, series: 'Gorge Songs' },
+  // ── 2017 ──────────────────────────────────────────────────────────────
+  { title: 'Wild Rivers',               year: 2017 },
+  { title: 'White Waters',              year: 2017 },
+  { title: 'Mono Tone',                 year: 2017 },
+  { title: 'Gorge Trail',               year: 2017, series: 'Gorge Songs', src: '/images/woodblocks/riders-on-horseback.jpg' },
+  { title: 'Whispers of White Water',   year: 2017, series: 'Gorge Songs' },
+  { title: 'Hawk Circles',              year: 2017, series: 'Gorge Songs' },
+  { title: 'Book Of Origins',           year: 2017, series: 'Gorge Songs' },
+  { title: 'Wild Horses Below Mt Blanca', year: 2017 },
+  { title: 'Moon Over Gorge',           year: 2017, series: 'Gorge Songs' },
+  { title: 'Above Bear Lake',           year: 2017, src: '/images/woodblocks/mountain-stream.jpg' },
+  // ── 2016 ──────────────────────────────────────────────────────────────
+  { title: 'Senora de la Paz', year: 2016, dimensions: '22 × 14', src: '/images/woodblocks/72263d_3ba8fe91.jpg' },
+  { title: 'Last Spruce',      year: 2016, src: '/images/woodblocks/evergreens.jpg' },
+  { title: 'Winters Hay',      year: 2016 },
+  { title: 'Peak Study',       year: 2016 },
+  { title: 'Peak Nocturne',    year: 2016 },
+  { title: 'Golden Sentinels', year: 2016 },
+  { title: 'Barn Study',       year: 2016, src: '/images/woodblocks/grey-day.jpg' },
+  { title: 'Aspen Stand',      year: 2016 },
+  { title: 'Aglow',            year: 2016 },
+  // ── 2015 ──────────────────────────────────────────────────────────────
+  { title: 'Shady Vista',       year: 2015 },
+  { title: 'San Xavier Interior', year: 2015 },
 ]
-const years = Array.from({ length: 12 }, (_, index) => 2025 - index)
+
+const years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015]
 
 const studioEditions = [
   { title: 'Fresh Snow', dims: '9 x 6', edition: 'Ed. 15', price: null, status: 'Out of Stock', img: '/images/woodblocks/72263d_31b1a245.jpg' },
@@ -82,25 +152,26 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
         <div className={styles.grid}>
           {prints.map((print, index) => (
             <button
-              key={print.src}
+              key={print.title}
               className={styles.thumbnail}
               type="button"
               aria-label={`Enlarge ${print.title}`}
               aria-haspopup="dialog"
               onClick={() => {
+                if (!print.src) return
                 setActiveIndex(index)
                 dialog.current?.showModal()
               }}
+              style={!print.src ? { cursor: 'default' } : undefined}
             >
               <span className={styles.thumbnailImage}>
-                <Image
-                  src={print.src}
-                  alt=""
-                  fill
-                  sizes="(max-width: 600px) 45vw, (max-width: 1080px) 30vw, 340px"
-                />
+                {print.src
+                  ? <Image src={print.src} alt="" fill sizes="(max-width: 600px) 45vw, (max-width: 1080px) 30vw, 340px" />
+                  : <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', fontSize: '0.65rem', color: '#888', fontStyle: 'italic', padding: '0.5rem', textAlign: 'center', background: '#ede9e0' }}>Image coming soon</span>
+                }
               </span>
               <span>{print.title}</span>
+              {print.series && <span style={{ fontSize: '0.65rem', color: 'var(--accent)', display: 'block' }}>{print.series}</span>}
             </button>
           ))}
         </div>
