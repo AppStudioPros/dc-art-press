@@ -12,6 +12,8 @@ type ArchivePrint = {
   editionSize?: number
   selected?: boolean
   series?: string
+  technique?: string
+  note?: string
 }
 
 const archive: ArchivePrint[] = [
@@ -61,19 +63,19 @@ const archive: ArchivePrint[] = [
   // ── 2018 ──────────────────────────────────────────────────────────────
   { title: 'Wet Mtn Hay',      year: 2018, src: '/images/woodblocks/log-cabin-barn.jpg' },
   { title: 'Moon Gorge',       year: 2018, series: 'Gorge Songs' },
-  { title: 'Gorge Song',       year: 2018, series: 'Gorge Songs' },
-  { title: 'Fractured Gorge',  year: 2018, series: 'Gorge Songs' },
   // ── 2017 ──────────────────────────────────────────────────────────────
-  { title: 'Wild Rivers',               year: 2017 },
-  { title: 'White Waters',              year: 2017 },
-  { title: 'Mono Tone',                 year: 2017 },
-  { title: 'Gorge Trail',               year: 2017, series: 'Gorge Songs', src: '/images/woodblocks/riders-on-horseback.jpg' },
-  { title: 'Whispers of White Water',   year: 2017, series: 'Gorge Songs' },
-  { title: 'Hawk Circles',              year: 2017, series: 'Gorge Songs' },
-  { title: 'Book Of Origins',           year: 2017, series: 'Gorge Songs' },
-  { title: 'Wild Horses Below Mt Blanca', year: 2017 },
-  { title: 'Moon Over Gorge',           year: 2017, series: 'Gorge Songs' },
-  { title: 'Above Bear Lake',           year: 2017, src: '/images/woodblocks/mountain-stream.jpg' },
+  { title: "Wild Rivers", year: 2017, src: "/images/woodblocks/archive/2017/wild-rivers.webp", dimensions: "9 × 7 in.", technique: "Walnut oil-based ink", series: "Gorge Songs", note: "Featured print in Folio One." },
+  { title: "White Waters", year: 2017, src: "/images/woodblocks/archive/2017/white-waters.webp", dimensions: "7 × 9 in.", technique: "Walnut oil-based ink", series: "Gorge Songs" },
+  { title: "Mono tone", year: 2017, src: "/images/woodblocks/archive/2017/mono-tone.webp", dimensions: "7 × 12 in.", technique: "Walnut oil-based ink", series: "Gorge Songs" },
+  { title: "Gorge Trail", year: 2017, src: "/images/woodblocks/archive/2017/gorge-trail.webp", dimensions: "17 × 11 in.", technique: "Moku Hanga", series: "Gorge Songs", note: "Featured print in Folio Two." },
+  { title: "Gorge Song", year: 2017, src: "/images/woodblocks/archive/2017/gorge-song.webp", dimensions: "8.5 × 21 in.", technique: "Moku Hanga", series: "Gorge Songs" },
+  { title: "Fractured Gorge", year: 2017, src: "/images/woodblocks/archive/2017/fractured-gorge.webp", dimensions: "9 × 7 in.", technique: "Walnut oil-based ink", series: "Gorge Songs" },
+  { title: "Whispers of White Water", year: 2017, src: "/images/woodblocks/archive/2017/whispers-of-white-water.webp", dimensions: "7.75 × 11.75 in.", technique: "Walnut oil-based ink", series: "Gorge Songs" },
+  { title: "Hawk Circles", year: 2017, src: "/images/woodblocks/archive/2017/hawk-circles.webp", dimensions: "6 × 7 in.", technique: "Walnut oil-based ink", series: "Gorge Songs" },
+  { title: "Book Of Origins", year: 2017, src: "/images/woodblocks/archive/2017/book-of-origins.webp", dimensions: "7 × 10 in.", technique: "Walnut oil-based ink", series: "Gorge Songs" },
+  { title: "Wild Horses Below Mt Blanca", year: 2017, src: "/images/woodblocks/archive/2017/wild-horses-below-mt-blanca.webp", dimensions: "7.5 × 8 in.", technique: "Moku Hanga", note: "Shown at the 2018 Coors Western Art Exhibit." },
+  { title: "Moon Over Gorge", year: 2017, src: "/images/woodblocks/archive/2017/moon-over-gorge.webp", dimensions: "16 × 7 in.", technique: "Moku Hanga", series: "Gorge Songs" },
+  { title: "Above Bear Lake", year: 2017, src: "/images/woodblocks/archive/2017/above-bear-lake.webp", dimensions: "22 × 14 in.", technique: "Moku Hanga" },
   // ── 2016 ──────────────────────────────────────────────────────────────
   { title: 'Senora de la Paz', src: '/images/woodblocks/archive/2016/senora-de-la-paz.webp', year: 2016, dimensions: '6 × 6 in.', editionSize: 36 },
   { title: 'Last Spruce', src: '/images/woodblocks/archive/2016/last-spruce.webp', year: 2016, dimensions: '16 × 7 in.', editionSize: 21 },
@@ -228,10 +230,15 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
               </div>
               <figcaption aria-live="polite">
                 <cite>{activePrint.title}</cite>
-                <span>
-                  {['Woodblock', activePrint.year, activePrint.dimensions, activePrint.editionSize && `Edition of ${activePrint.editionSize}`]
-                    .filter(Boolean).join(' · ')}
-                </span>
+                <span>{[
+                  'Woodblock',
+                  activePrint.year,
+                  activePrint.dimensions,
+                  activePrint.editionSize && `Edition of ${activePrint.editionSize}`,
+                  activePrint.technique,
+                  activePrint.series,
+                ].filter(Boolean).join(' · ')}</span>
+                {activePrint.note && <span>{activePrint.note}</span>}
               </figcaption>
             </figure>
             {slides.length > 1 && (
