@@ -1,100 +1,151 @@
-import type { Metadata } from 'next'
+'use client'
+import { useState } from 'react'
 import Image from 'next/image'
+import { allWoodblocks, studioEditions, trailsEnd, WOODBLOCK_YEARS, type Woodblock } from '@/lib/woodblocks-data'
 
-
-export const metadata: Metadata = {
-  title: 'Woodblocks',
-  description: 'Hand printed reduction woodblocks in small editions by Leon Loughridge using the Japanese Moku Hanga technique. Available prints from Dry Creek Art Press, Denver Colorado.',
-}
-
-const studioEditions = [
-  { title: 'Fresh Snow', dims: '9 x 6', edition: 'Ed. 15', price: null, status: 'Out of Stock', img: '/images/woodblocks/72263d_31b1a245.jpg' },
-  { title: "Couse's Easel", dims: '8 x 8', edition: 'Ed. 19', price: 200, status: 'Available', img: '/images/woodblocks/72263d_8e036ae3.jpg' },
-  { title: 'Sunlit Rim', dims: '12 x 9', edition: 'Ed. 19', price: null, status: 'Out of Stock', img: '/images/woodblocks/72263d_9632a751.jpg' },
-  { title: 'Stormy Gorge', dims: '6 x 9', edition: 'Ed. 19', price: 60, status: 'Available', img: '/images/woodblocks/72263d_3623055e.jpg' },
-]
-
-const trailsEnd = [
-  { title: 'Senora de la Paz', dims: '22 x 14', edition: 'Ed. 19', price: 180, status: 'Available', img: '/images/woodblocks/72263d_3ba8fe91.jpg' },
-  { title: 'Los Fuentes', dims: '22 x 14', edition: 'Ed. 19', price: null, status: 'Out of Stock', img: '/images/woodblocks/72263d_cf21ad6d.jpg' },
-  { title: 'Afternoon Cumulus', dims: '22 x 14', edition: 'Ed. 19', price: null, status: 'Out of Stock', img: '/images/woodblocks/72263d_85a337c5.jpg' },
-]
-
-function ArtCard({ title, dims, edition, price, status, img }: { title: string; dims: string; edition: string; price: number | null; status: string; img: string }) {
+function ArtCard({ title, dims, edition, price, status, img, note, series }: Woodblock) {
   return (
     <div className="art-card">
-      <Image src={img} alt={`${title} — woodblock print by Leon Loughridge`} width={300} height={220} style={{ width: '100%', height: 'auto', display: 'block' }} />
-      <h4>{title}</h4>
-      <p className="dims">{dims} &nbsp;|&nbsp; {edition}</p>
-      {status === 'Available' && price
-        ? <><p className="price">${price}</p><button className="buy-btn">Add to Cart</button></>
-        : <p className="sold-out">{status}</p>}
+      {img ? (
+        <Image
+          src={img}
+          alt={`${title} — woodblock print by Leon Loughridge`}
+          width={300} height={220}
+          style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block' }}
+        />
+      ) : (
+        <div style={{ width: '100%', height: '200px', background: '#e8e3d8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <span style={{ fontSize: '0.7rem', color: '#888', fontStyle: 'italic', textAlign: 'center', padding: '0 1rem' }}>Image coming soon</span>
+        </div>
+      )}
+      <h4 style={{ margin: '0.6rem 0 0.2rem', fontSize: '0.9rem' }}>{title}</h4>
+      {series && <p style={{ fontSize: '0.68rem', color: 'var(--accent)', letterSpacing: '0.08em', margin: '0 0 0.2rem', textTransform: 'uppercase' }}>{series}</p>}
+      {(dims || edition) && <p className="dims">{dims}{edition ? ` | ${edition}` : ''}</p>}
+      {note
+        ? <p style={{ fontSize: '0.72rem', color: '#888', fontStyle: 'italic', margin: '0.3rem 0 0' }}>{note}</p>
+        : status === 'Available' && price
+          ? <><p className="price">${price}</p><button className="buy-btn">Add to Cart</button></>
+          : <p className="sold-out">{status ?? 'Inquire'}</p>}
     </div>
   )
 }
 
 export default function WoodblocksPage() {
+  const [activeYear, setActiveYear] = useState<number | 'all' | 'studio'>('all')
+
+  const yearFiltered = activeYear === 'all'
+    ? allWoodblocks.filter(w => w.year !== null)
+    : activeYear === 'studio'
+      ? [...studioEditions, ...trailsEnd]
+      : allWoodblocks.filter(w => w.year === activeYear)
+
   return (
-    <>
-      <div className="page-wrap" style={{ padding: '2rem' }}>
+    <div className="page-wrap" style={{ padding: '2rem 1.5rem' }}>
 
-        {/* New Woodblock Feature */}
-        <div className="dc-grid-2-sm" style={{ marginBottom: '3rem' }}>
-          <Image
-            src="/images/woodblocks/warm-evening-9x6.jpg"
-            alt="Warm Evening — 9x6 woodblock print by Leon Loughridge"
-            width={540}
-            height={380}
-            style={{ width: '100%', height: 'auto', display: 'block' }}
-          />
-          <div>
-            <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)' }}>New Woodblock</p>
-            <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', margin: '0.5rem 0' }}>Woodblocks</h1>
-            <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.3rem', marginBottom: '0.75rem' }}>Warm Evening</h2>
-            <p style={{ fontSize: '0.85rem' }}>9 x 6 &nbsp;|&nbsp; Ed. 19</p>
-            <p style={{ fontSize: '0.85rem', marginTop: '0.5rem', fontStyle: 'italic' }}>Listed by Year</p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '1rem' }}>
-              {[2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015].map(y => (
-                <button key={y} style={{ padding: '0.3rem 0.8rem', border: '1px solid var(--border)', backgroundColor: 'var(--white)', fontSize: '0.75rem', cursor: 'pointer', color: 'var(--accent)' }}>
-                  {y}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* Hero */}
+      <div style={{ marginBottom: '2rem' }}>
+        <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent)', margin: '0 0 0.4rem' }}>Dry Creek Art Press</p>
+        <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: 'clamp(2rem,5vw,3rem)', color: 'var(--body-text)', margin: '0 0 0.5rem' }}>Woodblocks</h1>
+        <p style={{ fontSize: '0.85rem', color: '#666', maxWidth: '580px', lineHeight: 1.65 }}>
+          Hand-printed reduction woodblocks in small editions by Leon Loughridge using the Japanese Moku Hanga technique.
+          Woodblocks are available from DCArtPress and exhibiting galleries. Some are reserved for gallery sales only.
+        </p>
+      </div>
 
-        <hr className="dc-rule" />
-
-        {/* Studio Editions */}
-        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', margin: '2rem 0 1rem' }}>Studio Editions</h2>
-        <div className="art-grid">
-          {studioEditions.map(p => <ArtCard key={p.title} {...p} />)}
-        </div>
-
-        <hr className="dc-rule" />
-
-        {/* Trails End */}
-        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', margin: '2rem 0 1rem' }}>Trails End</h2>
-        <div className="art-grid">
-          {trailsEnd.map(p => <ArtCard key={p.title} {...p} />)}
-        </div>
-
-        <hr className="dc-rule" />
-
-        {/* Vintage */}
-        <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.5rem', margin: '2rem 0 1rem' }}>Vintage Prints</h2>
-        <div className="art-grid">
-          {[
-            { title: 'The Sterling Project', img: '/images/commissions/sterling-project.jpg' },
-            { title: 'Japanese Woodblocks', img: '/images/woodblocks/72263d_7f7cb930.jpg' },
-          ].map(({ title, img }) => (
-            <div key={title} className="art-card">
-              <Image src={img} alt={`${title} — woodblock print by Leon Loughridge`} width={300} height={220} style={{ width: '100%', height: 'auto', display: 'block' }} />
-              <h4>{title}</h4>
-            </div>
+      {/* Year filter */}
+      <div style={{ marginBottom: '2.5rem' }}>
+        <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#888', margin: '0 0 0.75rem' }}>Listed by Year</p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <button
+            onClick={() => setActiveYear('all')}
+            style={{
+              padding: '0.3rem 0.9rem', fontSize: '0.78rem', cursor: 'pointer',
+              border: '1px solid var(--border)',
+              background: activeYear === 'all' ? 'var(--accent)' : 'var(--white)',
+              color: activeYear === 'all' ? '#fff' : 'var(--accent)',
+              fontWeight: activeYear === 'all' ? 700 : 400,
+            }}
+          >
+            All
+          </button>
+          {WOODBLOCK_YEARS.map(y => (
+            <button
+              key={y}
+              onClick={() => setActiveYear(y)}
+              style={{
+                padding: '0.3rem 0.9rem', fontSize: '0.78rem', cursor: 'pointer',
+                border: '1px solid var(--border)',
+                background: activeYear === y ? 'var(--accent)' : 'var(--white)',
+                color: activeYear === y ? '#fff' : 'var(--accent)',
+                fontWeight: activeYear === y ? 700 : 400,
+              }}
+            >
+              {y}
+            </button>
           ))}
+          <button
+            onClick={() => setActiveYear('studio')}
+            style={{
+              padding: '0.3rem 0.9rem', fontSize: '0.78rem', cursor: 'pointer',
+              border: '1px solid var(--border)',
+              background: activeYear === 'studio' ? 'var(--accent)' : 'var(--white)',
+              color: activeYear === 'studio' ? '#fff' : 'var(--accent)',
+              fontWeight: activeYear === 'studio' ? 700 : 400,
+            }}
+          >
+            Studio Editions
+          </button>
         </div>
       </div>
-    </>
+
+      {/* Results count */}
+      <p style={{ fontSize: '0.78rem', color: '#888', marginBottom: '1.5rem' }}>
+        {activeYear === 'all'
+          ? `Showing all ${yearFiltered.length} woodblocks (2015–2023)`
+          : activeYear === 'studio'
+            ? `${yearFiltered.length} studio edition${yearFiltered.length !== 1 ? 's' : ''}`
+            : `${yearFiltered.length} woodblock${yearFiltered.length !== 1 ? 's' : ''} from ${activeYear}`}
+      </p>
+
+      {/* Grid */}
+      <div className="art-grid">
+        {yearFiltered.map((w, i) => (
+          <ArtCard key={`${w.title}-${i}`} {...w} />
+        ))}
+      </div>
+
+      {yearFiltered.length === 0 && (
+        <p style={{ textAlign: 'center', color: '#888', padding: '3rem 0', fontStyle: 'italic' }}>
+          No woodblocks found for this year.
+        </p>
+      )}
+
+      <hr className="dc-rule" style={{ margin: '3rem 0' }} />
+
+      {/* Vintage + series links */}
+      <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.3rem', margin: '0 0 1rem' }}>Woodblock Series</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '2rem' }}>
+        {[
+          { name: 'Sacred Ground (2023)', btn: () => setActiveYear(2023) },
+          { name: 'NM ReImagined (2019)', btn: () => setActiveYear(2019) },
+          { name: 'Gorge Songs (2017–2018)', btn: () => setActiveYear(2017) },
+        ].map(s => (
+          <button key={s.name} onClick={s.btn}
+            style={{ padding: '0.4rem 1rem', border: '1px solid var(--border)', background: 'var(--white)', fontSize: '0.78rem', cursor: 'pointer', color: 'var(--accent)' }}>
+            {s.name}
+          </button>
+        ))}
+      </div>
+
+      <h2 style={{ fontFamily: 'var(--font-avenir), serif', color: 'var(--accent)', fontSize: '1.3rem', margin: '0 0 0.75rem' }}>Vintage &amp; Special Editions</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+        <a href="/commissions" style={{ padding: '0.4rem 1rem', border: '1px solid var(--border)', background: 'var(--white)', fontSize: '0.78rem', color: 'var(--accent)', textDecoration: 'none' }}>
+          The Sterling Project
+        </a>
+        <a href="/collections" style={{ padding: '0.4rem 1rem', border: '1px solid var(--border)', background: 'var(--white)', fontSize: '0.78rem', color: 'var(--accent)', textDecoration: 'none' }}>
+          Japanese Woodblocks
+        </a>
+      </div>
+    </div>
   )
 }
