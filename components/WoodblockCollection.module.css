@@ -1,0 +1,145 @@
+.feature {
+  max-width: 380px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-fredericka), Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  margin-bottom: 1rem;
+}
+
+.feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.feature figcaption {
+  margin-top: 0.65rem;
+  font-size: 0.88rem;
+}
+
+.galleryHeading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  color: var(--accent);
+  font-size: 1.35rem;
+  margin-bottom: 0.8rem;
+}
+
+.galleryHeading .sectionTitle {
+  margin-bottom: 0;
+}
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.75rem;
+  font-size: 0.88rem;
+}
+
+.filter select,
+.dialog button {
+  padding: 0.45rem 0.7rem;
+  background: var(--white);
+  color: var(--body-text);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.filter select {
+  appearance: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.thumbnail {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  background: var(--white);
+  cursor: zoom-in;
+}
+
+.thumbnail:hover {
+  background: var(--card-bg);
+}
+
+.thumbnailImage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--card-bg);
+}
+
+.thumbnailImage img,
+.slideImage img {
+  object-fit: contain;
+}
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  width: min(94vw, 920px);
+  max-height: 94dvh;
+  margin: auto;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 0.8rem;
+  background: var(--white);
+  color: var(--body-text);
+  text-align: center;
+}
+
+.dialog::backdrop {
+  background: rgb(0 0 0 / 78%);
+}
+
+.close {
+  display: block;
+  margin: 0 0 0.5rem auto;
+}
+
+.slideImage {
+  position: relative;
+  height: min(57dvh, 680px);
+  background: var(--card-bg);
+}
+
+.dialog figcaption {
+  padding: 0.55rem 0;
+}
+
+.dialog figcaption span {
+  display: block;
+  font-size: 0.85rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+  }
+}

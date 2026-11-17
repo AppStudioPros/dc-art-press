@@ -474,3 +474,42 @@ hr.dc-rule { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
 .artwork-img:hover {
   filter: brightness(1.06);
 }
+
+.coors-exhibit {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--rule);
+  text-align: center;
+}
+
+.coors-exhibit-title {
+  font-family: var(--font-fredericka), Georgia, serif;
+  color: var(--accent);
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+}
+
+.coors-exhibit-dates {
+  margin: 0.4rem 0 1.6rem;
+}
+
+.coors-exhibit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.coors-exhibit-image {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 0.55rem;
+}
+
+.coors-exhibit-image img {
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .coors-exhibit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1.15rem;
+  }
+}
