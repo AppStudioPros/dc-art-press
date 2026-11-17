@@ -40,3 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 scraped/
+
+/public/images/woodblock-previews/

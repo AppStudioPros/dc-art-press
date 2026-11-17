@@ -136,6 +136,12 @@ const vintagePrints = [
   { title: 'Japanese Woodblocks', img: '/images/woodblocks/72263d_7f7cb930.jpg' },
 ]
 
+const thumbnailSizes = '(max-width: 600px) calc((100vw - 94px) / 2), (max-width: 1080px) calc((100vw - 160px) / 3), 308px'
+
+function previewUrl(source: string, width: number) {
+  return `${source.replace('/images/woodblocks/', '/images/woodblock-previews/')}-${width}.webp`
+}
+
 export default function WoodblockCollection({ pageHeading = false }: { pageHeading?: boolean }) {
   const id = useId()
   const dialog = useRef<HTMLDialogElement>(null)
@@ -157,12 +163,17 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
       <div className={styles.feature}>
         <Heading id={`${id}-heading`} className={styles.title}>Woodblocks</Heading>
         <figure>
-          <Image
-            src="/images/woodblocks/storms-passing.webp"
+          {/* eslint-disable-next-line @next/next/no-img-element -- Responsive WebP files are generated at build time. */}
+          <img
+            src={previewUrl('/images/woodblocks/storms-passing.webp', 384)}
+            srcSet={`${previewUrl('/images/woodblocks/storms-passing.webp', 384)} 384w, ${previewUrl('/images/woodblocks/storms-passing.webp', 600)} 600w`}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             alt="The Ranchos de Taos mission beneath a clearing storm"
             width={600}
             height={905}
-            sizes="(max-width: 600px) 90vw, 380px"
+            sizes="(max-width: 444px) calc(100vw - 64px), 380px"
           />
           <figcaption><cite>Storm’s Passing</cite>, Woodblock, 18 × 12 in.</figcaption>
         </figure>
@@ -193,7 +204,7 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
       </p>
       {prints.length > 0 && (
         <div className={styles.grid}>
-          {prints.map(print => (
+          {prints.map((print, index) => (
             <button
               key={print.title}
               className={styles.thumbnail}
@@ -209,7 +220,17 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
             >
               <span className={styles.thumbnailImage}>
                 {print.src
-                  ? <Image src={print.src} alt="" fill sizes="(max-width: 600px) 45vw, (max-width: 1080px) 30vw, 340px" />
+                  ? (
+                    // eslint-disable-next-line @next/next/no-img-element -- Responsive WebP files are generated at build time.
+                    <img
+                      src={previewUrl(print.src, 320)}
+                      srcSet={`${previewUrl(print.src, 320)} 320w, ${previewUrl(print.src, 640)} 640w`}
+                      sizes={thumbnailSizes}
+                      alt=""
+                      loading={index < 3 ? 'eager' : 'lazy'}
+                      decoding="async"
+                    />
+                  )
                   : <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', fontSize: '0.65rem', color: '#888', fontStyle: 'italic', padding: '0.5rem', textAlign: 'center', background: '#ede9e0' }}>Image coming soon</span>
                 }
               </span>
@@ -243,7 +264,8 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
                   alt={activePrint.title + ' by Leon Loughridge'}
                   fill
                   loading="eager"
-                  sizes="(max-width: 600px) 90vw, 850px"
+                  fetchPriority="high"
+                  sizes="(max-width: 978px) calc(94vw - 26px), 894px"
                 />
               </div>
               <figcaption aria-live="polite">
