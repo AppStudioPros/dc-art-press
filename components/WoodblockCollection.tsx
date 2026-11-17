@@ -41,8 +41,16 @@ const archive: ArchivePrint[] = [
   { title: 'Frosty Streamers',        year: 2022 },
   { title: 'Moon Crossing',           year: 2022 },
   // ── 2021 ──────────────────────────────────────────────────────────────
-  { title: 'Sunset Chapel',  year: 2021, src: '/images/woodblocks/sunset-chapel.jpg', selected: true },
-  { title: 'San Geronimo',   year: 2021 },
+  { title: "Sunset Chapel", year: 2021, src: "/images/woodblocks/archive/2021/sunset-chapel.webp", dimensions: "7.5 × 7.5 in.", technique: "Moku Hanga", selected: true },
+  { title: "San Geronimo", year: 2021, src: "/images/woodblocks/archive/2021/san-geronimo.webp", dimensions: "12 × 9 in.", technique: "Moku Hanga" },
+  { title: "Old Man Coyote", year: 2021, src: "/images/woodblocks/archive/2021/old-man-coyote.webp", dimensions: "8 × 5 in.", technique: "Moku Hanga", series: "Chaco Sojourn" },
+  { title: "La Sauses", year: 2021, src: "/images/woodblocks/archive/2021/la-sauses.webp", dimensions: "7.5 × 7.5 in.", technique: "Moku Hanga" },
+  { title: "Forlorn Souls Study", year: 2021, src: "/images/woodblocks/archive/2021/forlorn-souls-study.webp", dimensions: "10.5 × 4.5 in.", technique: "Moku Hanga" },
+  { title: "Chaco Flight", year: 2021, src: "/images/woodblocks/archive/2021/chaco-flight.webp", dimensions: "4 × 10 in.", technique: "Moku Hanga", series: "Chaco Sojourn" },
+  { title: "Bishop's Chapel", year: 2021, src: "/images/woodblocks/archive/2021/bishops-chapel.webp", dimensions: "20 × 20 in.", technique: "Moku Hanga", note: "Created for and installed at the Bishop’s Lodge Casitas." },
+  { title: "Ascension Study", year: 2021, src: "/images/woodblocks/archive/2021/ascension-study.webp", dimensions: "10.5 × 4.5 in.", technique: "Moku Hanga" },
+  { title: "Ascension", year: 2021, src: "/images/woodblocks/archive/2021/ascension.webp", dimensions: "11 × 11 in.", technique: "Moku Hanga" },
+  { title: "Afternoon Chapel", year: 2021, src: "/images/woodblocks/archive/2021/afternoon-chapel.webp", dimensions: "7.5 × 7.5 in.", technique: "Moku Hanga" },
   // ── 2020 ──────────────────────────────────────────────────────────────
   { title: "Aspen Mtn McLains Flat", year: 2020, src: "/images/woodblocks/archive/2020/aspen-mtn-mclains-flat.webp", dimensions: "7.5 × 7.5 in.", technique: "Moku Hanga" },
   { title: "Morning Float", year: 2020, src: "/images/woodblocks/archive/2020/morning-float.webp", dimensions: "7 × 10 in.", technique: "Moku Hanga" },
