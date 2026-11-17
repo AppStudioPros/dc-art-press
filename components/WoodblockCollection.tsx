@@ -84,8 +84,22 @@ const archive: ArchivePrint[] = [
   { title: 'Aspen Stand',      year: 2016 },
   { title: 'Aglow',            year: 2016 },
   // ── 2015 ──────────────────────────────────────────────────────────────
-  { title: 'Shady Vista',       year: 2015 },
-  { title: 'San Xavier Interior', year: 2015 },
+  { title: 'Shady Vista', src: '/images/woodblocks/archive/2015/shady-vista.webp', year: 2015, dimensions: '6.5 × 16.5' },
+  { title: 'San Xavier Interior', src: '/images/woodblocks/archive/2015/san-xavier-interior.webp', year: 2015, dimensions: '8 × 5' },
+  { title: 'San Xavier Mission', src: '/images/woodblocks/archive/2015/san-xavier-mission.webp', year: 2015, dimensions: '5.5 × 8.5' },
+  { title: 'Rider Companion', src: '/images/woodblocks/archive/2015/rider-companion.webp', year: 2015, dimensions: '8 × 6' },
+  { title: 'Mountain Cathedral', src: '/images/woodblocks/archive/2015/mountain-cathedral.webp', year: 2015, dimensions: '10.5 × 4.5' },
+  { title: 'Gnarled Aspen', src: '/images/woodblocks/archive/2015/gnarled-aspen.webp', year: 2015, dimensions: '10.5 × 4.5' },
+  { title: 'Gore Range Sunrise', src: '/images/woodblocks/archive/2015/gore-range-sunrise.webp', year: 2015, dimensions: '18 × 12' },
+  { title: 'Morning Reflections', src: '/images/woodblocks/archive/2015/morning-reflections.webp', year: 2015, dimensions: '18 × 12' },
+  { title: 'Haybarn', src: '/images/woodblocks/archive/2015/haybarn.webp', year: 2015, dimensions: '18 × 12' },
+  { title: 'Colorado Bridge', src: '/images/woodblocks/archive/2015/colorado-bridge.webp', year: 2015, dimensions: '10.5 × 4.5' },
+  { title: 'Gilded Adobe At Trampas', src: '/images/woodblocks/archive/2015/gilded-adobe-at-trampas.webp', year: 2015, dimensions: '14 × 11' },
+  { title: 'Ten Mile Range', src: '/images/woodblocks/archive/2015/ten-mile-range.webp', year: 2015, dimensions: '10.5 × 4.5' },
+  { title: 'Arroyo Seco Dusk', src: '/images/woodblocks/archive/2015/arroyo-seco-dusk.webp', year: 2015, dimensions: '6.5 × 16.5' },
+  { title: 'Below Sopris', src: '/images/woodblocks/archive/2015/below-sopris.webp', year: 2015, dimensions: '9 × 7' },
+  { title: 'Aspen Glow', src: '/images/woodblocks/archive/2015/aspen-glow.webp', year: 2015, dimensions: '10.5 × 4.5' },
+  { title: 'Arroyo Seco Arch', src: '/images/woodblocks/archive/2015/arroyo-seco-arch.webp', year: 2015, dimensions: '16 × 7' },
 ]
 
 const years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015]
@@ -107,13 +121,14 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
   const [year, setYear] = useState('')
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const prints = archive.filter(print => year ? print.year === Number(year) : print.selected)
-  const activePrint = activeIndex === null ? undefined : prints[activeIndex]
+  const slides = prints.filter(print => Boolean(print.src))
+  const activePrint = activeIndex === null ? undefined : slides[activeIndex]
   const title = year ? `Woodblocks from ${year}` : 'Selected Woodblocks'
   const Heading = pageHeading ? 'h1' : 'h2'
   const SectionHeading = pageHeading ? 'h2' : 'h3'
 
   function moveSlide(direction: number) {
-    setActiveIndex(index => index === null ? null : (index + direction + prints.length) % prints.length)
+    setActiveIndex(index => index === null ? null : (index + direction + slides.length) % slides.length)
   }
 
   return (
@@ -150,7 +165,7 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
       </p>
       {prints.length > 0 && (
         <div className={styles.grid}>
-          {prints.map((print, index) => (
+          {prints.map(print => (
             <button
               key={print.title}
               className={styles.thumbnail}
@@ -159,7 +174,7 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
               aria-haspopup="dialog"
               onClick={() => {
                 if (!print.src) return
-                setActiveIndex(index)
+                setActiveIndex(slides.indexOf(print))
                 dialog.current?.showModal()
               }}
               style={!print.src ? { cursor: 'default' } : undefined}
@@ -183,7 +198,7 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
         aria-label="Woodblock slideshow"
         onClose={() => setActiveIndex(null)}
         onKeyDown={event => {
-          if (prints.length < 2) return
+          if (slides.length < 2) return
           if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
             event.preventDefault()
             moveSlide(event.key === 'ArrowLeft' ? -1 : 1)
@@ -191,7 +206,7 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
         }}
       >
         <button type="button" className={styles.close} onClick={() => dialog.current?.close()}>Close</button>
-        {activePrint && (
+        {activePrint?.src && (
           <>
             <figure>
               <div className={styles.slideImage}>
@@ -208,10 +223,10 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
                 <span>{['Woodblock', activePrint.year, activePrint.dimensions].filter(Boolean).join(' · ')}</span>
               </figcaption>
             </figure>
-            {prints.length > 1 && (
+            {slides.length > 1 && (
               <div className={styles.controls}>
                 <button type="button" onClick={() => moveSlide(-1)}>Previous</button>
-                <span aria-live="polite">{Number(activeIndex) + 1} of {prints.length}</span>
+                <span aria-live="polite">{Number(activeIndex) + 1} of {slides.length}</span>
                 <button type="button" onClick={() => moveSlide(1)}>Next</button>
               </div>
             )}
