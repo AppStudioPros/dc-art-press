@@ -19,6 +19,8 @@ const nextConfig: NextConfig = {
       { source: '/wbs-store',             destination: '/woodblocks', permanent: true },
       { source: '/available-books',       destination: '/books/editioned', permanent: true },
       { source: '/about-3',              destination: '/about', permanent: true },
+      { source: '/woodblocks/:year(2016|2017|2018|2019|2020|2022|2023)-woodblocks', destination: '/woodblocks/:year', permanent: true },
+      { source: '/2021-woodblocks', destination: '/woodblocks/2021', permanent: true },
       // Misc Wix routes
       { source: '/home',                  destination: '/', permanent: true },
     ]
