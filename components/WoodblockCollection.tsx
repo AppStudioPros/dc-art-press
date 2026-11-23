@@ -1,5 +1,9 @@
 'use client'
 
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { woodblockYears } from './woodblockYears'
+
 import { useId, useRef, useState } from 'react'
 import Image from 'next/image'
 import styles from './WoodblockCollection.module.css'
@@ -123,7 +127,6 @@ const archive: ArchivePrint[] = [
   { title: 'Arroyo Seco Arch', src: '/images/woodblocks/archive/2015/arroyo-seco-arch.webp', year: 2015, dimensions: '16 × 7' },
 ]
 
-const years = [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015]
 
 const studioEditions = [
   { title: 'Fresh Snow', dims: '9 x 6', edition: 'Ed. 15', price: null, status: 'Out of Stock', img: '/images/woodblocks/72263d_31b1a245.jpg' },
@@ -142,15 +145,14 @@ function previewUrl(source: string, width: number) {
   return `${source.replace('/images/woodblocks/', '/images/woodblock-previews/')}-${width}.webp`
 }
 
-export default function WoodblockCollection({ pageHeading = false }: { pageHeading?: boolean }) {
+export default function WoodblockCollection({ pageHeading = false, year = '' }: { pageHeading?: boolean; year?: string }) {
   const id = useId()
   const dialog = useRef<HTMLDialogElement>(null)
-  const [year, setYear] = useState('')
+  const router = useRouter()
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const prints = archive.filter(print => year ? print.year === Number(year) : print.selected)
   const slides = prints.filter(print => Boolean(print.src))
   const activePrint = activeIndex === null ? undefined : slides[activeIndex]
-  const title = year ? `Woodblocks from ${year}` : 'Selected Woodblocks'
   const Heading = pageHeading ? 'h1' : 'h2'
   const SectionHeading = pageHeading ? 'h2' : 'h3'
 
@@ -161,7 +163,27 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
   return (
     <section aria-labelledby={`${id}-heading`}>
       <div className={styles.feature}>
-        <Heading id={`${id}-heading`} className={styles.title}>Woodblocks</Heading>
+        <div>
+          <Heading id={`${id}-heading`} className={styles.title}>{year ? `Woodblocks from ${year}` : 'Browse Woodblocks by Year'}</Heading>
+          <label className={styles.filter}>
+            Choose a year
+            <select value={year} onChange={event => {
+              const selected = event.target.value
+              router.push(selected ? `/woodblocks/${selected}` : '/woodblocks')
+            }}>
+              <option value="">Overview</option>
+              {woodblockYears.map(value => <option key={value} value={value}>{value}</option>)}
+            </select>
+          </label>
+          <nav aria-label="Woodblock archive years" className={styles.yearLinks}>
+            {year && <Link href="/woodblocks">Overview</Link>}
+            {woodblockYears.map(value => (
+              <Link key={value} href={`/woodblocks/${value}`} prefetch={false} aria-current={String(value) === year ? 'page' : undefined}>
+                {value}
+              </Link>
+            ))}
+          </nav>
+        </div>
         <figure>
           {/* eslint-disable-next-line @next/next/no-img-element -- Responsive WebP files are generated at build time. */}
           <img
@@ -180,17 +202,6 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
       </div>
 
       <hr className="dc-rule" />
-
-      <div className={styles.galleryHeading}>
-        <SectionHeading className={styles.sectionTitle}>{title}</SectionHeading>
-        <label className={styles.filter}>
-          Browse by year
-          <select value={year} onChange={event => setYear(event.target.value)}>
-            <option value="">Selected Woodblocks</option>
-            {years.map(value => <option key={value} value={value}>{value}</option>)}
-          </select>
-        </label>
-      </div>
 
       {year === '2016' && (
         <p>
@@ -226,7 +237,7 @@ export default function WoodblockCollection({ pageHeading = false }: { pageHeadi
                       src={previewUrl(print.src, 320)}
                       srcSet={`${previewUrl(print.src, 320)} 320w, ${previewUrl(print.src, 640)} 640w`}
                       sizes={thumbnailSizes}
-                      alt=""
+                      alt={`${print.title}, woodblock print by Leon Loughridge`}
                       loading={index < 3 ? 'eager' : 'lazy'}
                       decoding="async"
                     />
