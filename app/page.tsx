@@ -30,13 +30,6 @@ const categories = [
   { label: 'Watercolors', href: '/watercolors', desc: 'Studio watercolor and watercolor sketches.', img: '/images/watercolors/forest-watercolor.jpg' },
 ]
 
-const coorsArtwork = [
-  { title: 'Gorge Nocturne', src: '/images/exhibits/gorge-nocturne.webp' },
-  { title: 'Mule Deer', src: '/images/exhibits/mule-deer.webp' },
-  { title: 'Steeple Repair', src: '/images/exhibits/steeple-repair.webp' },
-  { title: 'Ranchos Sunset', src: '/images/exhibits/ranchos-sunset.webp' },
-]
-
 export default function HomePage() {
   return (
     <>
@@ -107,22 +100,10 @@ export default function HomePage() {
           <FadeUp>
             <h2 id="coors-exhibit-title" className="coors-exhibit-title">Coors Western Art Exhibit</h2>
             <p className="coors-exhibit-dates">
-              <time dateTime="2027-01-06">January 6</time>–<time dateTime="2027-01-24">24, 2027</time>
+              <time dateTime="2027-01-08">January 8</time>–<time dateTime="2027-01-24">24, 2027</time>
             </p>
-            <div className="coors-exhibit-grid">
-              {coorsArtwork.map(({ title, src }) => (
-                <figure key={src}>
-                  <div className="coors-exhibit-image">
-                    <Image
-                      src={src}
-                      alt={title + ' by Leon Loughridge'}
-                      fill
-                      sizes="(max-width: 600px) 45vw, (max-width: 1080px) 23vw, 235px"
-                    />
-                  </div>
-                  <figcaption>{title}</figcaption>
-                </figure>
-              ))}
+            <div style={{ textAlign: 'center' }}>
+              <Link href="/events/coors-western-art-exhibit" className="dc-btn">View exhibit details</Link>
             </div>
           </FadeUp>
         </div>
