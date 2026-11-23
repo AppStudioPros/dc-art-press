@@ -1,10 +1,11 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import PageHero from '@/components/PageHero'
 import WoodblockCollection from '@/components/WoodblockCollection'
 
-const tabs = ['Woodblocks', 'Serigraphs', 'Etchings', 'Watercolors', 'The Process']
+const tabs = ['Woodblocks', 'Serigraphs', 'Etchings', 'Watercolors']
 
 /* ── data ── */
 const serigraphs = [
@@ -59,13 +60,6 @@ const watercolorsForSale = [
   { title: 'Last Light Sketch', price: 180, img: '/images/watercolors/last-light-sketch.jpg' },
   { title: 'Lodge Pole Hillside', price: 120, img: '/images/watercolors/lodge-pole-hillside.jpg' },
 ]
-const processSections = [
-  { name: 'Relief Prints', desc: 'The image is carved into a block of wood, leaving the design in relief. Ink is applied to the raised surface and transferred to paper.' },
-  { name: 'Moku Hanga', desc: 'Traditional Japanese water-based woodblock printing. Multiple blocks are used for different colors, with careful registration between each pass.' },
-  { name: 'Serigraph Prints', desc: 'Screen printing with hand-cut stencils. Each color requires a separate screen, and prints are pulled one color at a time by hand.' },
-  { name: 'Intaglio Prints', desc: 'The image is incised into a metal plate. Ink fills the recesses; the surface is wiped clean; dampened paper is pressed into the inked lines under great pressure.' },
-]
-
 function ArtCard({ title, dims, edition, price, status, img }: { title: string; dims?: string; edition?: string; price: number | null; status: string; img?: string }) {
   return (
     <div className="art-card">
@@ -125,7 +119,7 @@ export default function OriginalPrintsPage() {
 
   return (
     <>
-      <PageHero title="Original Prints &amp; Sketches" subtitle="Woodblocks, etchings, serigraphs, and watercolors from the Dry Creek Art Press studio." accent="The Collection" />
+      <PageHero title="Original Prints &amp; Sketches" subtitle="Woodblocks, etchings, serigraphs, and watercolors from the Dry Creek Art Press studio." />
 
       {/* What is an Original Print? */}
       <div className="page-wrap" style={{ padding: '2.5rem 2rem', borderBottom: '1px solid var(--border)' }}>
@@ -140,6 +134,7 @@ export default function OriginalPrintsPage() {
             <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.88rem', lineHeight: 1.85, color: 'var(--body-text)' }}>
               An original print is one printed from a matrix on which the design was created by hand and issued as part of the original publishing venture or as part of a connected, subsequent publishing venture. For fine art prints the criteria used is more strict. A fine art print is original only if the artist both conceived and had a direct hand in the production of the print. An original print should be distinguished from a reproduction, which is produced photo-mechanically, and from a restrike, which is produced as part of a later, unconnected publishing venture.
             </p>
+            <Link href="/process" style={{ marginTop: '1rem', textDecoration: 'underline' }}>See Leon’s printmaking process</Link>
           </div>
           <Image
             src="/images/process/carving-passing-through.jpg"
@@ -174,7 +169,7 @@ export default function OriginalPrintsPage() {
         {active === 1 && (
           <div>
             <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.9rem', lineHeight: 1.85, maxWidth: '640px', marginBottom: '0.5rem', color: 'var(--body-text)' }}>
-              Serigraphs are printed at ArtGymDenver using professional screen printing equipment. Each print is hand-pulled in small editions.
+              I create serigraphs from ink-drawn transparencies that I transfer to screens. Each color in the design gets its own transparency and screen. I pull all the prints by hand in small editions.
             </p>
             <p style={{ fontSize: '0.82rem', fontStyle: 'italic', color: '#888', marginBottom: '2rem' }}>Note: Some prints are gallery sales only and may not be available through this site.</p>
             <hr className="dc-rule" />
@@ -188,7 +183,7 @@ export default function OriginalPrintsPage() {
             <div className="dc-grid-2-sm" style={{ marginBottom: '2rem' }}>
               <div>
                 <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.9rem', lineHeight: 1.85, marginBottom: '1rem', color: 'var(--body-text)' }}>
-                  The etching process involves incising an image into a metal plate. The plate is then covered with ink, the surface wiped clean, and the ink remaining in the recessed lines is transferred to dampened paper under the pressure of the printing press.
+                  I start by incising an image into a metal plate. I press ink into the incised lines, wipe the surface clean, and align damp paper with the plate before running it through the etching press. The pressure pushes the paper into the lines, transferring the ink to create the finished print.
                 </p>
                 <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.9rem', lineHeight: 1.85, color: 'var(--body-text)' }}>
                   Intaglio printing is one of the oldest printmaking techniques, dating back to the 15th century.
@@ -207,23 +202,6 @@ export default function OriginalPrintsPage() {
           <WatercolorsTab />
         )}
 
-        {/* The Process */}
-        {active === 4 && (
-          <div>
-            <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.9rem', lineHeight: 1.85, maxWidth: '640px', marginBottom: '2rem', color: 'var(--body-text)' }}>
-              Every print begins with an idea and ends with an impression. Here is a look at the techniques Leon uses at the Dry Creek Art Press studio.
-            </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
-              {processSections.map(s => (
-                <div key={s.name} style={{ padding: '1.75rem', border: '1px solid var(--border)', backgroundColor: 'var(--white)' }}>
-                  <div style={{ height: '150px', backgroundColor: 'var(--card-bg)', borderRadius: '2px', marginBottom: '1rem' }} />
-                  <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.05rem', marginBottom: '0.5rem' }}>{s.name}</h3>
-                  <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', lineHeight: 1.8, color: 'var(--body-text)' }}>{s.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </>
   )

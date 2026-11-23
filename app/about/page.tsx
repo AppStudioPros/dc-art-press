@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import PageHero from '@/components/PageHero'
 
-const tabs = ['About The Studio', 'Special Collections', 'About The Process', 'Exhibiting Galleries']
+const tabs = ['About The Studio', 'About The Process', 'Exhibiting Galleries', 'Special Collections']
 
 const galleries = [
   { name: 'McLarry Fine Art', location: 'Santa Fe, NM', url: 'https://mclarryfineart.com/leon-loughridge' },
@@ -56,7 +56,7 @@ export default function AboutPage() {
           <div className="dc-grid-with-photo" style={{ marginBottom: '2.5rem' }}>
             <div>
               <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.9, marginBottom: '1rem', color: 'var(--body-text)' }}>
-                I am passionate about printmaking and watercolor sketching. This website is home to the outcome of my efforts.
+                I am passionate about printmaking and watercolor sketching. I love the challenge of translating my watercolor sketches into hand-prints and figuring out different ways to present those creations. The passion is the process itself, the act of creation, resulting in a framed print, folio or book. The studio is where this all happens.
               </p>
               <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.9, marginBottom: '1rem', color: 'var(--body-text)' }}>
                 Raised in Northern New Mexico, Leon Loughridge developed an early affinity for the Southwestern landscape. Stationed in Germany while in the army, he was able to travel extensively throughout Europe, visiting museums and filling journals with sketches.
@@ -68,7 +68,7 @@ export default function AboutPage() {
                 His work is exhibited nationally and collected by numerous institutions including the Denver Art Museum, the Denver Public Library, and the Colorado History Museum.
               </p>
               <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.9, color: 'var(--body-text)' }}>
-                The studio is located in South Denver and visitors are welcome. Please call or make an appointment to make sure I am in the studio and not out sketching.
+                The studio is located in South Denver and visitors are welcome. Please call or <Link href="/contact" style={{ textDecoration: 'underline' }}>make an appointment</Link> to make sure I am in the studio and not out sketching.
               </p>
             </div>
             <Image
@@ -85,12 +85,17 @@ export default function AboutPage() {
           <h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.5rem', margin: '2rem 0 1.5rem' }}>Studio Spaces</h2>
           <div className="dc-grid-3">
             {[
-              { name: 'Denver Studio', desc: 'Located in our remodeled garage in south central Denver, the university area. Home base for framing and supplies. Studio visits are welcome.', img: '/images/about/72263d_406e4b7c.jpg' },
-              { name: 'Mountain Studio', desc: 'Just a short hour drive from Denver, at the base of Mt Blue Sky (Mt Evans). The studio is off the grid and surrounded by inspiration.', img: '/images/about/gallery-exterior.jpg' },
-              { name: 'Art Gym Denver', desc: "A printmaker's dream come true — two litho presses, three etching presses, complete serigraph facilities, cafe, and fellow printmakers.", img: '/images/about/art-gym-denver-facade.jpg' },
+              { name: 'Denver Studio', desc: 'Located in a remodeled garage in south central Denver, this is the hub for all DCArtPress creations and prints.', img: '/images/about/denver-studio.webp', width: 495, height: 265, alt: 'Printmaking workbench and tools in Leon Loughridge’s Denver studio' },
+              { name: 'Mountain Studio', desc: 'An hour’s drive from Denver to the studio located at the base of Mt Blue Sky (Mt Evans). It is surrounded by inspiration and away from the internet.', img: '/images/about/mountain-studio.webp', width: 400, height: 219, alt: 'Leon Loughridge’s mountain studio surrounded by snow' },
+              { name: 'Art Gym Denver', desc: "A printmaker's dream come true with litho presses, etching presses, complete serigraph facility, and fellow printmakers.", img: '/images/about/art-gym-denver-facade.jpg' },
             ].map(s => (
               <div key={s.name}>
-                <Image src={s.img} alt={`${s.name} — Dry Creek Art Press`} width={400} height={160} style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block', marginBottom: '0.75rem' }} />
+                <Image src={s.img} alt={s.alt ?? `${s.name} — Dry Creek Art Press`}
+                  width={s.width ?? 400}
+                  height={s.height ?? 160}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  style={{ width: '100%', height: s.height ? 'auto' : '160px', objectFit: 'cover', display: 'block', marginBottom: '0.75rem' }}
+                 />
                 <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1rem', marginBottom: '0.4rem' }}>{s.name}</h3>
                 <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', lineHeight: 1.75, color: 'var(--body-text)' }}>{s.desc}</p>
               </div>
@@ -99,8 +104,14 @@ export default function AboutPage() {
         </div>
       )}
 
+      <section aria-labelledby="upcoming-events" style={{ marginTop: '2.5rem' }}>
+        <hr className="dc-rule" />
+        <h2 id="upcoming-events" style={{ fontFamily: 'var(--font-fredericka)', fontSize: '1.5rem', margin: '1.5rem 0 0.75rem' }}>Upcoming Events</h2>
+        <Link href="/events/coors-western-art-exhibit" style={{ textDecoration: 'underline' }}>Coors Western Art Exhibit</Link>
+      </section>
+
       {/* Special Collections */}
-      {active === 1 && (
+      {active === 3 && (
         <div style={{ maxWidth: '700px' }}>
           <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.9, marginBottom: '1.5rem', color: 'var(--body-text)' }}>
             Over the years, I have collected prints from various sources — or should I say, they have found me. I keep saying &ldquo;no more&rdquo; and then turn the corner to find a print I can&apos;t live without.
@@ -124,7 +135,7 @@ export default function AboutPage() {
       )}
 
       {/* About The Process */}
-      {active === 2 && (
+      {active === 1 && (
         <div style={{ maxWidth: '700px' }}>
           <div style={{ position: 'relative', height: '280px', marginBottom: '2rem', overflow: 'hidden', borderRadius: '2px' }}>
             <Image src="/images/process/72263d_bf508c20da074735960a0c7b4c118d3a~mv2.jpg" alt="Leon Loughridge's printmaking studio" fill style={{ objectFit: 'cover' }} />
@@ -140,7 +151,7 @@ export default function AboutPage() {
       )}
 
       {/* Exhibiting Galleries */}
-      {active === 3 && (
+      {active === 2 && (
         <div>
           <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.95rem', lineHeight: 1.9, maxWidth: '560px', marginBottom: '2rem', color: 'var(--body-text)' }}>
             Leon&apos;s work is exhibited at select fine art galleries across the West. Contact any of the galleries below to inquire about available works.

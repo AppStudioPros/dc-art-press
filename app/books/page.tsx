@@ -37,7 +37,7 @@ export default function BooksPage() {
 
   return (
     <>
-      <PageHero title="Books &amp; Publications" subtitle="Hand-printed editions, small studio books, exhibit catalogs, and commission booklets." accent="DCAP Bookstore" />
+      <PageHero title="Books &amp; Publications" subtitle="Hand-printed editions, small studio books, exhibit catalogs, and commission booklets." />
     <div className="page-wrap" style={{ padding: '3rem 2rem' }}>
 
       {/* Tab nav */}

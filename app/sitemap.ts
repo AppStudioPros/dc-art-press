@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { woodblockYears } from '@/components/woodblockYears'
 
 const BASE = 'https://www.dcartpress.com'
 const now = new Date()
@@ -8,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
     { url: `${BASE}/original-prints-sketches`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/woodblocks`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    ...woodblockYears.map(year => ({ url: `${BASE}/woodblocks/${year}` })),
+    { url: `${BASE}/events/coors-western-art-exhibit` },
     { url: `${BASE}/serigraphs`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/etchings`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/watercolors`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },

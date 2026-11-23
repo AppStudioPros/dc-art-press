@@ -23,7 +23,7 @@ export default function EtchingsPage() {
           <div>
             <h1 style={{ fontFamily: 'var(--font-fredericka), serif', fontSize: '2rem', color: 'var(--body-text)', marginBottom: '1rem' }}>Etchings</h1>
             <p style={{ fontSize: '0.9rem', marginBottom: '1rem' }}>
-              The etching process involves incising an image into a metal plate. The plate is then covered with ink, the surface wiped clean, and the ink remaining in the recessed lines is transferred to dampened paper under the pressure of the printing press.
+              I start by incising an image into a metal plate. I press ink into the incised lines, wipe the surface clean, and align damp paper with the plate before running it through the etching press. The pressure pushes the paper into the lines, transferring the ink to create the finished print.
             </p>
             <p style={{ fontSize: '0.9rem' }}>
               Intaglio printing is one of the oldest printmaking techniques, dating back to the 15th century.
