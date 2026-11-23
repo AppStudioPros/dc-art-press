@@ -85,12 +85,17 @@ export default function AboutPage() {
           <h2 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1.5rem', margin: '2rem 0 1.5rem' }}>Studio Spaces</h2>
           <div className="dc-grid-3">
             {[
-              { name: 'Denver Studio', desc: 'Located in a remodeled garage in south central Denver, this is the hub for all DCArtPress creations and prints.', img: '/images/about/72263d_406e4b7c.jpg' },
-              { name: 'Mountain Studio', desc: 'An hour’s drive from Denver to the studio located at the base of Mt Blue Sky (Mt Evans). It is surrounded by inspiration and away from the internet.', img: '/images/about/gallery-exterior.jpg' },
+              { name: 'Denver Studio', desc: 'Located in a remodeled garage in south central Denver, this is the hub for all DCArtPress creations and prints.', img: '/images/about/denver-studio.webp', width: 495, height: 265, alt: 'Printmaking workbench and tools in Leon Loughridge’s Denver studio' },
+              { name: 'Mountain Studio', desc: 'An hour’s drive from Denver to the studio located at the base of Mt Blue Sky (Mt Evans). It is surrounded by inspiration and away from the internet.', img: '/images/about/mountain-studio.webp', width: 400, height: 219, alt: 'Leon Loughridge’s mountain studio surrounded by snow' },
               { name: 'Art Gym Denver', desc: "A printmaker's dream come true with litho presses, etching presses, complete serigraph facility, and fellow printmakers.", img: '/images/about/art-gym-denver-facade.jpg' },
             ].map(s => (
               <div key={s.name}>
-                <Image src={s.img} alt={`${s.name} — Dry Creek Art Press`} width={400} height={160} style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block', marginBottom: '0.75rem' }} />
+                <Image src={s.img} alt={s.alt ?? `${s.name} — Dry Creek Art Press`}
+                  width={s.width ?? 400}
+                  height={s.height ?? 160}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  style={{ width: '100%', height: s.height ? 'auto' : '160px', objectFit: 'cover', display: 'block', marginBottom: '0.75rem' }}
+                 />
                 <h3 style={{ fontFamily: 'var(--font-fredericka), serif', color: 'var(--accent)', fontSize: '1rem', marginBottom: '0.4rem' }}>{s.name}</h3>
                 <p style={{ fontFamily: 'var(--font-avenir), sans-serif', fontWeight: 300, fontSize: '0.85rem', lineHeight: 1.75, color: 'var(--body-text)' }}>{s.desc}</p>
               </div>
